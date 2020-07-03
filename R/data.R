@@ -1,0 +1,99 @@
+#' Shapefiles of Iowa's counties
+#'
+#' provenance - Chris, I need some help with how we document these exports.
+#' @format A data frame with 99 rows and 9 variables:
+#' \describe{
+#'   \item{CO_NUMBER}{county number}
+#'   \item{CO_FIPS}{three-digit county fips code}
+#'   \item{ACRES_SF}{square footage in acres}
+#'   \item{ACRES}{county acreage}
+#'   \item{FIPS}{five-digit fips code}
+#'   \item{COUNTY}{county name (and it's `Obrien`)}
+#'   \item{ST}{two letter state abbreviation (`IA` all the way through)}
+#'   \item{ID}{identifier same as `CO_FIPS`}
+#'   \item{geometry}{sfc of polygons}
+#' }
+#' @source \url{some url?}
+#' @examples
+#' # county map of iowa in ggplot2
+#' library(ggplot2)
+#' library(dplyr) # for the pipe
+#'
+#' ia_counties %>%
+#'   ggplot() + geom_sf(aes(fill = ACRES_SF))
+#' ia_counties %>%
+#'   ggplot() + geom_sf() + ggthemes::theme_map()
+#'
+#' # leaflet map
+#' library(leaflet)
+#' st_transform(ia_counties, crs='+proj=longlat +datum=WGS84') %>%
+#'   leaflet() %>%
+#'     addTiles() %>%
+#'     addPolygons()
+"ia_counties"
+
+#' Shapefiles of Iowa's counties
+#'
+#' provenance - Chris, I need some help with how we document these exports.
+#' @format A data frame with 99 rows and 9 variables:
+#' \describe{
+#'   \item{rid}{rid number}
+#'   \item{city}{city name}
+#'   \item{cityFIPS}{5-digit city fips code}
+#'   \item{cityFIPS_1}{7-digit city fips code}
+#'   \item{county}{county name}
+#'   \item{countyPr}{categorical: 60 0s and 1009 xs.}
+#'   \item{countyPr_1}{categorical: 56 0s and 1013 xs.}
+#'   \item{countyFI}{double value - maybe an identifier?}
+#'   \item{countyFI_1}{looks like FI with an additional 19 in front}
+#'   \item{stateNam}{state name - constant value of `Iowa`.}
+#'   \item{stateFIP}{state fips code - constant value of 19.}
+#'   \item{state}{two-letter state abbreviation - constant value of `IA`}
+#'   \item{type}{categorical variable: 1001 0s, one oopsie that probably should be a zero. 59 CDPs 1 other and 7 unincorporated communities.}
+#'   \item{popChange}{sf point object - absolute change in population between XXX and XXX?}
+#'   \item{currentPop}{sf point object - current population (what is the basis for these numbers?) }
+#'   \item{percentChg}{sf point object - percent change in population. }
+#'   \item{geometry}{sf point object of IA cities' coordinates.}
+#' }
+#' @source \url{some url?}
+#' @examples
+#' # county map of iowa in ggplot2
+#' library(ggplot2)
+#' library(dplyr) # for the pipe
+#'
+#' ia_cities %>%
+#'   mutate(
+#'     growth = cut(percentChg,
+#'                  breaks = c(-Inf, -2.5, 2.5, Inf),
+#'                  labels = c("2.5% Loss or more", "Stable", "2.5% Growth or more"))) %>%
+#'   filter(!is.na(growth)) %>%
+#'   ggplot() +
+#'     geom_sf(data = ia_counties,
+#'             fill="grey95", colour = "grey60", size = 0.1) +
+#'     geom_sf(aes(size = currentPop, colour = growth),
+#'             alpha = 0.5) +
+#'     scale_size_binned("Population", range=c(0.5,3.5)) +
+#'     scale_colour_manual("Percent Change\nin Population", values=c("darkred", "grey30", "darkblue")) +
+#'     ggthemes::theme_map() +
+#'     theme(legend.position = "right")
+#'
+#' # leaflet map
+#' library(leaflet)
+#' colors <- c("darkred", "grey30", "darkblue")
+#' labels <- c("2.5% Loss or more", "Stable", "2.5% Growth or more")
+#' pal <- colorFactor(palette = colors, levels = labels)
+#'
+#' ia_cities <- st_transform(ia_cities, crs='+proj=longlat +datum=WGS84')
+#' ia_cities %>%
+#'   mutate(
+#'     growth = cut(percentChg,
+#'                  breaks = c(-Inf, -2.5, 2.5, Inf),
+#'                  labels = labels)) %>%
+#'   leaflet() %>%
+#'     addTiles() %>%
+#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'                 weight = 1, color="#333333") %>%
+#'     addCircleMarkers(radius = 1.5, stroke = 0.1, color = ~pal(growth)) %>%
+#'     addLegend(title = "% Change in Population", colors = colors, labels = labels)
+"ia_cities"
+
