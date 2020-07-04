@@ -6,16 +6,15 @@
 \title{Location of churches in Iowa}
 \format{A data frame with 5469 rows and 10 variables:
 \describe{
-   \item{ID}{identifier, not quite the row number}
+   \item{ID}{identifier, not quite the row number XXX do we need this column, or should we delete it?}
    \item{NAME}{name of the church}
    \item{CATEGORY}{value of `Iowa physical, cultural and historic features`}
    \item{TYPE}{type of location, constant value of `Cultural`.}
    \item{CLASS}{type of structure, constant value of `CHURCH`.}
    \item{DESCRIPTION}{closer description of the location, if available}
    \item{COUNTY}{name of the county}
-   \item{LATITUDE}{geographic latitude}
-   \item{LONGITUDE}{geographic longitude}
    \item{GNIS_ID}{identifier}
+  \item{geometry}{sf point object of geographic locations of churches in Iowa.}
 }}
 \source{
 \url{https://iowa.hometownlocator.com/features/cultural,class,church.cfm}

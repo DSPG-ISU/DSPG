@@ -103,19 +103,18 @@
 
 #' Location of churches in Iowa
 #'
-#' Dataset was scraped by Masoud Nosrati from the IA Hometown Locator in Mar 2020, geocoding by Andrew Maloney through QGIS.
-#' @format A data frame with 5469 rows and 10 variables:
+#' Dataset was scraped by Masoud Nosrati from the IA Hometown Locator in Mar 2020.
+#' @format A data frame with 5469 rows and 9 variables:
 #' \describe{
-#'    \item{ID}{identifier, not quite the row number}
+#'    \item{ID}{identifier, not quite the row number XXX we should delete this column and move the GNIS_ID up.}
 #'    \item{NAME}{name of the church}
 #'    \item{CATEGORY}{value of `Iowa physical, cultural and historic features`}
 #'    \item{TYPE}{type of location, constant value of `Cultural`.}
 #'    \item{CLASS}{type of structure, constant value of `CHURCH`.}
 #'    \item{DESCRIPTION}{closer description of the location, if available}
 #'    \item{COUNTY}{name of the county}
-#'    \item{LATITUDE}{geographic latitude}
-#'    \item{LONGITUDE}{geographic longitude}
-#'    \item{GNIS_ID}{identifier}
+#'    \item{GNIS_ID}{USGS identifier}
+#'   \item{geometry}{sf point object of geographic locations of churches in Iowa.}
 #' }
 #' @source \url{https://iowa.hometownlocator.com/features/cultural,class,church.cfm}
 #'
@@ -127,7 +126,9 @@
 #' churches %>%
 #'  # filter(COUNTY == "Story county) %>%
 #'   ggplot() +
-#'     geom_point(aes(x = LONGITUDE, y = LATITUDE))
+#'     geom_sf(data = ia_counties) +
+#'     geom_sf() +
+#'     ggthemes::theme_map()
 #'
 #' # leaflet map
 #' library(leaflet)
@@ -139,8 +140,7 @@
 #'     setView(-93.6498803, 42.0275751, zoom = 8) %>%
 #'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
 #'                 weight = 1, color="#333333") %>%
-#'     addCircleMarkers(lng = ~LONGITUDE, lat = ~LATITUDE,
-#'                      radius = 1, stroke = 0.1,
+#'     addCircleMarkers(radius = 1, stroke = 0.1,
 #'                      label = ~NAME)
 "churches"
 
