@@ -142,3 +142,45 @@
 #'                      radius = 1, stroke = 0.1,
 #'                      label = ~NAME)
 "churches"
+
+#' Location of parks in Iowa
+#'
+#' Dataset was scraped originally by Masoud, geocoding by Andy through QGIS.
+#' @format A data frame with 5469 rows and 10 variables:
+#' \describe{
+#'    \item{ID}{identifier, not quite the row number}
+#'    \item{NAME}{name of the church}
+#'    \item{CATEGORY}{value of `Iowa physical, cultural and historic features`}
+#'    \item{TYPE}{type of location, constant value of `Cultural`.}
+#'    \item{CLASS}{type of structure, constant value of `CHURCH`.}
+#'    \item{DESCRIPTION}{closer description of the location, if available}
+#'    \item{COUNTY}{name of the county}
+#'    \item{LATITUDE}{geographic latitude}
+#'    \item{LONGITUDE}{geographic longitude}
+#'    \item{GNIS_ID}{identifier}
+#' }
+#' @source \url{some url?}
+#' @examples
+#' # Map of parks in Iowa county using ggplot2
+#' library(ggplot2)
+#' library(dplyr) # for the pipe
+#'
+#' parks %>%
+#'  # filter(COUNTY == "Story county) %>%
+#'   ggplot() +
+#'     geom_point(aes(x = Longitude, y = Latitude))
+#'
+#' # leaflet map
+#' library(leaflet)
+#' library(sf)
+#'
+#' parks %>%
+#'   leaflet() %>%
+#'     addTiles() %>%
+#' #    setView(-93.6498803, 42.0275751, zoom = 8) %>%
+#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'                 weight = 1, color="#333333") %>%
+#'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+#'                      radius = 1, stroke = 0.1,
+#'                      label = ~NAME)
+"parks"
