@@ -31,3 +31,7 @@ usethis::use_data(parks, overwrite = TRUE)
 # some parks have locations outside of Iowa
 
 
+health.clinics <- read.csv(files[7], stringsAsFactors = FALSE)
+
+
+usethis::use_data(health.clinics, overwrite = TRUE)
