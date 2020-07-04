@@ -3,8 +3,8 @@
 \docType{data}
 \name{ia_cities}
 \alias{ia_cities}
-\title{Shapefiles of Iowa's counties}
-\format{A data frame with 99 rows and 9 variables:
+\title{Location of Iowa's cities}
+\format{A data frame with 1069 rows and 17 variables:
 \describe{
   \item{rid}{rid number}
   \item{city}{city name}
@@ -72,7 +72,8 @@ ia_cities \%>\%
     addTiles() \%>\%
     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
                 weight = 1, color="#333333") \%>\%
-    addCircleMarkers(radius = 1.5, stroke = 0.1, color = ~pal(growth)) \%>\%
+    addCircleMarkers(radius = 1.5, stroke = 0.1, color = ~pal(growth),
+                     label = ~city) \%>\%
     addLegend(title = "\% Change in Population", colors = colors, labels = labels)
 }
 \keyword{datasets}
