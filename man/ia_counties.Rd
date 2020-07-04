@@ -31,9 +31,8 @@ library(ggplot2)
 library(dplyr) # for the pipe
 
 ia_counties \%>\%
-  ggplot() + geom_sf(aes(fill = ACRES_SF))
-ia_counties \%>\%
-  ggplot() + geom_sf() + ggthemes::theme_map()
+  ggplot() + geom_sf(aes(fill = ACRES_SF)) +
+  ggthemes::theme_map()
 
 # leaflet map
 library(leaflet)

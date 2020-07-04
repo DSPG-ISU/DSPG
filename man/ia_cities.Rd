@@ -50,12 +50,14 @@ ia_cities \%>\%
     geom_sf(aes(size = currentPop, colour = growth),
             alpha = 0.5) +
     scale_size_binned("Population", range=c(0.5,3.5)) +
-    scale_colour_manual("Percent Change\\nin Population", values=c("darkred", "grey30", "darkblue")) +
+    scale_colour_manual("Percent Change\\nin Population",
+              values=c("darkred", "grey30", "darkblue")) +
     ggthemes::theme_map() +
     theme(legend.position = "right")
 
 # leaflet map
 library(leaflet)
+library(sf)
 colors <- c("darkred", "grey30", "darkblue")
 labels <- c("2.5\% Loss or more", "Stable", "2.5\% Growth or more")
 pal <- colorFactor(palette = colors, levels = labels)
