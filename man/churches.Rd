@@ -18,13 +18,13 @@
    \item{GNIS_ID}{identifier}
 }}
 \source{
-\url{some url?}
+\url{https://iowa.hometownlocator.com/features/cultural,class,church.cfm}
 }
 \usage{
 churches
 }
 \description{
-Dataset was scraped originally by Masoud, geocoding by Andy through QGIS.
+Dataset was scraped by Masoud Nosrati from the IA Hometown Locator in Mar 2020, geocoding by Andrew Maloney through QGIS.
 }
 \examples{
 # Map of churches in Story county using ggplot2

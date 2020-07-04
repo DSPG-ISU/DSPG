@@ -103,7 +103,7 @@
 
 #' Location of churches in Iowa
 #'
-#' Dataset was scraped originally by Masoud, geocoding by Andy through QGIS.
+#' Dataset was scraped by Masoud Nosrati from the IA Hometown Locator in Mar 2020, geocoding by Andrew Maloney through QGIS.
 #' @format A data frame with 5469 rows and 10 variables:
 #' \describe{
 #'    \item{ID}{identifier, not quite the row number}
@@ -117,7 +117,8 @@
 #'    \item{LONGITUDE}{geographic longitude}
 #'    \item{GNIS_ID}{identifier}
 #' }
-#' @source \url{some url?}
+#' @source \url{https://iowa.hometownlocator.com/features/cultural,class,church.cfm}
+#'
 #' @examples
 #' # Map of churches in Story county using ggplot2
 #' library(ggplot2)
@@ -145,21 +146,27 @@
 
 #' Location of parks in Iowa
 #'
-#' Dataset was scraped originally by Masoud, geocoding by Andy through QGIS.
-#' @format A data frame with 5469 rows and 10 variables:
+#' Dataset was scraped by Masoud Nosrati from MyCountyParks in Mar 2020, geocoding by Andrew Maloney through QGIS.
+#' @format A data frame with 1645 rows and 15 variables:
 #' \describe{
 #'    \item{ID}{identifier, not quite the row number}
-#'    \item{NAME}{name of the church}
-#'    \item{CATEGORY}{value of `Iowa physical, cultural and historic features`}
-#'    \item{TYPE}{type of location, constant value of `Cultural`.}
-#'    \item{CLASS}{type of structure, constant value of `CHURCH`.}
-#'    \item{DESCRIPTION}{closer description of the location, if available}
+#'    \item{NAME}{name of the park}
 #'    \item{COUNTY}{name of the county}
-#'    \item{LATITUDE}{geographic latitude}
-#'    \item{LONGITUDE}{geographic longitude}
+#'    \item{STREET}{street name}
+#'    \item{CITY}{name of the city}
+#'    \item{STATE}{name of the state}
+#'    \item{PHONE}{phone number}
+#'    \item{ZIP}{5-digit zip code}
+#'    \item{result_num}{1645 0s XXX delete column?}
+#'    \item{status}{1645 OKs XXX delete column?}
+#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
+#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
+#'    \item{location_t}{categorical variable with additional details on location.}
+#'    \item{Latitude}{geographic latitude}
+#'    \item{Longitude}{geographic longitude}
 #'    \item{GNIS_ID}{identifier}
 #' }
-#' @source \url{some url?}
+#' @source \url{https://www.mycountyparks.com/County/Default.aspx}
 #' @examples
 #' # Map of parks in Iowa county using ggplot2
 #' library(ggplot2)
