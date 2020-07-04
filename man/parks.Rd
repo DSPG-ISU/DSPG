@@ -30,7 +30,7 @@
 parks
 }
 \description{
-Dataset was scraped by Masoud Nosrati from MyCountyParks in Mar 2020, geocoding by Andrew Maloney through QGIS.
+Just for fun. Dataset was scraped by Masoud Nosrati from MyCountyParks in Mar 2020, geocoding by Andrew Maloney through QGIS.
 }
 \examples{
 # Map of parks in Iowa county using ggplot2

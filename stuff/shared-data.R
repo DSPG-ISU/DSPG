@@ -28,4 +28,6 @@ usethis::use_data(churches, overwrite = TRUE)
 
 parks <- read.csv(files[2], stringsAsFactors = FALSE)
 usethis::use_data(parks, overwrite = TRUE)
+# some parks have locations outside of Iowa
+
 
