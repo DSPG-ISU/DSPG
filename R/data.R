@@ -193,6 +193,56 @@
 "parks"
 
 
+#' Location of Licensed Substance Use Disorder/Problem Gambling Programs in Iowa
+#'
+#' Dataset was scraped by Masoud Nosrati from the Iowa Department of Public Health Development in Mar 2020, geocoding by Andrew Maloney through QGIS.
+#' @format A data frame with 123 rows and 15 variables:
+#' \describe{
+#'    \item{ID}{identifier, not quite the row number}
+#'    \item{NAME}{name of the facility}
+#'    \item{PHONE}{phone number}
+#'    \item{STREET}{street address}
+#'    \item{CITY}{city}
+#'    \item{STATE}{state}
+#'    \item{ZIP}{5-digit zip code}
+#'    \item{FACILITY}{enumeration of abbrevations}
+#'    \item{result_num}{0s XXX delete column?}
+#'    \item{status}{OKs XXX delete column?}
+#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
+#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
+#'    \item{location_t}{categorical variable with additional details on location.}
+#'    \item{Latitude}{geographic latitude}
+#'    \item{Longitude}{geographic longitude}
+#' }
+#' @source \url{https://www.iowaworkforcedevelopment.gov/contact}
+#' @examples
+#' # Map of centers in Iowa  using ggplot2
+#' library(ggplot2)
+#' library(dplyr) # for the pipe
+#'
+#' sud %>%
+#'   ggplot() +
+#'     geom_point(aes(x = Longitude, y = Latitude))
+#'
+#' # leaflet map
+#' library(leaflet)
+#' library(sf)
+#'
+#' sud %>%
+#'   group_by(NAME,formatted_, PHONE) %>%
+#'   mutate(
+#'     hovertext = htmltools::HTML(paste0(NAME, "<br>",formatted_, '<br>', PHONE))
+#'   ) %>%
+#'   leaflet() %>%
+#'     addTiles() %>%
+#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'                 weight = 1, color="#333333") %>%
+#'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+#'                      radius = 1, stroke = 0.1,
+#'                      label = ~hovertext)
+"sud"
+
+
 #' Location of IowaWORKS Centers in Iowa
 #'
 #' Dataset was scraped by Masoud Nosrati from the Iowa Workforce Development in Mar 2020, geocoding by Andrew Maloney through QGIS.

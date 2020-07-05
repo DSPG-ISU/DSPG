@@ -39,6 +39,11 @@ usethis::use_data(parks, overwrite = TRUE)
 
 ###################
 
+sud <- read.csv(files[3], stringsAsFactors = FALSE)
+usethis::use_data(sud, overwrite = TRUE)
+
+###################
+
 iowaworks <- read.csv(files[4], stringsAsFactors = FALSE)
 usethis::use_data(iowaworks, overwrite = TRUE)
 
