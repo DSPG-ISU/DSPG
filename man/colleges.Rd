@@ -23,7 +23,7 @@
 colleges
 }
 \description{
-Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through google API.
+Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through Google API.
 }
 \examples{
 # Map of rural health clinics in Iowa using ggplot2

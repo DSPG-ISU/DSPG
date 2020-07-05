@@ -446,7 +446,7 @@
 
 #' Location of colleges and universities in Iowa
 #'
-#' Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through google API.
+#' Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through Google API.
 #' @format A data frame with 57 rows and 11 variables:
 #' \describe{
 #'    \item{SCHOOL}{name of school}
