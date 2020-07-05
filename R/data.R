@@ -213,12 +213,11 @@
 #' }
 #' @source \url{https://iarhc.org/find-a-rural-health-clinic?view=map}
 #' @examples
-#' # Map of rural health clinics in Iowa county using ggplot2
+#' # Map of rural health clinics in Iowa using ggplot2
 #' library(ggplot2)
 #' library(dplyr) # for the pipe
 #'
 #' health.clinics %>%
-#'  # filter(COUNTY == "Story county) %>%
 #'   ggplot() +
 #'     geom_point(aes(x = Longitude, y = Latitude))
 #'
@@ -236,3 +235,50 @@
 #'                      radius = 1, stroke = 0.1,
 #'                      label = ~NAME)
 "health.clinics"
+
+#' Location of hospitals in Iowa
+#'
+#' Dataset was scraped by Masoud Nosrati from the Iowa Association of Rural Health Clinics in Mar 2020, geocoding by Andrew Maloney through QGIS.
+#' @format A data frame with 145 rows and 15 variables:
+#' \describe{
+#'    \item{ID}{identifier, not quite the row number}
+#'    \item{City}{name of the city}
+#'    \item{Hospital.N}{name of the hospital - XXX rename to NAME}
+#'    \item{TYPE}{type of hospital, one of 'critical access', 'general acute care', 'psychiatric', 'long term care', and 'military'}
+#'    \item{ADDRESS}{address of the health clinic}
+#'    \item{BEDS}{number of BEDS}
+#'    \item{NAICS_DESC}{North American Industry Classification System (NAICS) descriptor: 'general medical and surgical hospital' or 'specialty hospital'}
+#'    \item{result_num}{145 0s XXX delete column?}
+#'    \item{status}{145 OKs XXX delete column?}
+#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
+#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
+#'    \item{location_t}{categorical variable with additional details on location.}
+#'    \item{Latitude}{geographic latitude}
+#'    \item{Longitude}{geographic longitude}
+#' }
+#' @source \url{https://www.officialusa.com/stateguides/health/hospitals/iowa.html}
+#' @examples
+#' # Map of hospitals in Iowa  using ggplot2
+#' library(ggplot2)
+#' library(dplyr) # for the pipe
+#'
+#' hospitals %>%
+#'   ggplot() +
+#'     geom_point(aes(x = Longitude, y = Latitude))
+#'
+#' # leaflet map
+#' library(leaflet)
+#' library(sf)
+#'
+#' hospitals %>%
+#'   leaflet() %>%
+#'     addTiles() %>%
+#' #    setView(-93.6498803, 42.0275751, zoom = 8) %>%
+#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'                 weight = 1, color="#333333") %>%
+#'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+#'                      radius = 1, stroke = 0.1,
+#'                      label = ~Hospital.N)
+"hospitals"
+
+

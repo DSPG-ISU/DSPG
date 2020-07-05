@@ -38,7 +38,27 @@ usethis::use_data(parks, overwrite = TRUE)
 # some parks have locations outside of Iowa
 
 
+###################
+
+hospitals <- read.csv(files[6], stringsAsFactors = FALSE)
+# orange city municipal hospital is geocoded in Florida
+
+# code WEBSITE as NA if 'NOT AVAILABLE'
+hospitals <- hospitals %>% mutate(
+  WEBSITE = ifelse(WEBSITE=='NOT AVAILABLE', NA, WEBSITE)
+)
+
+# code BEDS as NA if '-999'
+hospitals <- hospitals %>% mutate(
+  BEDS = ifelse(BEDS==-999, NA, BEDS)
+)
+
+
+usethis::use_data(hospitals, overwrite = TRUE)
+
+
+
+###################
+
 health.clinics <- read.csv(files[7], stringsAsFactors = FALSE)
-
-
 usethis::use_data(health.clinics, overwrite = TRUE)
