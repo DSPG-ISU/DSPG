@@ -39,6 +39,11 @@ usethis::use_data(parks, overwrite = TRUE)
 
 ###################
 
+mat <- read.csv(files[5], stringsAsFactors = FALSE)
+
+usethis::use_data(mat, overwrite = TRUE)
+
+
 ###################
 
 hospitals <- read.csv(files[6], stringsAsFactors = FALSE)
