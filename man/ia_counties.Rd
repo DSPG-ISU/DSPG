@@ -36,6 +36,7 @@ ia_counties \%>\%
 
 # leaflet map
 library(leaflet)
+library(sf)
 st_transform(ia_counties, crs='+proj=longlat +datum=WGS84') \%>\%
   leaflet() \%>\%
     addTiles() \%>\%

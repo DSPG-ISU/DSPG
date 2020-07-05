@@ -10,6 +10,7 @@
    \item{City}{name of the city}
    \item{Hospital.N}{name of the hospital - XXX rename to NAME}
    \item{TYPE}{type of hospital, one of 'critical access', 'general acute care', 'psychiatric', 'long term care', and 'military'}
+   \item{WEBSITE}{url if available}
    \item{ADDRESS}{address of the health clinic}
    \item{BEDS}{number of BEDS}
    \item{NAICS_DESC}{North American Industry Classification System (NAICS) descriptor: 'general medical and surgical hospital' or 'specialty hospital'}

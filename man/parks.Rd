@@ -21,7 +21,6 @@
    \item{location_t}{categorical variable with additional details on location.}
    \item{Latitude}{geographic latitude}
    \item{Longitude}{geographic longitude}
-   \item{GNIS_ID}{identifier}
 }}
 \source{
 \url{https://www.mycountyparks.com/County/Default.aspx}
