@@ -29,14 +29,23 @@ You can install the development version from [GitHub](https://github.com/) with:
 devtools::install_github("DSPG-ISU/DSPG")
 ```
 
+The above code might not work as supposed to because the repo is private. If the installation fails with an error along the lines that the repo doesn't exist, make sure to clone the repo onto your machine. Unzip the folder. Open `DSPG.Rpoj` in RStudio (by double-clicking the file). Install the package using the command
+
+``` r
+# install.packages("devtools")
+devtools::install()
+```
+
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(DSPG)
-## basic example code
 ```
+
+All of the data sets have an extensive example section with code that should help you get started. 
 
 ## Content
 
