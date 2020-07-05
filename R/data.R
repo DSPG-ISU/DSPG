@@ -142,7 +142,7 @@
 #'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(radius = 1, stroke = 0.1,
-#'                      label = ~NAME)
+#'                      label = ~NAME, clusterOptions = markerClusterOptions())
 "churches"
 
 #' Location of parks in Iowa
@@ -193,9 +193,12 @@
 "parks"
 
 
+
+
+
 #' Location of hospitals in Iowa
 #'
-#' Dataset was scraped by Masoud Nosrati from the Iowa Association of Rural Health Clinics in Mar 2020, geocoding by Andrew Maloney through QGIS.
+#' Dataset was scraped by Masoud Nosrati from Official USA in Mar 2020, geocoding by Andrew Maloney through QGIS.
 #' @format A data frame with 145 rows and 15 variables:
 #' \describe{
 #'    \item{ID}{identifier, not quite the row number}
@@ -236,7 +239,8 @@
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
-#'                      label = ~Hospital.N)
+#'                      label = ~Hospital.N,
+#'                      clusterOptions = markerClusterOptions())
 "hospitals"
 
 

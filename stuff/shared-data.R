@@ -37,11 +37,16 @@ parks <- read.csv(files[2], stringsAsFactors = FALSE)
 usethis::use_data(parks, overwrite = TRUE)
 # some parks have locations outside of Iowa
 
+###################
 
 ###################
 
 hospitals <- read.csv(files[6], stringsAsFactors = FALSE)
-# orange city municipal hospital is geocoded in Florida
+
+# # orange city municipal hospital is geocoded in Florida
+# idx <- which.min(hospitals$Latitude)
+# hospitals[idx,]
+
 
 # code WEBSITE as NA if 'NOT AVAILABLE'
 hospitals <- hospitals %>% mutate(
