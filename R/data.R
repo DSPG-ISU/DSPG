@@ -520,3 +520,48 @@
 #'     addTiles() %>%
 #'     addPolygons()
 "acs"
+
+#' ASAC (Area Substance Abuse Counseling )
+#'
+#' Dataset was scraped from the ASAC website.  This database contains ASAC location data for the State of Iowa
+#' @format A data frame with 14 rows and 6 variables:
+#' \describe{
+#'   \item{Name}{Name of the facility}
+#'   \item{Address}{Street Address for the facility}
+#'   \item{City_State_Zip}{City, State, and Zip contained in one column separated by a space}
+#'   \item{City}{Name of the city where the facility is located}
+#'   \item{Zip}{5 digit Zip}
+#'   \item{State}{State Abbreviation}
+#' }
+#' @source \url{http://www.asac.us/about/locations/}
+#' @examples
+#' library(tidyverse)
+#' library(ggmap)
+#' library(ggplot2)
+#' library(dplyr)
+#' library(sf)
+#' library(leaflet)
+
+
+#' asac_locations <- readr::read_csv("asac_scrape.csv")
+
+#' asac_locations <- asac_locations %>% mutate(
+#'   search_address = paste(Address, City, State, Zip, sep = ", ")
+#' )
+
+
+#' register_google(key = "your api key", write = TRUE)
+#' asac_locations <- asac_locations %>% mutate_geocode(search_address)
+
+#' asac_locations %>%
+#'  ggplot() +
+#'  geom_point(aes(x = lon, y = lat))
+
+#' asac_locations %>%
+#'  leaflet() %>%
+#'  addTiles() %>%
+#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'              weight = 1, color="#333333") %>%
+#'  addCircleMarkers(lng = ~lon, lat = ~lat,
+#'                   radius = 1, stroke = 0.1)
+"ASAC"
