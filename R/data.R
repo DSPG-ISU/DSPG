@@ -484,4 +484,39 @@
 #'                      label = ~SCHOOL)
 "colleges"
 
-
+#' ACS
+#'
+#' some text with a description
+#' @format A data frame with 99 rows and 9 variables:
+#' \describe{
+#'   \item{Geography Id}{county number}
+#'   \item{Type}{three-digit county fips code}
+#'   \item{Name}{square footage in acres}
+#'   \item{Variable}{county acreage}
+#'   \item{Variable Description}{five-digit fips code}
+#'   \item{Computer Present}{county name (and it's `Obrien`)}
+#'   \item{Internet Subscription}{two letter state abbreviation (`IA` all the way through)}
+#'   \item{Data Collection Period}{identifier same as `CO_FIPS`}
+#'   \item{Data Collection End Date}{identifier same as `CO_FIPS`}
+#'   \item{Households}{identifier same as `CO_FIPS`}
+#'   \item{Location}{identifier same as `CO_FIPS`}
+#'   \item{Row ID}{identifier same as `CO_FIPS`}
+#' }
+#' @source \url{some url?}
+#' @examples
+#' # county map of iowa in ggplot2
+#' library(ggplot2)
+#' library(dplyr) # for the pipe
+#'
+#' ia_counties %>%
+#'   ggplot() + geom_sf(aes(fill = ACRES_SF)) +
+#'   ggthemes::theme_map()
+#'
+#' # leaflet map
+#' library(leaflet)
+#' library(sf)
+#' st_transform(ia_counties, crs='+proj=longlat +datum=WGS84') %>%
+#'   leaflet() %>%
+#'     addTiles() %>%
+#'     addPolygons()
+"acs"
