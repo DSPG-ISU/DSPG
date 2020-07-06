@@ -23,18 +23,6 @@ asac_locations
 Dataset was scraped from the ASAC website.  This database contains ASAC location data for the State of Iowa
 }
 \examples{
-library(tidyverse)
-library(ggmap)
-library(ggplot2)
-library(dplyr)
-library(sf)
-library(leaflet)
-asac_locations <- readr::read_csv("asac_scrape.csv")
-asac_locations <- asac_locations \%>\% mutate(
-  search_address = paste(Address, City, State, Zip, sep = ", ")
-)
-register_google(key = "your api key", write = TRUE)
-asac_locations <- asac_locations \%>\% mutate_geocode(search_address)
 asac_locations \%>\%
  ggplot() +
  geom_point(aes(x = lon, y = lat))
