@@ -44,12 +44,12 @@ library(DSPG)
 All of the data sets have an extensive example section with code that
 should help you get started.
 
-## Content
-
 The datasets available
     are
 
-    #> churches colleges health.clinics hospitals ia_cities ia_counties iowaworks mat parks sud
+    #>  [1] "churches"       "colleges"       "health.clinics" "hospitals"     
+    #>  [5] "ia_cities"      "ia_counties"    "iowaworks"      "mat"           
+    #>  [9] "parks"          "sud"
 
 Check each file with the R help, e.g. `?ia_cities`, for more details.
 

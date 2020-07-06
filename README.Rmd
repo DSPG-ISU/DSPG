@@ -48,12 +48,10 @@ library(DSPG)
 
 All of the data sets have an extensive example section with code that should help you get started. 
 
-## Content
-
 The datasets available are 
 
 ```{r, echo=FALSE}
-cat(gsub(".rda","", dir("data")))
+gsub(".rda","", dir("data"))
 ```
 
 Check each file with the R help, e.g. `?ia_cities`, for more details.
