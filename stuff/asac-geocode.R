@@ -12,4 +12,8 @@ asac_locations <- asac_locations %>% mutate(
 register_google(key = "your api key", write = TRUE)
 asac_locations <- asac_locations %>% mutate_geocode(search_address)
 
-usethis::use_data(colleges, overwrite = TRUE)
+# don't include the variable for the ID
+asac_locations <- asac_locations %>% select(-X1)
+
+usethis::use_data(asac_locations, overwrite = TRUE)
+

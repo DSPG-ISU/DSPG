@@ -521,9 +521,10 @@
 #'     addPolygons()
 "acs"
 
-#' ASAC (Area Substance Abuse Counseling )
+#' ASAC (Area Substance Abuse Counseling)
 #'
-#' Dataset was scraped from the ASAC website.  This database contains ASAC location data for the State of Iowa
+#' Dataset was scraped from the ASAC website.
+#' This database contains ASAC location data for the State of Iowa
 #' @format A data frame with 14 rows and 6 variables:
 #' \describe{
 #'   \item{Name}{Name of the facility}
@@ -532,13 +533,16 @@
 #'   \item{City}{Name of the city where the facility is located}
 #'   \item{Zip}{5 digit Zip}
 #'   \item{State}{State Abbreviation}
+#'   \item{search_address}{address used in the Google API geocoding}
+#'   \item{lon}{geographic Longitude}
+#'   \item{lat}{geographic Latitude}
 #' }
 #' @source \url{http://www.asac.us/about/locations/}
 #' @examples
 #' asac_locations %>%
 #'  ggplot() +
 #'  geom_point(aes(x = lon, y = lat))
-
+#'
 #' asac_locations %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
