@@ -6,18 +6,18 @@
 \title{American Community Survey - Computer Presence}
 \format{A data frame with 99 rows and 9 variables:
 \describe{
-  \item{Geography Id}{geographic ID used by the U.S. census for the location associated with this record}
+  \item{Geography.Id}{geographic ID used by the U.S. census for the location associated with this record}
   \item{Type}{The type of location associated with this record. Categories are state, county, place, and tract}
   \item{Name}{Name of the location}
   \item{Variable}{Variable ID identified by the U.S. Census Bureau}
-  \item{Variable Description}{Description of the variable}
-  \item{Computer Present}{Classifies if a computer is present in those households. Categories are total, yes, and no}
-  \item{Internet Subscription}{Classifies what kind of internet subscription is present in those households. Categories are total, total w/computer, broadband, dial-up, and none}
-  \item{Data Collection Period}{Period in which the data was collected}
-  \item{Data Collection End Date}{The date in which the data was done being collected}
+  \item{Variable.Description}{Description of the variable}
+  \item{Computer.Present}{Classifies if a computer is present in those households. Categories are total, yes, and no}
+  \item{Internet.Subscription}{Classifies what kind of internet subscription is present in those households. Categories are total, total w/computer, broadband, dial-up, and none}
+  \item{Data.Collection.Period}{Period in which the data was collected}
+  \item{Data.Collection.End.Date}{The date in which the data was done being collected}
   \item{Households}{The number of households estimated to have the specified characteristics in the record}
-  \item{Location}{Coordinates of the record's location}
-  \item{Row ID}{Unique ID associated with the record}
+  \item{Row.ID}{Unique ID associated with the record}
+  \item{geometry}{sf point object of geographic location}
 }}
 \source{
 \url{https://data.iowa.gov/Utilities-Telecommunications/Iowa-Households-by-Presence-of-a-Computer-and-Type/gz3j-hzab}
