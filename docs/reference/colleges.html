@@ -34,7 +34,7 @@
 
 
 <meta property="og:title" content="Location of colleges and universities in Iowa — colleges" />
-<meta property="og:description" content="Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through google API." />
+<meta property="og:description" content="Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through Google API." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,7 +102,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through google API.</p>
+    <p>Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through Google API.</p>
     </div>
 
     <pre class="usage"><span class='no'>colleges</span></pre>
@@ -140,7 +140,6 @@
 <span class='no'>colleges</span> <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
-<span class='co'>#    setView(-93.6498803, 42.0275751, zoom = 8) %&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/sf/topics/st_transform'>st_transform</a></span>(<span class='no'>ia_counties</span>, <span class='kw'>crs</span><span class='kw'>=</span><span class='st'>'+proj=longlat +datum=WGS84'</span>),
                 <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>Longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>Latitude</span>,

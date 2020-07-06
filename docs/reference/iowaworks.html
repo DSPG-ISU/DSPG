@@ -149,7 +149,8 @@
 <span class='no'>iowaworks</span> <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>NAME</span>, <span class='no'>PHONE</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(
-    <span class='kw'>hovertext</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/HTML'>HTML</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"IowaWORKS Center&lt;br&gt;"</span>,<span class='no'>formatted_</span>, <span class='st'>'&lt;br&gt;serving '</span>, <span class='no'>NAME</span>, <span class='st'>'&lt;br&gt;'</span>, <span class='no'>PHONE</span>))
+    <span class='kw'>hovertext</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/HTML'>HTML</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"IowaWORKS Center&lt;br&gt;"</span>,<span class='no'>formatted_</span>,
+                                       <span class='st'>'&lt;br&gt;serving '</span>, <span class='no'>NAME</span>, <span class='st'>'&lt;br&gt;'</span>, <span class='no'>PHONE</span>))
   ) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>

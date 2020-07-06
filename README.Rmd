@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # DSPG
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/DSPG-ISU/DSPG.svg?branch=master)](https://travis-ci.org/DSPG-ISU/DSPG)
 <!-- badges: end -->
 
 The goal of the DSPG package is to provide access to commonly used publicly available data for the DSPG projects at ISU.
@@ -59,5 +60,30 @@ Check each file with the R help, e.g. `?ia_cities`, for more details.
 
 ## How to contribute
 
-This repository is organized in form of an R package. 
-The structure of folders and files is sensitive, so be sure to first read the following instructions before you make any changes to them.
+This repository is organized in form of an [R package](http://r-pkgs.had.co.nz/). 
+The structure of folders and files is sensitive, so be sure to first read the following instructions before  making any changes (more on [data in R packages](http://r-pkgs.had.co.nz/data.html)):
+
+Assume you have some csv file (or some other data object) that you want to include:
+
+1. Go to the folder `stuff`. Take a look at one of the .R files and copy the one that is the closest to what you would like to do. Let's assume you call that file `reading-my-file.R`.
+
+2. Modify the file `reading-my-file.R` to read the csv file. 
+Check that the resulting object looks like you expected it to look like.
+
+3. The name of the object will be the name of the data set that will be included. Do not use a name of an object that is already included in the package. 
+Let's assume that you called the object `mydata`.
+
+4. Use the command `usethis::use_data(mydata)`. This creates a file `mydata.rda` in the `data` folder of the package. Check that it is there now.
+
+5. Now the documentation starts: open the file `data.R` in the folder `R`. 
+We are using [Roxygen2](https://kbroman.org/pkg_primer/pages/docs.html) for documentation. Take a look at the structure: each dataset has a separate section. The easiest will be to copy one of these sections and adjust for your own dataset. Make sure to describe each variable in the dataset; follow along the same order as in the data  set. Use `names(mydata)` to double check on the order of the variables.
+
+6. Almost done! Use the command `devtools::document()` to make sure that the documentation worked. This command creates the file `mydata.Rd` in the `man` folder.
+
+7. Check your package with the command `devtools::check()`. This command will run a series of tests and should result in 0 errors, 0 warnings, and 0 notes. If that is not the case, make sure to address each one of these issues.
+
+8. Add all newly created files to your github repo: the `.rda` file, the `.Rd` file and the `.R` file in stuff. Push to the master. 
+
+9. The package is placed under Travis-CI, i.e. on the server side a check on the package will be run. In case of an error during this check, an email will be sent to you with the log resulting in the error. Make sure to address the error and push changes to fix the repo again. 
+
+

@@ -67,7 +67,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#dspg" class="anchor"></a>DSPG</h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
+
 <p>The goal of the DSPG package is to provide access to commonly used publicly available data for the DSPG projects at ISU.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -93,6 +93,23 @@
 <pre><code>#&gt; churches colleges health.clinics hospitals ia_cities ia_counties iowaworks mat parks sud</code></pre>
 <p>Check each file with the R help, e.g. <code><a href="reference/ia_cities.html">?ia_cities</a></code>, for more details.</p>
 </div>
+<div id="how-to-contribute" class="section level2">
+<h2 class="hasAnchor">
+<a href="#how-to-contribute" class="anchor"></a>How to contribute</h2>
+<p>This repository is organized in form of an <a href="http://r-pkgs.had.co.nz/">R package</a>. The structure of folders and files is sensitive, so be sure to first read the following instructions before making any changes (more on <a href="http://r-pkgs.had.co.nz/data.html">data in R packages</a>):</p>
+<p>Assume you have some csv file (or some other data object) that you want to include:</p>
+<ol style="list-style-type: decimal">
+<li><p>Go to the folder <code>stuff</code>. Take a look at one of the .R files and copy the one that is the closest to what you would like to do. Let’s assume you call that file <code>reading-my-file.R</code>.</p></li>
+<li><p>Modify the file <code>reading-my-file.R</code> to read the csv file. Check that the resulting object looks like you expected it to look like.</p></li>
+<li><p>The name of the object will be the name of the data set that will be included. Do not use a name of an object that is already included in the package. Let’s assume that you called the object <code>mydata</code>.</p></li>
+<li><p>Use the command <code><a href="https://usethis.r-lib.org/reference/use_data.html">usethis::use_data(mydata)</a></code>. This creates a file <code>mydata.rda</code> in the <code>data</code> folder of the package. Check that it is there now.</p></li>
+<li><p>Now the documentation starts: open the file <code>data.R</code> in the folder <code>R</code>. We are using <a href="https://kbroman.org/pkg_primer/pages/docs.html">Roxygen2</a> for documentation. Take a look at the structure: each dataset has a separate section. The easiest will be to copy one of these sections and adjust for your own dataset. Make sure to describe each variable in the dataset; follow along the same order as in the data set. Use <code><a href="https://www.rdocumentation.org/packages/base/topics/names">names(mydata)</a></code> to double check on the order of the variables.</p></li>
+<li><p>Almost done! Use the command <code><a href="https://www.rdocumentation.org/packages/devtools/topics/document">devtools::document()</a></code> to make sure that the documentation worked. This command creates the file <code>mydata.Rd</code> in the <code>man</code> folder.</p></li>
+<li><p>Check your package with the command <code><a href="https://www.rdocumentation.org/packages/devtools/topics/check">devtools::check()</a></code>. This command will run a series of tests and should result in 0 errors, 0 warnings, and 0 notes. If that is not the case, make sure to address each one of these issues.</p></li>
+<li><p>Add all newly created files to your github repo: the <code>.rda</code> file, the <code>.Rd</code> file and the <code>.R</code> file in stuff. Push to the master.</p></li>
+<li><p>The package is placed under Travis-CI, i.e. on the server side a check on the package will be run. In case of an error during this check, an email will be sent to you with the log resulting in the error. Make sure to address the error and push changes to fix the repo again.</p></li>
+</ol>
+</div>
 </div>
   </div>
 
@@ -100,7 +117,8 @@
     <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li>What license is it under?</li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
 </ul>
 </div>
 <div class="developers">
@@ -111,7 +129,13 @@
 </div>
 
 
-      </div>
+      <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://travis-ci.org/DSPG-ISU/DSPG"><img src="https://travis-ci.org/DSPG-ISU/DSPG.svg?branch=master" alt="Travis build status"></a></li>
+</ul>
+</div>
+</div>
 
 </div>
 
