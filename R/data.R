@@ -525,7 +525,7 @@
 #'
 #' Dataset was scraped from the ASAC website.
 #' This database contains ASAC location data for the State of Iowa
-#' @format A data frame with 14 rows and 6 variables:
+#' @format A data frame with 15 rows and 9 variables:
 #' \describe{
 #'   \item{Name}{Name of the facility}
 #'   \item{Address}{Street Address for the facility}
