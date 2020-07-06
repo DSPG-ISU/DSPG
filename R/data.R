@@ -284,7 +284,8 @@
 #' iowaworks %>%
 #'   group_by(NAME, PHONE) %>%
 #'   mutate(
-#'     hovertext = htmltools::HTML(paste0("IowaWORKS Center<br>",formatted_, '<br>serving ', NAME, '<br>', PHONE))
+#'     hovertext = htmltools::HTML(paste0("IowaWORKS Center<br>",formatted_,
+#'                                        '<br>serving ', NAME, '<br>', PHONE))
 #'   ) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
@@ -476,7 +477,6 @@
 #' colleges %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#' #    setView(-93.6498803, 42.0275751, zoom = 8) %>%
 #'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,

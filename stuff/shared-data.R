@@ -45,6 +45,7 @@ usethis::use_data(sud, overwrite = TRUE)
 ###################
 
 iowaworks <- read.csv(files[4], stringsAsFactors = FALSE)
+Encoding(iowaworks$STREET) <- "UTF-8"
 usethis::use_data(iowaworks, overwrite = TRUE)
 
 

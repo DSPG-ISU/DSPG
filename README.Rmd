@@ -56,3 +56,8 @@ cat(gsub(".rda","", dir("data")))
 ```
 
 Check each file with the R help, e.g. `?ia_cities`, for more details.
+
+## How to contribute
+
+This repository is organized in form of an R package. 
+The structure of folders and files is sensitive, so be sure to first read the following instructions before you make any changes to them.

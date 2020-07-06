@@ -44,8 +44,9 @@ should help you get started.
 
 ## Content
 
-The datasets available are
+The datasets available
+    are
 
-    #> churches health.clinics ia_cities ia_counties parks
+    #> churches colleges health.clinics hospitals ia_cities ia_counties iowaworks mat parks sud
 
 Check each file with the R help, e.g. `?ia_cities`, for more details.
