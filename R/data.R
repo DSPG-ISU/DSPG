@@ -484,25 +484,25 @@
 #'                      label = ~SCHOOL)
 "colleges"
 
-#' ACS
+#' American Community Survey - Computer Presence
 #'
-#' some text with a description
+#' Summary data of Iowa American Community Survey responses by computer presence and internet subscription status. Each row represents a combination of variables and the households variable representing the number of households estimated to be associated with that variable combination.
 #' @format A data frame with 99 rows and 9 variables:
 #' \describe{
-#'   \item{Geography Id}{county number}
-#'   \item{Type}{three-digit county fips code}
-#'   \item{Name}{square footage in acres}
-#'   \item{Variable}{county acreage}
-#'   \item{Variable Description}{five-digit fips code}
-#'   \item{Computer Present}{county name (and it's `Obrien`)}
-#'   \item{Internet Subscription}{two letter state abbreviation (`IA` all the way through)}
-#'   \item{Data Collection Period}{identifier same as `CO_FIPS`}
-#'   \item{Data Collection End Date}{identifier same as `CO_FIPS`}
-#'   \item{Households}{identifier same as `CO_FIPS`}
-#'   \item{Location}{identifier same as `CO_FIPS`}
-#'   \item{Row ID}{identifier same as `CO_FIPS`}
+#'   \item{Geography Id}{geographic ID used by the U.S. census for the location associated with this record}
+#'   \item{Type}{The type of location associated with this record. Categories are state, county, place, and tract}
+#'   \item{Name}{Name of the location}
+#'   \item{Variable}{Variable ID identified by the U.S. Census Bureau}
+#'   \item{Variable Description}{Description of the variable}
+#'   \item{Computer Present}{Classifies if a computer is present in those households. Categories are total, yes, and no}
+#'   \item{Internet Subscription}{Classifies what kind of internet subscription is present in those households. Categories are total, total w/computer, broadband, dial-up, and none}
+#'   \item{Data Collection Period}{Period in which the data was collected}
+#'   \item{Data Collection End Date}{The date in which the data was done being collected}
+#'   \item{Households}{The number of households estimated to have the specified characteristics in the record}
+#'   \item{Location}{Coordinates of the record's location}
+#'   \item{Row ID}{Unique ID associated with the record}
 #' }
-#' @source \url{some url?}
+#' @source \url{https://data.iowa.gov/Utilities-Telecommunications/Iowa-Households-by-Presence-of-a-Computer-and-Type/gz3j-hzab}
 #' @examples
 #' # county map of iowa in ggplot2
 #' library(ggplot2)
