@@ -47,9 +47,10 @@ should help you get started.
 The datasets available
     are
 
-    #>  [1] "churches"       "colleges"       "health.clinics" "hospitals"     
-    #>  [5] "ia_cities"      "ia_counties"    "iowaworks"      "mat"           
-    #>  [9] "parks"          "sud"
+    #>  [1] "acs"            "asac_locations" "cf_resources"   "churches"      
+    #>  [5] "colleges"       "health.clinics" "hospitals"      "ia_cities"     
+    #>  [9] "ia_counties"    "iowaworks"      "mat"            "meetings"      
+    #> [13] "parks"          "sud"
 
 Check each file with the R help, e.g. `?ia_cities`, for more details.
 
