@@ -521,7 +521,7 @@
 #'     addPolygons()
 "acs"
 
-#' ASAC (Area Substance Abuse Counseling)
+#' AA meetings in Iowa
 #'
 #' Dataset was scraped from the ASAC website.
 #' This database contains ASAC location data for the State of Iowa
@@ -539,10 +539,14 @@
 #' }
 #' @source \url{http://www.asac.us/about/locations/}
 #' @examples
+#' library(ggplot2)
+#' library(dplyr)
 #' asac_locations %>%
 #'  ggplot() +
 #'  geom_point(aes(x = lon, y = lat))
 #'
+#' library(leaflet)
+#' library(sf)
 #' asac_locations %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
@@ -551,6 +555,7 @@
 #'  addCircleMarkers(lng = ~lon, lat = ~lat,
 #'                   radius = 1, stroke = 0.1)
 "asac_locations"
+
 
 #' Community and Family Resources
 #'
@@ -569,10 +574,14 @@
 #' }
 #' @source \url{http://www.cfrhelps.org/our-locations}
 #' @examples
+#' library(ggplot2)
+#' library(dplyr)
 #' cf_resources %>%
 #'  ggplot() +
 #'  geom_point(aes(x = lon, y = lat))
 #'
+#' library(leaflet)
+#' library(sf)
 #' cf_resources %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
@@ -581,3 +590,43 @@
 #'  addCircleMarkers(lng = ~lon, lat = ~lat,
 #'                   radius = 1, stroke = 0.1)
 "cf_resources"
+
+#' AA Meetings in Iowa
+#'
+#' Dataset was scraped from the AA website by Jessie Bustin.
+#' @format A data frame with 15 rows and 9 variables:
+#' \describe{
+#'   \item{Day}{day of the week}
+#'   \item{Time}{time of the day}
+#'   \item{AmPm}{morning or afternoon}
+#'   \item{Meeting}{name of the meeting}
+#'   \item{Location}{location}
+#'   \item{Address}{address}
+#'   \item{Types}{Types of the meeting - XXX this needs some additional work}
+#'   \item{City}{city}
+#'   \item{Type}{type of meeting}
+#'   \item{State}{state}
+#'   \item{lon}{geographic Longitude}
+#'   \item{lat}{geographic Latitude}
+#' }
+#' @source \url{https://www.aa-iowa.org/meetings/}
+#' @examples
+#' # Location of meetings in Iowa
+#' library(ggplot2)
+#' library(dplyr)
+#' meetings %>%
+#'  ggplot() +
+#'  geom_point(aes(x = lon, y = lat))
+#'
+#' # Leaflet map of meetings in Iowa
+#' library(leaflet)
+#' library(sf)
+#' meetings %>%
+#'  leaflet() %>%
+#'  addTiles() %>%
+#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'              weight = 1, color="#333333") %>%
+#'  addCircleMarkers(lng = ~lon, lat = ~lat,
+#'                   radius = 1, stroke = 0.1,
+#'                   label = ~Meeting)
+"meetings"

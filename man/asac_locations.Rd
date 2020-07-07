@@ -3,7 +3,7 @@
 \docType{data}
 \name{asac_locations}
 \alias{asac_locations}
-\title{ASAC (Area Substance Abuse Counseling)}
+\title{AA meetings in Iowa}
 \format{A data frame with 15 rows and 9 variables:
 \describe{
   \item{Name}{Name of the facility}
@@ -27,10 +27,14 @@ Dataset was scraped from the ASAC website.
 This database contains ASAC location data for the State of Iowa
 }
 \examples{
+library(ggplot2)
+library(dplyr)
 asac_locations \%>\%
  ggplot() +
  geom_point(aes(x = lon, y = lat))
 
+library(leaflet)
+library(sf)
 asac_locations \%>\%
  leaflet() \%>\%
  addTiles() \%>\%
