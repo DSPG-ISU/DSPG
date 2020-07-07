@@ -10,7 +10,7 @@ cf_resources <- cf_resources %>% mutate(
   search_address = paste(Address, City, State, Zip, sep = ", ")
 )
 
-register_google(key = "AIzaSyCMpgQfz4_ugBl68tfeXu0ZHnskt_WpLeM", write = TRUE)
+register_google(key = "your api key", write = TRUE)
 cf_resources <- cf_resources %>% mutate_geocode(search_address)  #One NA value due to Address
 
 # don't include the variable for the ID
