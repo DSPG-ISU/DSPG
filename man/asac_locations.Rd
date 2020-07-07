@@ -3,7 +3,7 @@
 \docType{data}
 \name{asac_locations}
 \alias{asac_locations}
-\title{AA meetings in Iowa}
+\title{Location of ASAC (Area Substance Abuse Counseling) in Iowa}
 \format{A data frame with 15 rows and 9 variables:
 \describe{
   \item{Name}{Name of the facility}

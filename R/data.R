@@ -521,7 +521,8 @@
 #'     addPolygons()
 "acs"
 
-#' AA meetings in Iowa
+
+#' Location of ASAC (Area Substance Abuse Counseling) in Iowa
 #'
 #' Dataset was scraped from the ASAC website.
 #' This database contains ASAC location data for the State of Iowa
