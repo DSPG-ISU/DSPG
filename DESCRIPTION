@@ -2,8 +2,32 @@ Package: DSPG
 Type: Package
 Title: Data Basis for DSPG Projects at ISU
 Version: 0.1.0
-Author: Heike Hofmann, 
-Maintainer: Heike Hofmann <yourself@somewhere.net>
+Authors@R: 
+    c(person(given = "Heike",
+             family = "Hofmann",
+             role = c("aut", "cre"),
+             email = "hofmann@iastate.edu"),
+      person(given = "Cassandra",
+             family = "Dorius",
+             role = c("aut", "fnd"),
+             email = "cdorius@iastate.edu"),
+      person(given = "Shawn",
+             family = "Dorius",
+             role = c("aut, fnd"),
+             email = "sdorius@iastate.edu"),
+      person(given = "Chris",
+             family = "Seeger",
+             role = c("aut"),
+             email = "cjseeger@iastate.edu"),
+      person(given = "Todd",
+             family = "Abraham",
+             role = c("aut"),
+             email = "abrahamt@iastate.edu"),
+      person(given = "Adisak",
+             family = "Sukul",
+             role = "aut",
+             email = "adisak@iastate.edu")
+             )
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: GPL-3
