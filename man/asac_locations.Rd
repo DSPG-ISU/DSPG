@@ -4,7 +4,7 @@
 \name{asac_locations}
 \alias{asac_locations}
 \title{ASAC (Area Substance Abuse Counseling)}
-\format{A data frame with 14 rows and 6 variables:
+\format{A data frame with 15 rows and 9 variables:
 \describe{
   \item{Name}{Name of the facility}
   \item{Address}{Street Address for the facility}
