@@ -36,7 +36,7 @@ library(dplyr)
 southwest_mhds \%>\%
  ggplot() +
  geom_point(aes(x = lon, y = lat))
- 
+
 # Leaflet map of meetings in Iowa
 library(leaflet)
 library(sf)
