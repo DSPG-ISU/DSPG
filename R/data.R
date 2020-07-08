@@ -609,6 +609,7 @@
 #'   \item{State}{state}
 #'   \item{lon}{geographic Longitude}
 #'   \item{lat}{geographic Latitude}
+#'   \item{schedule}{weekly schedule of meetings, starting with Monday at midnight.}
 #' }
 #' @source \url{https://www.aa-iowa.org/meetings/}
 #' @examples
