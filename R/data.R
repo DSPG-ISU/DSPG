@@ -6,12 +6,14 @@
 #'   \item{CO_NUMBER}{county number}
 #'   \item{CO_FIPS}{three-digit county fips code}
 #'   \item{ACRES_SF}{square footage in acres}
-#'   \item{ACRES}{county acreage}
+#'   \item{ACRES}{county acreage, same as `ACRES_SF``}
 #'   \item{FIPS}{five-digit fips code}
 #'   \item{COUNTY}{county name (and it's `Obrien`)}
 #'   \item{ST}{two letter state abbreviation (`IA` all the way through)}
 #'   \item{ID}{identifier same as `CO_FIPS`}
-#'   \item{geometry}{sfc of polygons}
+#'   \item{CENSUS2010POP}{US Census Bureau count of 2010 county population.}
+#'   \item{POPESTIMATE2019}{US Census Bureau estimate of 2019 county population.}
+#'   \item{geometry}{simple feature object of polygons}
 #' }
 #' @source \url{some url?}
 #' @examples
