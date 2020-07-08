@@ -47,5 +47,13 @@ meetings %>% ggplot(aes(x = lon, y = lat)) + geom_point()
 # meetings$lat[idx] <- 42.4005332
 # meetings$lon[idx] <- -96.3506922
 
+### introduce schedule variable
+meetings$schedule <- with(meetings, lubridate::hm(paste0(Time, AmPm)))
+meetings$Day <- factor(meetings$Day,
+                       levels = c("Monday", "Tuesday", "Wednesday",
+                                  "Thursday", "Friday", "Saturday",
+                                  "Sunday"))
+helper <- as.numeric(meetings$Day) -1
+meetings$schedule <- meetings$schedule + days(helper)
 
 usethis::use_data(meetings, overwrite = TRUE)

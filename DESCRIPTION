@@ -13,7 +13,7 @@ Authors@R:
              email = "cdorius@iastate.edu"),
       person(given = "Shawn",
              family = "Dorius",
-             role = c("aut, fnd"),
+             role = c("aut", "fnd"),
              email = "sdorius@iastate.edu"),
       person(given = "Chris",
              family = "Seeger",
