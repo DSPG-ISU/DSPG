@@ -718,3 +718,31 @@
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(radius = 1, stroke = 0.1)
 "hospital_buildings"
+
+#' Cross Mental Health Data
+#'
+#' CROSS has designated access points for adult mental health and disability services that are listed here
+#' @format A data frame with 36 rows and 5 variables:
+#' \describe{
+#'   \item{Place}{Name of the accesss point}
+#'   \item{Address}{Address of the building}
+#'   \item{Phone}{Phone number of the building}
+#'   \item{lon}{geographic Longitude}
+#'   \item{lat}{geographic Latitude}
+#' }
+#' @source \url{https://crossmentalhealth.org/wp-content/uploads/2020/03/Access-Points.pdf}
+#' @examples
+#' library(dplyr)
+#'
+#' # Leaflet map of Cross Mental Health buildings in Iowa
+#' library(leaflet)
+#' library(sf)
+#'
+#' cross_mental_health %>%
+#'  leaflet() %>%
+#'  addTiles() %>%
+#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'              weight = 1, color="#333333") %>%
+#'  addCircleMarkers(radius = 1, stroke = 0.1)
+"cross_mental_health"
+
