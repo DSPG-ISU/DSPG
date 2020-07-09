@@ -34,9 +34,13 @@
 #' library(leaflet)
 #' library(sf)
 #' st_transform(ia_counties, crs='+proj=longlat +datum=WGS84') %>%
+#'   group_by(COUNTY) %>%
+#'   mutate(
+#'     hovertext = htmltools::HTML(paste0(COUNTY, "<br>",POPESTIMATE2019))
+#'   ) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#'     addPolygons()
+#'     addPolygons(label=~hovertext)
 "ia_counties"
 
 #' Location of Iowa's cities
