@@ -11,7 +11,6 @@ cross_mental_health <- readr::read_csv("cmhdata.csv")
 #search_address = paste(Address, City, State, Zip, sep = ", ")
 #)
 
-register_google(key = "AIzaSyBFMR8zmDjBar-C8FhiQvSEhY2-I0xaBf0", write = TRUE)
 
 cross_mental_health <- cross_mental_health %>%
   filter(!is.na(Address)) %>%

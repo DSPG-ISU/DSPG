@@ -32,7 +32,8 @@
 #'                    radius = 1, stroke = 0.1) %>%
 #'   addLegend(pal = pal, values = levels(meetings$Day))
 get_meetings <- function(from = now(), to = now() + days(1), type = c("Alcoholics Anonymous", "Narcotics Anonymous")) {
-  timestamp <- NULL
+  timestamp <- NULL  # just to pass R CMD CHECK
+  Type <- NULL
 
   # which weekday is the earliest date?
   days_since_monday <- 1 - wday(from, week_start = 1)
