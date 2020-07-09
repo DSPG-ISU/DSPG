@@ -22,8 +22,13 @@
 #' library(dplyr) # for the pipe
 #'
 #' ia_counties %>%
-#'   ggplot() + geom_sf(aes(fill = ACRES_SF)) +
-#'   ggthemes::theme_map()
+#'   ggplot() +
+#'   geom_sf(aes(fill = POPESTIMATE2019),
+#'           colour = "grey80", size = 0.1) +
+#'   ggthemes::theme_map() +
+#'   theme(legend.position="right") +
+#'   scale_fill_gradient("2019 Population\nEstimate", trans="log",
+#'     low = "grey80", high="darkred")
 #'
 #' # leaflet map
 #' library(leaflet)
