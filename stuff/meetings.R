@@ -70,6 +70,9 @@ nas <- read.csv("rawdata/Iowa_NA_mtgs.csv", stringsAsFactors = FALSE)
 nas <- nas %>% rename(
   Day = day
 )
+# make sure that the weekday names are fine:
+unique(nas$Day)
+# fix, if not :)
 
 nas$AmPm <- NA
 nas$AmPm[grep("PM$", nas$time)] <- "PM"

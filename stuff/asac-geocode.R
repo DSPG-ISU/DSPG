@@ -15,5 +15,8 @@ asac_locations <- asac_locations %>% mutate_geocode(search_address)
 # don't include the variable for the ID
 asac_locations <- asac_locations %>% select(-X1)
 
+asac_locations <- asac_locations %>% st_as_sf(coords = c("lon", "lat"),
+                                  crs = 4326, agr = "identity")
+
 usethis::use_data(asac_locations, overwrite = TRUE)
 

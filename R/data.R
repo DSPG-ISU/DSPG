@@ -537,7 +537,7 @@
 #'
 #' Dataset was scraped from the ASAC website.
 #' This database contains ASAC location data for the State of Iowa
-#' @format A data frame with 15 rows and 9 variables:
+#' @format A data frame with 15 rows and 8 variables:
 #' \describe{
 #'   \item{Name}{Name of the facility}
 #'   \item{Address}{Street Address for the facility}
@@ -546,8 +546,7 @@
 #'   \item{Zip}{5 digit Zip}
 #'   \item{State}{State Abbreviation}
 #'   \item{search_address}{address used in the Google API geocoding}
-#'   \item{lon}{geographic Longitude}
-#'   \item{lat}{geographic Latitude}
+#'   \item{geometry}{sf object of geographic locations}
 #' }
 #' @source \url{http://www.asac.us/about/locations/}
 #' @examples
@@ -555,7 +554,8 @@
 #' library(dplyr)
 #' asac_locations %>%
 #'  ggplot() +
-#'  geom_point(aes(x = lon, y = lat))
+#'  geom_sf(data = ia_counties) + # iowa county shapes
+#'  geom_sf() # add points
 #'
 #' library(leaflet)
 #' library(sf)
