@@ -5,7 +5,7 @@
 \title{Get set of meetings for a time range based on schedule}
 \usage{
 get_meetings(from = now(), to = now() + days(1),
-  type = "Alcoholics Anonymous")
+  type = c("Alcoholics Anonymous", "Narcotics Anonymous"))
 }
 \arguments{
 \item{from}{earliest date (and time, if specified)}

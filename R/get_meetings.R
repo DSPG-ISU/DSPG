@@ -31,7 +31,7 @@
 #'                    label=~Meeting,
 #'                    radius = 1, stroke = 0.1) %>%
 #'   addLegend(pal = pal, values = levels(meetings$Day))
-get_meetings <- function(from = now(), to = now() + days(1), type = "Alcoholics Anonymous") {
+get_meetings <- function(from = now(), to = now() + days(1), type = c("Alcoholics Anonymous", "Narcotics Anonymous")) {
   timestamp <- NULL
 
   # which weekday is the earliest date?
@@ -48,7 +48,8 @@ get_meetings <- function(from = now(), to = now() + days(1), type = "Alcoholics 
     meetings
   })
 
-  # reduce schedule to dte range specified
+  # reduce schedule to date range specified and type of meeting
   filter(schedule, between(ymd_hms(timestamp),
-                           ymd_hms(from), ymd_hms(to)))
+                           ymd_hms(from), ymd_hms(to)),
+         Type %in% type)
 }
