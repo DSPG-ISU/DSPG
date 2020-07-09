@@ -3,8 +3,8 @@
 \docType{data}
 \name{meetings}
 \alias{meetings}
-\title{AA Meetings in Iowa}
-\format{A data frame with 15 rows and 9 variables:
+\title{Alcoholic and Narcotics Anonymous Meetings in Iowa}
+\format{A data frame with 1549 rows and 13 variables:
 \describe{
   \item{Day}{day of the week}
   \item{Time}{time of the day}
@@ -12,7 +12,7 @@
   \item{Meeting}{name of the meeting}
   \item{Location}{location}
   \item{Address}{address}
-  \item{Types}{Types of the meeting - XXX this needs some additional work}
+  \item{Format}{Format of the meeting - XXX this needs some additional work}
   \item{City}{city}
   \item{Type}{type of meeting}
   \item{State}{state}
@@ -21,21 +21,21 @@
   \item{schedule}{weekly schedule of meetings, starting with Monday at midnight.}
 }}
 \source{
-\url{https://www.aa-iowa.org/meetings/}
+\url{https://www.aa-iowa.org/meetings/}, \url{https://www.na-iowa.org/meetings/}
 }
 \usage{
 meetings
 }
 \description{
-Dataset was scraped from the AA website by Jessie Bustin.
+Dataset was scraped from the AA and NA websites of Iowa by Jessie Bustin.
 }
 \examples{
 # Location of meetings in Iowa
 library(ggplot2)
 library(dplyr)
 meetings \%>\%
- ggplot() +
- geom_point(aes(x = lon, y = lat))
+  ggplot(aes(x = lon, y = lat)) +
+  geom_point(aes(colour = Type))
 
 # Leaflet map of meetings in Iowa
 library(leaflet)
@@ -45,8 +45,16 @@ meetings \%>\%
  addTiles() \%>\%
  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
              weight = 1, color="#333333") \%>\%
- addCircleMarkers(lng = ~lon, lat = ~lat,
+ addCircleMarkers(meetings \%>\% filter(Type == "Narcotics Anonymous"),
+                  lng = ~lon, lat = ~lat,
                   radius = 1, stroke = 0.1,
-                  label = ~Meeting)
+                  color = "darkorange",
+                  label = ~Meeting, group="NA") \%>\%
+ addCircleMarkers(meetings \%>\% filter(Type == "Alcoholics Anonymous"),
+                  lng = ~lon, lat = ~lat,
+                  radius = 1, stroke = 0.1,
+                  color = "darkgreen",
+                  label = ~Meeting, group="AA") \%>\%
+ addLayersControl(overlayGroups = c("AA","NA"))
 }
 \keyword{datasets}

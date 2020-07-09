@@ -47,6 +47,10 @@ meetings %>% ggplot(aes(x = lon, y = lat)) + geom_point()
 # meetings$lat[idx] <- 42.4005332
 # meetings$lon[idx] <- -96.3506922
 
+meeting <- meetings %>% rename(
+  Format = Types
+)
+
 ### introduce schedule variable
 #meetings$schedule <- with(meetings, lubridate::hm(paste0(Time, AmPm)))
 # hm does not respect am or pm
@@ -59,5 +63,106 @@ meetings$Day <- factor(meetings$Day,
                                   "Sunday"))
 helper <- as.numeric(meetings$Day) -1
 meetings$schedule <- meetings$schedule + days(helper)
+usethis::use_data(meetings, overwrite = TRUE)
+
+
+nas <- read.csv("rawdata/Iowa_NA_mtgs.csv", stringsAsFactors = FALSE)
+nas <- nas %>% rename(
+  Day = day
+)
+
+nas$AmPm <- NA
+nas$AmPm[grep("PM$", nas$time)] <- "PM"
+nas$AmPm[grep("AM$", nas$time)] <- "AM"
+
+nas$Time <- gsub("(.*) [aApP][mM]", "\\1", nas$time)
+
+idx <- which(nas$Time == "Noon")
+nas$Time[idx] <- "12:00"
+nas$AmPm[idx] <- "PM"
+
+idx <- which(nas$Time == "Midnight")
+nas$Time[idx] <- "12:00"
+nas$AmPm[idx] <- "AM"
+
+nas <- nas %>% rename(
+  Meeting = meeting.name,
+  City = town
+)
+
+nas <- nas %>% mutate(
+  Location = Address,
+  City = gsub("(.*), .*", "\\1", City)
+)
+
+nas <- nas %>% rename(
+  Format = format
+)
+
+nas <- nas %>% mutate(
+  State = "Iowa",
+  Type = "Narcotics Anonymous"
+)
+
+nas <- nas %>% mutate(
+  Address = paste(Location, City, "Iowa", sep = ", ")
+)
+
+###########
+nas.locations <- data.frame(
+  Address = unique(nas$Address),
+  stringsAsFactors = FALSE
+)
+nas.locations <- nas.locations %>% mutate_geocode(Address)
+# write.csv(nas.locations, "meetings-na-locations.csv", row.names = FALSE)
+# nas.locations <- read.csv("meetings-na-locations.csv", stringsAsFactors = FALSE)
+
+### and merge back into the meetings:
+nas <- nas %>% left_join(nas.locations, by="Address")
+###########
+
+
+
+### introduce schedule variable
+#meetings$schedule <- with(meetings, lubridate::hm(paste0(Time, AmPm)))
+# hm does not respect am or pm
+times <- with(nas, strptime(paste0(Time, AmPm), format = "%I:%M%p"))
+nas$schedule <- with(nas, lubridate::hm(paste(hour(times), minute(times), sep=":")))
+
+nas$Day <- factor(nas$Day,
+                       levels = c("Monday", "Tuesday", "Wednesday",
+                                  "Thursday", "Friday", "Saturday",
+                                  "Sunday"))
+helper <- as.numeric(nas$Day) -1
+nas$schedule <- nas$schedule + days(helper)
+
+###########
+nas <- nas %>% select(names(meetings))
+
+meetings <- rbind(meetings, nas)
+usethis::use_data(meetings, overwrite = TRUE)
+
+#############
+# some meetings are geocoded outside of Iowa
+
+meetings %>% ggplot(aes(x = lon, y = lat)) + geom_point()
+
+idx <- which(is.na(meetings$lat))
+# meetings$Address[idx]
+# meetings$lat[idx] <- 42.725476
+# meetings$lon[idx] <- -92.468344
+
+
+eps <- 10e-8
+idx <- which(meetings$lat <= min(meetings$lat)+eps)
+# meetings$Address[idx] <- "First Christian Church, 25th Street & University Avenue, Des Moines, Iowa"
+# meetings$lat[idx] <- 41.600392
+# meetings$lon[idx] <- -93.6509382
+
+eps <- 10e-8
+idx <- which(meetings$lat <= min(meetings$lat)+eps)
+# meetings$Address[idx]
+# meetings$lat[idx] <- 41.6565823
+# meetings$lon[idx] <- -95.3232809
 
 usethis::use_data(meetings, overwrite = TRUE)
