@@ -37,6 +37,57 @@ parks <- read.csv(files[2], stringsAsFactors = FALSE)
 usethis::use_data(parks, overwrite = TRUE)
 # some parks have locations outside of Iowa
 
+parks %>% ggplot(aes(x=Longitude, y = Latitude)) + geom_point()
+
+# idx <-which.min(parks$Longitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 42.4474083
+# parks[idx,]$Longitude <- -94.2868697
+#
+# idx <-which.max(parks$Longitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 41.7280558
+# parks[idx,]$Longitude <- -91.7353302
+#
+# # Lake Bremer
+# idx <-which.max(parks$Longitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 42.8509957
+# parks[idx,]$Longitude <- -92.5423162
+#
+#
+# # Ackerman Tact
+# idx <-which.max(parks$Longitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 42.5887327
+# parks[idx,]$Longitude <- -93.4362442
+#
+#
+# # Maria Hladik Roadside Park
+# idx <-which.max(parks$Latitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 42.0866961
+# parks[idx,]$Longitude <- -92.5842567
+#
+#
+# # Ackerman's River Woods
+# idx <-which.min(parks$Latitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 43.454899
+# parks[idx,]$Longitude <- -95.8771993
+#
+# # Smith Wildlife Area
+# idx <-which.min(parks$Latitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 43.0233265
+# parks[idx,]$Longitude <- -94.2188712
+#
+# # Indian Path
+# idx <-which.min(parks$Latitude)
+# parks[idx,]
+# parks[idx,]$Latitude <- 40.722199
+# parks[idx,]$Longitude <- -91.244757
+
 ###################
 
 sud <- read.csv(files[3], stringsAsFactors = FALSE)
