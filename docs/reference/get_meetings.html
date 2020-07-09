@@ -138,7 +138,7 @@ for a specified time range.</p>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
 
 <span class='co'># AA meetings in Iowa for the next 24h from</span>
-<span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span>()</div><div class='output co'>#&gt; [1] "2020-07-09 11:26:18 CDT"</div><div class='input'><span class='co'># color locations by day</span>
+<span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span>()</div><div class='output co'>#&gt; [1] "2020-07-09 14:24:25 CDT"</div><div class='input'><span class='co'># color locations by day</span>
 <span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric'>colorFactor</a></span>(
          <span class='kw'>palette</span> <span class='kw'>=</span> <span class='kw pkg'>RColorBrewer</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>brewer.pal</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>7</span>, <span class='kw'>name</span><span class='kw'>=</span><span class='st'>"Paired"</span>),
          <span class='kw'>domain</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/levels'>levels</a></span>(<span class='no'>meetings</span>$<span class='no'>Day</span>)
