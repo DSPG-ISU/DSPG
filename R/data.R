@@ -537,7 +537,6 @@
 #'
 #' Dataset was scraped from the ASAC website.
 #' This database contains ASAC location data for the State of Iowa
-#' @format A data frame with 15 rows and 8 variables:
 #' \describe{
 #'   \item{Name}{Name of the facility}
 #'   \item{Address}{Street Address for the facility}
@@ -564,8 +563,7 @@
 #'  addTiles() %>%
 #'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
 #'              weight = 1, color="#333333") %>%
-#'  addCircleMarkers(lng = ~lon, lat = ~lat,
-#'                   radius = 1, stroke = 0.1)
+#'  addCircleMarkers(radius = 1, stroke = 0.1, label=~Name)
 "asac_locations"
 
 
