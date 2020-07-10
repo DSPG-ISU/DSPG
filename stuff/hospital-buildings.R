@@ -19,6 +19,15 @@ hospital_buildings <- readr::read_csv(file)
 
 # add two variables: Latitude and Longitude
 hospital_buildings <- data.frame(hospital_buildings, text_to_geometry(hospital_buildings$`Primary Point (Coordinates)`))
+
+hospital_buildings %>%
+  ggplot(aes(x = Longitude, y = Latitude)) + geom_point()
+
+
+idx <- which(hospital_buildings$Longitude > -25)
+hospital_buildings[idx,]
+#
+
 # convert Longitude and Latitude into point object
 hospital_buildings <- hospital_buildings %>% sf::st_as_sf(coords = c("Longitude", "Latitude"),
                             crs = 4326, agr = "identity")
@@ -26,4 +35,10 @@ hospital_buildings <- hospital_buildings %>% sf::st_as_sf(coords = c("Longitude"
 hospital_buildings <- hospital_buildings %>% select(-Primary.Point..Coordinates.)
 
 usethis::use_data(hospital_buildings, overwrite = TRUE)
+####
+# there's some values with a location of 0,0
+
+hospital_buildings %>%
+  ggplot() +
+  geom_sf()
 
