@@ -753,7 +753,7 @@
 "cross_mental_health"
 
 
-#' Physical and Cultural Buildings in Iowa
+#' Physical and Cultural Geographic Features in Iowa
 #'
 #' This dataset consists of all named physical and cultural geographic features in Iowa that are part of the
 #' Geographic Names Information System (GNIS) as developed by the US Geological Survey.
@@ -778,7 +778,7 @@
 #' @examples
 #' library(dplyr)
 #' library(ggplot2)
-#' iowa_buildings %>%
+#' iowa_features %>%
 #'   filter(Feature.Class == "Park") %>%
 #'   ggplot() +
 #'   geom_sf() +
@@ -789,7 +789,7 @@
 #'   library(leaflet)
 #'   library(sf)
 #'
-#'  iowa_buildings %>%
+#'  iowa_features %>%
 #'    filter(Primary.County.Name == "Madison",
 #'           Feature.Class == "Bridge") %>%
 #'    leaflet() %>%
@@ -800,14 +800,14 @@
 #'    addCircleMarkers(radius = 1, stroke = 0.1, label=~Feature.Name)
 #'
 #' # Leaflet map of top ten feature maps in Iowa
-#'  topten <- iowa_buildings %>% count(Feature.Class) %>%
+#'  topten <- iowa_features %>% count(Feature.Class) %>%
 #'              arrange(desc(n)) %>% head(10)
 #'
 #'  pal <- colorFactor(
 #'           palette=RColorBrewer::brewer.pal(n=10, name="Paired"),
 #'           domain = topten$Feature.Class
 #'         )
-#'  iowa_buildings %>%
+#'  iowa_features %>%
 #'    filter(Feature.Class %in% topten$Feature.Class) %>%
 #'    leaflet() %>%
 #'    addTiles() %>%
@@ -818,4 +818,23 @@
 #'                     color =~pal(Feature.Class),
 #'                     label=~Feature.Name) %>%
 #'    addLegend(pal = pal, values = topten$Feature.Class)
-"iowa_buildings"
+#'
+#'  # Iowa is flat. Is it? Yes, but ...
+#'  elev_pal <- colorNumeric(
+#'           palette="Blues",
+#'           domain = c(0,600),
+#'           reverse=TRUE
+#'         )
+#'
+#'  iowa_features %>%
+#'    filter(Feature.Class %in% topten$Feature.Class) %>%
+#'    leaflet() %>%
+#'    addTiles() %>%
+#'    setView(-94, 42, zoom = 6) %>%
+#'    addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'                weight = 1, color="#333333") %>%
+#'    addCircleMarkers(radius = .5, stroke = 0.1,
+#'                     color =~elev_pal(Elevation.M),
+#'                     label=~Feature.Name) %>%
+#'    addLegend(pal=elev_pal, values=c(0,600))
+"iowa_features"

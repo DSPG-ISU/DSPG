@@ -15,19 +15,19 @@ text_to_geometry <- function(x) {
   )
 }
 
-iowa_buildings <- readr::read_csv(file)
+iowa_features <- readr::read_csv(file)
 
 # add two variables: Latitude and Longitude
-iowa_buildings <- data.frame(iowa_buildings, text_to_geometry(iowa_buildings$`Primary Point (Coordinates)`))
+iowa_features <- data.frame(iowa_features, text_to_geometry(iowa_features$`Primary Point (Coordinates)`))
 
-iowa_buildings %>% filter(Feature.Class == "Park") %>%
+iowa_features %>% filter(Feature.Class == "Park") %>%
   ggplot(aes(x = Longitude, y = Latitude)) + geom_point()
 
-iowa_buildings %>%
+iowa_features %>%
   ggplot(aes(x = Longitude, y = Latitude)) +
   geom_point(aes(colour = Feature.Class))
 
-zeroes <- which(iowa_buildings$Longitude > -25)
+zeroes <- which(iowa_features$Longitude > -25)
 
 
 # idx <- which.min(parks$Longitude)
@@ -82,14 +82,14 @@ zeroes <- which(iowa_buildings$Longitude > -25)
 
 
 # convert Longitude and Latitude into point object
-iowa_buildings <- iowa_buildings %>% sf::st_as_sf(coords = c("Longitude", "Latitude"),
+iowa_features <- iowa_features %>% sf::st_as_sf(coords = c("Longitude", "Latitude"),
                                                           crs = 4326, agr = "identity")
 
-iowa_buildings <- iowa_buildings %>% rename(
+iowa_features <- iowa_features %>% rename(
   Elevation.M = Elevation..Meters.,
   Elevation.Ft = Elevation..Feet.
 )
-usethis::use_data(iowa_buildings, overwrite = TRUE)
+usethis::use_data(iowa_features, overwrite = TRUE)
 ####
 # there's some values with a location of 0,0
-iowa_buildings$geometry[zeroes] <- NA
+iowa_features$geometry[zeroes] <- NA
