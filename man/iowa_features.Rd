@@ -51,7 +51,7 @@ iowa_features \%>\%
    leaflet() \%>\%
    addTiles() \%>\%
    setView(-94.0530854, 41.3409121, zoom = 9) \%>\%
-   addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+   addPolygons(data = ia_counties,
                weight = 1, color="#333333") \%>\%
    addCircleMarkers(radius = 1, stroke = 0.1, label=~Feature.Name)
 
@@ -68,7 +68,7 @@ iowa_features \%>\%
    leaflet() \%>\%
    addTiles() \%>\%
    setView(-94, 42, zoom = 6) \%>\%
-   addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+   addPolygons(data = ia_counties,
                weight = 1, color="#333333") \%>\%
    addCircleMarkers(radius = .5, stroke = 0.1,
                     color =~pal(Feature.Class),
@@ -87,7 +87,7 @@ iowa_features \%>\%
    leaflet() \%>\%
    addTiles() \%>\%
    setView(-94, 42, zoom = 6) \%>\%
-   addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+   addPolygons(data = ia_counties,
                weight = 1, color="#333333") \%>\%
    addCircleMarkers(radius = .5, stroke = 0.1,
                     color =~elev_pal(Elevation.M),

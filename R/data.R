@@ -33,7 +33,8 @@
 #' # leaflet map
 #' library(leaflet)
 #' library(sf)
-#' st_transform(ia_counties, crs='+proj=longlat +datum=WGS84') %>%
+#'
+#' ia_counties %>%
 #'   group_by(COUNTY) %>%
 #'   mutate(
 #'     hovertext = htmltools::HTML(paste0(COUNTY, "<br>",POPESTIMATE2019))
@@ -96,7 +97,6 @@
 #' labels <- c("2.5% Loss or more", "Stable", "2.5% Growth or more")
 #' pal <- colorFactor(palette = colors, levels = labels)
 #'
-#' ia_cities <- st_transform(ia_cities, crs='+proj=longlat +datum=WGS84')
 #' ia_cities %>%
 #'   mutate(
 #'     growth = cut(percentChg,
@@ -104,9 +104,9 @@
 #'                  labels = labels)) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
-#'     addCircleMarkers(radius = 1.5, stroke = 0.1, color = ~pal(growth),
+#'     addCircleMarkers(radius = 1, stroke = 0.1, color = ~pal(growth),
 #'                      label = ~city) %>%
 #'     addLegend(title = "% Change in Population", colors = colors, labels = labels)
 "ia_cities"
@@ -150,7 +150,7 @@
 #'   leaflet() %>%
 #'     addTiles() %>%
 #'     setView(-93.6498803, 42.0275751, zoom = 8) %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(radius = 1, stroke = 0.1,
 #'                      label = ~NAME, clusterOptions = markerClusterOptions())
@@ -195,7 +195,7 @@
 #' parks %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
@@ -245,7 +245,7 @@
 #'   ) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
@@ -299,7 +299,7 @@
 #'   ) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
@@ -351,8 +351,7 @@
 #'   ) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#' #    setView(-93.6498803, 42.0275751, zoom = 8) %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
@@ -401,8 +400,7 @@
 #' hospitals %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#' #    setView(-93.6498803, 42.0275751, zoom = 8) %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
@@ -446,8 +444,7 @@
 #' health.clinics %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#' #    setView(-93.6498803, 42.0275751, zoom = 8) %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
@@ -487,7 +484,7 @@
 #' colleges %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
-#'     addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
 #'                      radius = 1, stroke = 0.1,
@@ -525,7 +522,7 @@
 #' # leaflet map
 #' library(leaflet)
 #' library(sf)
-#' st_transform(ia_counties, crs='+proj=longlat +datum=WGS84') %>%
+#' ia_counties %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
 #'     addPolygons()
@@ -560,7 +557,7 @@
 #' asac_locations %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
-#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(radius = 1, stroke = 0.1, label=~Name)
 "asac_locations"
@@ -594,7 +591,7 @@
 #' cf_resources %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
-#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(lng = ~lon, lat = ~lat,
 #'                   radius = 1, stroke = 0.1)
@@ -634,7 +631,7 @@
 #' meetings %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
-#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(meetings %>% filter(Type == "Narcotics Anonymous"),
 #'                   lng = ~lon, lat = ~lat,
@@ -684,7 +681,7 @@
 #' southwest_mhds %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
-#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(lng = ~lon, lat = ~lat,
 #'                   radius = 1, stroke = 0.1,
@@ -720,7 +717,7 @@
 #' hospital_buildings %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
-#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(radius = 1, stroke = 0.1)
 "hospital_buildings"
@@ -747,7 +744,7 @@
 #' cross_mental_health %>%
 #'  leaflet() %>%
 #'  addTiles() %>%
-#'  addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(radius = 1, stroke = 0.1)
 "cross_mental_health"
@@ -795,7 +792,7 @@
 #'    leaflet() %>%
 #'    addTiles() %>%
 #'    setView(-94.0530854, 41.3409121, zoom = 9) %>%
-#'    addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'    addPolygons(data = ia_counties,
 #'                weight = 1, color="#333333") %>%
 #'    addCircleMarkers(radius = 1, stroke = 0.1, label=~Feature.Name)
 #'
@@ -812,7 +809,7 @@
 #'    leaflet() %>%
 #'    addTiles() %>%
 #'    setView(-94, 42, zoom = 6) %>%
-#'    addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'    addPolygons(data = ia_counties,
 #'                weight = 1, color="#333333") %>%
 #'    addCircleMarkers(radius = .5, stroke = 0.1,
 #'                     color =~pal(Feature.Class),
@@ -831,7 +828,7 @@
 #'    leaflet() %>%
 #'    addTiles() %>%
 #'    setView(-94, 42, zoom = 6) %>%
-#'    addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+#'    addPolygons(data = ia_counties,
 #'                weight = 1, color="#333333") %>%
 #'    addCircleMarkers(radius = .5, stroke = 0.1,
 #'                     color =~elev_pal(Elevation.M),

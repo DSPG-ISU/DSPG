@@ -62,7 +62,6 @@ colors <- c("darkred", "grey30", "darkblue")
 labels <- c("2.5\% Loss or more", "Stable", "2.5\% Growth or more")
 pal <- colorFactor(palette = colors, levels = labels)
 
-ia_cities <- st_transform(ia_cities, crs='+proj=longlat +datum=WGS84')
 ia_cities \%>\%
   mutate(
     growth = cut(percentChg,
@@ -70,9 +69,9 @@ ia_cities \%>\%
                  labels = labels)) \%>\%
   leaflet() \%>\%
     addTiles() \%>\%
-    addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+    addPolygons(data = ia_counties,
                 weight = 1, color="#333333") \%>\%
-    addCircleMarkers(radius = 1.5, stroke = 0.1, color = ~pal(growth),
+    addCircleMarkers(radius = 1, stroke = 0.1, color = ~pal(growth),
                      label = ~city) \%>\%
     addLegend(title = "\% Change in Population", colors = colors, labels = labels)
 }

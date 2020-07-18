@@ -37,7 +37,7 @@ library(sf)
 hospital_buildings \%>\%
  leaflet() \%>\%
  addTiles() \%>\%
- addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
+ addPolygons(data = ia_counties,
              weight = 1, color="#333333") \%>\%
  addCircleMarkers(radius = 1, stroke = 0.1)
 }
