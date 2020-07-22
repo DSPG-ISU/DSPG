@@ -4,8 +4,7 @@
 \name{regional_substance_treatment}
 \alias{regional_substance_treatment}
 \title{Comprehensive Substance Abuse Prevention Grant Facilities}
-\format{
-A data frame with 129 rows and 11 variables:
+\format{A data frame with 129 rows and 11 variables:
 \describe{
   \item{classification}{The systems of care infrastructure category under which the facility falls; all in this dataset are considered substance use treatment}
   \item{dataset}{For possible future use, all data are in the regional_substance_treatment dataset}
@@ -18,18 +17,11 @@ A data frame with 129 rows and 11 variables:
   \item{state}{The state of the treatment facility}
   \item{zip}{The zip code of the treatment facility}
   \item{phone}{The phone number for the treatment facility}
-}
-}
-\source{
-
-}
+}}
 \usage{
 regional_substance_treatment
 }
 \description{
 This dataset includes all facilities managed under the Iowa Comprehensive Substance Abuse Prevention Grant regional centers. These 19 regional organizations manage prevention, inpatient, and outpatient substance use facilities in their respective regions of Iowa. The data was collected by Matthew Voss in July 2020.
-}
-\examples{
-# No example yet
 }
 \keyword{datasets}

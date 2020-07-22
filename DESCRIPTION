@@ -6,7 +6,8 @@ Authors@R:
     c(person(given = "Heike",
              family = "Hofmann",
              role = c("aut", "cre"),
-             email = "hofmann@iastate.edu"),
+             email = "hofmann@iastate.edu", 
+             comment = c(ORCID = "0000-0001-6216-5183")),
       person(given = "Cassandra",
              family = "Dorius",
              role = c("aut", "fnd"),
@@ -103,7 +104,8 @@ Depends:
 Imports:
   lubridate (>= 1.7.4),
   dplyr (>= 1.0.0),
-  purrr (>= 0.3.4)
+  purrr (>= 0.3.4),
+  Rdpack (>= 1.0.0)
 Suggests:
   ggplot2 (>= 3.3.2),
   ggthemes (>= 4.2.0),
@@ -114,3 +116,4 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+RdMacros: Rdpack

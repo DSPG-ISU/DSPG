@@ -836,6 +836,7 @@
 #'    addLegend(pal=elev_pal, values=c(0,600))
 "iowa_features"
 
+
 #' Comprehensive Substance Abuse Prevention Grant Facilities
 #'
 #' This dataset includes all facilities managed under the Iowa Comprehensive Substance Abuse Prevention Grant regional centers. These 19 regional organizations manage prevention, inpatient, and outpatient substance use facilities in their respective regions of Iowa. The data was collected by Matthew Voss in July 2020.
@@ -854,6 +855,78 @@
 #'   \item{phone}{The phone number for the treatment facility}
 #' }
 #' @source \url{https://idph.iowa.gov/Portals/1/userfiles/55/FY18%20Comprehensive%20Substance%20Abuse%20Prevention%20Service%20Areas%20Map.pdf}
-#' @examples
-#' # No example yet
 "regional_substance_treatment"
+
+
+#' US presidential election 2016 precinct level results for Iowa
+#'
+#' Precinct level results from the 2016 general election for all Iowa precincts.
+#' This data was modified from the data provided by MIT Election Data and Science Lab by
+#' focussing on Iowa precinct results from the general presidential election in 2016.
+#' @format A data frame with 36,960 rows and 15 variables:
+#' \describe{
+#'   \item{year}{Year of the election.}
+#'   \item{state}{State of election (here, `Iowa`).}
+#'   \item{county_name}{Name of the county.}
+#'   \item{county_fips}{FIPS code of county.}
+#'   \item{county_ansi}{ANSI code of the county.}
+#'   \item{jurisdiction}{County of jurisdiction.}
+#'   \item{precinct}{Precinct name}
+#'   \item{candidate}{Name of the candidate}
+#'   \item{candidate_normalized}{Normalized name of the candidate.}
+#'   \item{writein}{Is candidate a write-in?}
+#'   \item{party}{Party affiliation of the candidate.}
+#'   \item{mode}{How was vote cast? Absentee or at Polling station.}
+#'   \item{votes}{Number of votes cast in precinct.}
+#'   \item{candidate_fec}{Federal Election identifier of the candidate's campaign.}
+#'   \item{candidate_fec_name}{Name associated with the campaign.}
+#' }
+#' @author MIT Election Data and Science Lab (Massachusetts Institute of Technology)
+#' @source \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LYWX3D}
+#' @examples
+#' library(ggplot2)
+#' library(dplyr)
+#'
+#' ia_election_2016 %>%
+#'   ggplot() +
+#'     geom_bar(aes(x = candidate, weight = votes)) +
+#'     coord_flip()
+"ia_election_2016"
+
+#' 2016 precincts of Iowa
+#'
+#' Precinct and district shapefiles are published by the Secretary of State.
+#' Election results of the 2016 general election are added to each precinct.
+#' @format A data frame with 1690 rows and 16 variables:
+#' \describe{
+#'   \item{COUNTY}{county}
+#'   \item{DISTRICT}{DISTRICT, precinct and NAME are used as names of a precinct.}
+#'   \item{precinct}{DISTRICT, precinct and NAME are used as names of a precinct.}
+#'   \item{NAME}{DISTRICT, precinct and NAME are used as names of a precinct.}
+#'   \item{POPULATION}{population of the precinct.}
+#'   \item{Votes16}{Total number of votes cast in the US general election for US President.}
+#'   \item{PctRep16}{Percent of votes in the district cast for the candidate of the Republican Party}
+#'   \item{PctDem16}{Percent of votes in the district cast for the candidate of the Democratic Party}
+#'   \item{PctLib16}{Percent of votes in the district cast for the candidate of the Libertarian Party}
+#'   \item{PctOther16}{Percent of votes in the district cast for a candidate of an other party.}
+#'   \item{House_Dist}{House district affiliation}
+#'   \item{Senate_Dis}{Senate district affiliation}
+#'   \item{Congressio}{Congression district affiliation}
+#'   \item{AREA}{Area of the district.}
+#'   \item{Shape_Leng}{Numeric value derived from polygon.}
+#'   \item{geometry}{sfc object of polygons describing each district.}
+#' }
+#' @source \url{https://sos.iowa.gov/elections/maps/shapefiles.html}
+#' @examples
+#' library(leaflet)
+#' pal <- colorNumeric(palette=c("Darkred", "White", "Darkblue"),
+#'                     reverse = TRUE,
+#'                     domain = range(ia_precincts$PctRep16 - ia_precincts$PctDem16, na.rm=TRUE))
+#'
+#' ia_precincts %>%
+#'   leaflet() %>%
+#'     addTiles() %>%
+#'     addPolygons(fillColor = ~pal(PctRep16-PctDem16), fillOpacity = .75,
+#'                 stroke=0, opacity = 1, label=~NAME) %>%
+#'     addLegend(pal=pal, values  = range(ia_precincts$PctRep16 - ia_precincts$PctDem16, na.rm=TRUE))
+"ia_precincts"
