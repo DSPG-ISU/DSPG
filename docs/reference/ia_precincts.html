@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shapefiles of Iowa's counties — ia_counties • DSPG</title>
+<title>2016 precincts of Iowa — ia_precincts • DSPG</title>
 
 
 <!-- jquery -->
@@ -33,8 +33,9 @@
 
 
 
-<meta property="og:title" content="Shapefiles of Iowa's counties — ia_counties" />
-<meta property="og:description" content="provenance - Chris, I need some help with how we document these exports." />
+<meta property="og:title" content="2016 precincts of Iowa — ia_precincts" />
+<meta property="og:description" content="Precinct and district shapefiles are published by the Secretary of State.
+Election results of the 2016 general election are added to each precinct." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -96,62 +97,55 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Shapefiles of Iowa's counties</h1>
+    <h1>2016 precincts of Iowa</h1>
     
-    <div class="hidden name"><code>ia_counties.Rd</code></div>
+    <div class="hidden name"><code>ia_precincts.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>provenance - Chris, I need some help with how we document these exports.</p>
+    <p>Precinct and district shapefiles are published by the Secretary of State.
+Election results of the 2016 general election are added to each precinct.</p>
     </div>
 
-    <pre class="usage"><span class='no'>ia_counties</span></pre>
+    <pre class="usage"><span class='no'>ia_precincts</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 99 rows and 9 variables:</p><dl class='dl-horizontal'>
-  <dt>CO_NUMBER</dt><dd><p>county number</p></dd>
-  <dt>CO_FIPS</dt><dd><p>three-digit county fips code</p></dd>
-  <dt>ACRES_SF</dt><dd><p>square footage in acres</p></dd>
-  <dt>ACRES</dt><dd><p>county acreage, same as `ACRES_SF``</p></dd>
-  <dt>FIPS</dt><dd><p>five-digit fips code</p></dd>
-  <dt>COUNTY</dt><dd><p>county name (and it's `Obrien`)</p></dd>
-  <dt>ST</dt><dd><p>two letter state abbreviation (`IA` all the way through)</p></dd>
-  <dt>ID</dt><dd><p>identifier same as `CO_FIPS`</p></dd>
-  <dt>CENSUS2010POP</dt><dd><p>US Census Bureau count of 2010 county population.</p></dd>
-  <dt>POPESTIMATE2019</dt><dd><p>US Census Bureau estimate of 2019 county population.</p></dd>
-  <dt>geometry</dt><dd><p>simple feature object of polygons</p></dd>
+    <p>A data frame with 1690 rows and 16 variables:</p><dl class='dl-horizontal'>
+  <dt>COUNTY</dt><dd><p>county</p></dd>
+  <dt>DISTRICT</dt><dd><p>DISTRICT, precinct and NAME are used as names of a precinct.</p></dd>
+  <dt>precinct</dt><dd><p>DISTRICT, precinct and NAME are used as names of a precinct.</p></dd>
+  <dt>NAME</dt><dd><p>DISTRICT, precinct and NAME are used as names of a precinct.</p></dd>
+  <dt>POPULATION</dt><dd><p>population of the precinct.</p></dd>
+  <dt>Votes16</dt><dd><p>Total number of votes cast in the US general election for US President.</p></dd>
+  <dt>PctRep16</dt><dd><p>Percent of votes in the district cast for the candidate of the Republican Party</p></dd>
+  <dt>PctDem16</dt><dd><p>Percent of votes in the district cast for the candidate of the Democratic Party</p></dd>
+  <dt>PctLib16</dt><dd><p>Percent of votes in the district cast for the candidate of the Libertarian Party</p></dd>
+  <dt>PctOther16</dt><dd><p>Percent of votes in the district cast for a candidate of an other party.</p></dd>
+  <dt>House_Dist</dt><dd><p>House district affiliation</p></dd>
+  <dt>Senate_Dis</dt><dd><p>Senate district affiliation</p></dd>
+  <dt>Congressio</dt><dd><p>Congression district affiliation</p></dd>
+  <dt>AREA</dt><dd><p>Area of the district.</p></dd>
+  <dt>Shape_Leng</dt><dd><p>Numeric value derived from polygon.</p></dd>
+  <dt>geometry</dt><dd><p>sfc object of polygons describing each district.</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='some url?'>some url?</a></p>
+    <p><a href='https://sos.iowa.gov/elections/maps/shapefiles.html'>https://sos.iowa.gov/elections/maps/shapefiles.html</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># county map of iowa in ggplot2</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>) <span class='co'># for the pipe</span>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
+<span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric'>colorNumeric</a></span>(<span class='kw'>palette</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Darkred"</span>, <span class='st'>"White"</span>, <span class='st'>"Darkblue"</span>),
+                    <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+                    <span class='kw'>domain</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>ia_precincts</span>$<span class='no'>PctRep16</span> - <span class='no'>ia_precincts</span>$<span class='no'>PctDem16</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>))
 
-<span class='no'>ia_counties</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>POPESTIMATE2019</span>),
-          <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.1</span>) +
-  <span class='kw pkg'>ggthemes</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/ggthemes/topics/theme_map'>theme_map</a></span>() +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>"right"</span>) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_fill_gradient</a></span>(<span class='st'>"2019 Population\nEstimate"</span>, <span class='kw'>trans</span><span class='kw'>=</span><span class='st'>"log"</span>,
-    <span class='kw'>low</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>, <span class='kw'>high</span><span class='kw'>=</span><span class='st'>"darkred"</span>)</div><div class='img'><img src='ia_counties-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># leaflet map</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
-
-<span class='no'>ia_counties</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>COUNTY</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(
-    <span class='kw'>hovertext</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/HTML'>HTML</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>COUNTY</span>, <span class='st'>"&lt;br&gt;"</span>,<span class='no'>POPESTIMATE2019</span>))
-  ) <span class='kw'>%&gt;%</span>
+<span class='no'>ia_precincts</span> <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>hovertext</span>)</div></pre>
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>fillColor</span> <span class='kw'>=</span> ~<span class='fu'>pal</span>(<span class='no'>PctRep16</span>-<span class='no'>PctDem16</span>), <span class='kw'>fillOpacity</span> <span class='kw'>=</span> <span class='fl'>.75</span>,
+                <span class='kw'>stroke</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>opacity</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>NAME</span>) <span class='kw'>%&gt;%</span>
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/addLegend'>addLegend</a></span>(<span class='kw'>pal</span><span class='kw'>=</span><span class='no'>pal</span>, <span class='kw'>values</span>  <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>ia_precincts</span>$<span class='no'>PctRep16</span> - <span class='no'>ia_precincts</span>$<span class='no'>PctDem16</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Location of ASAC (Area Substance Abuse Counseling) in Iowa — asac_locations • DSPG</title>
+<title>US presidential election 2016 precinct level results for Iowa — ia_election_2016 • DSPG</title>
 
 
 <!-- jquery -->
@@ -33,18 +33,10 @@
 
 
 
-<meta property="og:title" content="Location of ASAC (Area Substance Abuse Counseling) in Iowa — asac_locations" />
-<meta property="og:description" content="Dataset was scraped from the ASAC website.
-This database contains ASAC location data for the State of Iowa
-  NameName of the facility
-  AddressStreet Address for the facility
-  City_State_ZipCity, State, and Zip contained in one column separated by a space
-  CityName of the city where the facility is located
-  Zip5 digit Zip
-  StateState Abbreviation
-  search_addressaddress used in the Google API geocoding
-  geometrysf object of geographic locations
-" />
+<meta property="og:title" content="US presidential election 2016 precinct level results for Iowa — ia_election_2016" />
+<meta property="og:description" content="Precinct level results from the 2016 general election for all Iowa precincts.
+This data was modified from the data provided by MIT Election Data and Science Lab by
+focussing on Iowa precinct results from the general presidential election in 2016." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -106,50 +98,51 @@ This database contains ASAC location data for the State of Iowa
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Location of ASAC (Area Substance Abuse Counseling) in Iowa</h1>
+    <h1>US presidential election 2016 precinct level results for Iowa</h1>
     
-    <div class="hidden name"><code>asac_locations.Rd</code></div>
+    <div class="hidden name"><code>ia_election_2016.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Dataset was scraped from the ASAC website.
-This database contains ASAC location data for the State of Iowa</p><dl class='dl-horizontal'>
-  <dt>Name</dt><dd><p>Name of the facility</p></dd>
-  <dt>Address</dt><dd><p>Street Address for the facility</p></dd>
-  <dt>City_State_Zip</dt><dd><p>City, State, and Zip contained in one column separated by a space</p></dd>
-  <dt>City</dt><dd><p>Name of the city where the facility is located</p></dd>
-  <dt>Zip</dt><dd><p>5 digit Zip</p></dd>
-  <dt>State</dt><dd><p>State Abbreviation</p></dd>
-  <dt>search_address</dt><dd><p>address used in the Google API geocoding</p></dd>
-  <dt>geometry</dt><dd><p>sf object of geographic locations</p></dd>
-</dl>
+    <p>Precinct level results from the 2016 general election for all Iowa precincts.
+This data was modified from the data provided by MIT Election Data and Science Lab by
+focussing on Iowa precinct results from the general presidential election in 2016.</p>
     </div>
 
-    <pre class="usage"><span class='no'>asac_locations</span></pre>
+    <pre class="usage"><span class='no'>ia_election_2016</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>sf</code> (inherits from <code>tbl_df</code>, <code>tbl</code>, <code>data.frame</code>) with 15 rows and 8 columns.</p>
+    <p>A data frame with 36,960 rows and 15 variables:</p><dl class='dl-horizontal'>
+  <dt>year</dt><dd><p>Year of the election.</p></dd>
+  <dt>state</dt><dd><p>State of election (here, `Iowa`).</p></dd>
+  <dt>county_name</dt><dd><p>Name of the county.</p></dd>
+  <dt>county_fips</dt><dd><p>FIPS code of county.</p></dd>
+  <dt>county_ansi</dt><dd><p>ANSI code of the county.</p></dd>
+  <dt>jurisdiction</dt><dd><p>County of jurisdiction.</p></dd>
+  <dt>precinct</dt><dd><p>Precinct name</p></dd>
+  <dt>candidate</dt><dd><p>Name of the candidate</p></dd>
+  <dt>candidate_normalized</dt><dd><p>Normalized name of the candidate.</p></dd>
+  <dt>writein</dt><dd><p>Is candidate a write-in?</p></dd>
+  <dt>party</dt><dd><p>Party affiliation of the candidate.</p></dd>
+  <dt>mode</dt><dd><p>How was vote cast? Absentee or at Polling station.</p></dd>
+  <dt>votes</dt><dd><p>Number of votes cast in precinct.</p></dd>
+  <dt>candidate_fec</dt><dd><p>Federal Election identifier of the candidate's campaign.</p></dd>
+  <dt>candidate_fec_name</dt><dd><p>Name associated with the campaign.</p></dd>
+</dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='http://www.asac.us/about/locations/'>http://www.asac.us/about/locations/</a></p>
+    <p><a href='https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LYWX3D'>https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LYWX3D</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)
-<span class='no'>asac_locations</span> <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
- <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>) + <span class='co'># iowa county shapes</span>
- <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span>() <span class='co'># add points</span></div><div class='img'><img src='asac_locations-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
-<span class='no'>asac_locations</span> <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
-             <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>Name</span>)</div></pre>
+
+<span class='no'>ia_election_2016</span> <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>candidate</span>, <span class='kw'>weight</span> <span class='kw'>=</span> <span class='no'>votes</span>)) +
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span>()</div><div class='img'><img src='ia_election_2016-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -159,6 +152,8 @@ This database contains ASAC location data for the State of Iowa</p><dl class='dl
       <li><a href="#examples">Examples</a></li>
     </ul>
 
+    <h2>Author</h2>
+    <p>MIT Election Data and Science Lab (Massachusetts Institute of Technology)</p>
   </div>
 </div>
 
