@@ -132,7 +132,7 @@
 #' library(dplyr) # for the pipe
 #'
 #' churches %>%
-#'  # filter(COUNTY == "Story county) %>%
+#'  # filter(county == "Story county) %>%
 #'   ggplot() +
 #'     geom_sf(data = ia_counties) +
 #'     geom_sf() +
