@@ -599,10 +599,10 @@
 #'   \item{meeting}{name of the meeting}
 #'   \item{address}{address}
 #'   \item{street}{stree name}
+#'   \item{state}{state}
 #'   \item{format}{Format of the meeting - XXX this needs some additional work}
 #'   \item{city}{city}
 #'   \item{type}{type of meeting}
-#'   \item{state}{state}
 #'   \item{longitude}{geographic Longitude}
 #'   \item{latitude}{geographic Latitude}
 #'   \item{schedule}{weekly schedule of meetings, starting with Monday at midnight.}
