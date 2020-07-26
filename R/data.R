@@ -3,16 +3,16 @@
 #' provenance - Chris, I need some help with how we document these exports.
 #' @format A data frame with 99 rows and 9 variables:
 #' \describe{
-#'   \item{CO_NUMBER}{county number}
-#'   \item{CO_FIPS}{three-digit county fips code}
-#'   \item{ACRES_SF}{square footage in acres}
-#'   \item{ACRES}{county acreage, same as `ACRES_SF``}
-#'   \item{FIPS}{five-digit fips code}
-#'   \item{COUNTY}{county name (and it's `Obrien`)}
-#'   \item{ST}{two letter state abbreviation (`IA` all the way through)}
-#'   \item{ID}{identifier same as `CO_FIPS`}
-#'   \item{CENSUS2010POP}{US Census Bureau count of 2010 county population.}
-#'   \item{POPESTIMATE2019}{US Census Bureau estimate of 2019 county population.}
+#'   \item{co_number}{county number}
+#'   \item{co_fips}{three-digit county fips code}
+#'   \item{acres_sf}{square footage in acres}
+#'   \item{acres}{county acreage, same as `ACRES_SF``}
+#'   \item{fips}{five-digit fips code}
+#'   \item{county}{county name (and it's `Obrien`)}
+#'   \item{state}{two letter state abbreviation (`IA` all the way through)}
+#'   \item{id}{identifier same as `CO_FIPS`}
+#'   \item{census2010pop}{US Census Bureau count of 2010 county population.}
+#'   \item{popestimate2019}{US Census Bureau estimate of 2019 county population.}
 #'   \item{geometry}{simple feature object of polygons}
 #' }
 #' @source \url{some url?}
@@ -118,15 +118,11 @@
 #' Dataset was scraped by Masoud Nosrati from the IA Hometown Locator in Mar 2020.
 #' @format A data frame with 5469 rows and 9 variables:
 #' \describe{
-#'    \item{ID}{identifier, not quite the row number XXX we should delete this column and move the GNIS_ID up.}
-#'    \item{NAME}{name of the church}
-#'    \item{CATEGORY}{value of `Iowa physical, cultural and historic features`}
-#'    \item{TYPE}{type of location, constant value of `Cultural`.}
-#'    \item{CLASS}{type of structure, constant value of `CHURCH`.}
-#'    \item{DESCRIPTION}{closer description of the location, if available}
-#'    \item{COUNTY}{name of the county}
-#'    \item{GNIS_ID}{USGS identifier}
-#'   \item{geometry}{sf point object of geographic locations of churches in Iowa.}
+#'    \item{name}{name of the church}
+#'    \item{description}{closer description of the location, if available}
+#'    \item{county}{name of the county}
+#'    \item{geometry}{sf point object of geographic locations of churches in Iowa.}
+#'    \item{classification}{column used for classifying the data set}
 #' }
 #' @source \url{https://iowa.hometownlocator.com/features/cultural,class,church.cfm}
 #'
@@ -161,21 +157,18 @@
 #' Dataset was scraped by Masoud Nosrati from MyCountyParks in Mar 2020, geocoding by Andrew Maloney through QGIS.
 #' @format A data frame with 1645 rows and 15 variables:
 #' \describe{
-#'    \item{ID}{identifier, not quite the row number}
-#'    \item{NAME}{name of the park}
-#'    \item{COUNTY}{name of the county}
-#'    \item{STREET}{street name}
-#'    \item{CITY}{name of the city}
-#'    \item{STATE}{name of the state}
-#'    \item{PHONE}{phone number}
-#'    \item{ZIP}{5-digit zip code}
+#'    \item{name}{name of the park}
+#'    \item{county}{name of the county}
+#'    \item{city}{name of the city}
+#'    \item{state}{name of the state}
+#'    \item{phone}{phone number}
+#'    \item{zip}{5-digit zip code}
 #'    \item{result_num}{1645 0s XXX delete column?}
 #'    \item{status}{1645 OKs XXX delete column?}
-#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-#'    \item{location_t}{categorical variable with additional details on location.}
-#'    \item{Latitude}{geographic latitude}
-#'    \item{Longitude}{geographic longitude}
+#'    \item{address}{formatted addresses - some are duplicates - XXX look into}
+#'    \item{latitude}{geographic latitude}
+#'    \item{longitude}{geographic longitude}
+#'    \item{classification}{column used to classify the data set}
 #' }
 #' @source \url{https://www.mycountyparks.com/County/Default.aspx}
 #' @examples
@@ -208,21 +201,19 @@
 #' Dataset was scraped by Masoud Nosrati from the Iowa Department of Public Health Development in Mar 2020, geocoding by Andrew Maloney through QGIS.
 #' @format A data frame with 123 rows and 15 variables:
 #' \describe{
-#'    \item{ID}{identifier, not quite the row number}
-#'    \item{NAME}{name of the facility}
-#'    \item{PHONE}{phone number}
-#'    \item{STREET}{street address}
-#'    \item{CITY}{city}
-#'    \item{STATE}{state}
-#'    \item{ZIP}{5-digit zip code}
-#'    \item{FACILITY}{enumeration of abbrevations}
+#'    \item{name}{name of the facility}
+#'    \item{phone}{phone number}
+#'    \item{street}{street address}
+#'    \item{city}{city}
+#'    \item{statename}{name of state}
+#'    \item{zip}{5-digit zip code}
 #'    \item{result_num}{0s XXX delete column?}
 #'    \item{status}{OKs XXX delete column?}
-#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-#'    \item{location_t}{categorical variable with additional details on location.}
+#'    \item{address}{formatted addresses - some are duplicates - XXX look into}
 #'    \item{Latitude}{geographic latitude}
 #'    \item{Longitude}{geographic longitude}
+#'    \item{state}{state abbreviation}
+#'    \item{classification}{column used to classify the dataset}
 #' }
 #' @source \url{https://www.iowaworkforcedevelopment.gov/contact}
 #' @examples
@@ -367,21 +358,20 @@
 #' Dataset was scraped by Masoud Nosrati from Official USA in Mar 2020, geocoding by Andrew Maloney through QGIS.
 #' @format A data frame with 145 rows and 15 variables:
 #' \describe{
-#'    \item{ID}{identifier, not quite the row number}
-#'    \item{City}{name of the city}
-#'    \item{Hospital.N}{name of the hospital - XXX rename to NAME}
-#'    \item{TYPE}{type of hospital, one of 'critical access', 'general acute care', 'psychiatric', 'long term care', and 'military'}
-#'    \item{WEBSITE}{url if available}
-#'    \item{ADDRESS}{address of the health clinic}
-#'    \item{BEDS}{number of BEDS}
-#'    \item{NAICS_DESC}{North American Industry Classification System (NAICS) descriptor: 'general medical and surgical hospital' or 'specialty hospital'}
+#'    \item{city}{name of the city}
+#'    \item{name}{name of the hospital - XXX rename to NAME}
+#'    \item{type}{type of hospital, one of 'critical access', 'general acute care', 'psychiatric', 'long term care', and 'military'}
+#'    \item{website}{url if available}
+#'    \item{beds}{number of BEDS}
+#'    \item{naics_desc}{North American Industry Classification System (NAICS) descriptor: 'general medical and surgical hospital' or 'specialty hospital'}
 #'    \item{result_num}{145 0s XXX delete column?}
 #'    \item{status}{145 OKs XXX delete column?}
-#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-#'    \item{location_t}{categorical variable with additional details on location.}
-#'    \item{Latitude}{geographic latitude}
-#'    \item{Longitude}{geographic longitude}
+#'    \item{address}{formatted addresses - some are duplicates - XXX look into}
+#'    \item{state}{state abbreviation}
+#'    \item{zip}{zip code}
+#'    \item{latitude}{geographic latitude}
+#'    \item{longitude}{geographic longitude}
+#'    \item{classification}{column used to classify the data set}
 #' }
 #' @source \url{https://www.officialusa.com/stateguides/health/hospitals/iowa.html}
 #' @examples
@@ -415,17 +405,17 @@
 #' Dataset was scraped by Masoud Nosrati from the Iowa Association of Rural Health Clinics in Mar 2020, geocoding by Andrew Maloney through QGIS.
 #' @format A data frame with 146 rows and 11 variables:
 #' \describe{
-#'    \item{ID}{identifier, not quite the row number}
-#'    \item{NAME}{name of the clinic}
-#'    \item{ADDRESS}{address of the health clinic}
-#'    \item{COUNTY}{name of the county}
+#'    \item{name}{name of the clinic}
+#'    \item{address}{formatted addresses - some are duplicates - XXX look into}
+#'    \item{state}{state abbreviation}
+#'    \item{county}{name of the county}
+#'    \item{zip}{zip code}
+#'    \item{country}{country where facility is located}
 #'    \item{result_num}{146 0s XXX delete column?}
 #'    \item{status}{146 OKs XXX delete column?}
-#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-#'    \item{location_t}{categorical variable with additional details on location.}
-#'    \item{Latitude}{geographic latitude}
-#'    \item{Longitude}{geographic longitude}
+#'    \item{longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#'    \item{classification}{column used for classifying the data set}
 #' }
 #' @source \url{https://iarhc.org/find-a-rural-health-clinic?view=map}
 #' @examples
@@ -457,15 +447,14 @@
 #' Dataset was scraped by Masoud Nosrati from wikipedia in Mar 2020, geocoding by Heike Hofmann through Google API.
 #' @format A data frame with 57 rows and 11 variables:
 #' \describe{
-#'    \item{SCHOOL}{name of school}
-#'    \item{CITY}{name of the clinic}
-#'    \item{CONTROL}{type of institution by funding}
-#'    \item{TYPE}{type of institution by degree}
-#'    \item{ENROLMENT}{number of students enrolled (in Spring 2012)}
-#'    \item{FOUNDED}{year in which the institution was founded}
+#'    \item{name}{name of school}
+#'    \item{city}{name of the clinic}
+#'    \item{type}{type of institution by degree}
+#'    \item{enrolment}{number of students enrolled (in Spring 2012)}
 #'    \item{address}{address used in search string for Google geocoding}
-#'    \item{Latitude}{geographic latitude}
-#'    \item{Longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#'    \item{longitude}{geographic longitude}
+#'    \item{classification}{column used for classifying the data set}
 #' }
 #' @source \url{https://en.wikipedia.org/wiki/List_of_colleges_and_universities_in_Iowa}
 #' @examples
@@ -496,17 +485,17 @@
 #' Summary data of Iowa American Community Survey responses by computer presence and internet subscription status. Each row represents a combination of variables and the households variable representing the number of households estimated to be associated with that variable combination.
 #' @format A data frame with 99 rows and 9 variables:
 #' \describe{
-#'   \item{Geography.Id}{geographic ID used by the U.S. census for the location associated with this record}
-#'   \item{Type}{The type of location associated with this record. Categories are state, county, place, and tract}
-#'   \item{Name}{Name of the location}
-#'   \item{Variable}{Variable ID identified by the U.S. Census Bureau}
-#'   \item{Variable.Description}{Description of the variable}
-#'   \item{Computer.Present}{Classifies if a computer is present in those households. Categories are total, yes, and no}
-#'   \item{Internet.Subscription}{Classifies what kind of internet subscription is present in those households. Categories are total, total w/computer, broadband, dial-up, and none}
-#'   \item{Data.Collection.Period}{Period in which the data was collected}
-#'   \item{Data.Collection.End.Date}{The date in which the data was done being collected}
-#'   \item{Households}{The number of households estimated to have the specified characteristics in the record}
-#'   \item{Row.ID}{Unique ID associated with the record}
+#'   \item{geography.Id}{geographic ID used by the U.S. census for the location associated with this record}
+#'   \item{type}{The type of location associated with this record. Categories are state, county, place, and tract}
+#'   \item{name}{Name of the location}
+#'   \item{variable}{Variable ID identified by the U.S. Census Bureau}
+#'   \item{variable_description}{Description of the variable}
+#'   \item{computer_present}{Classifies if a computer is present in those households. Categories are total, yes, and no}
+#'   \item{internet_subscription}{Classifies what kind of internet subscription is present in those households. Categories are total, total w/computer, broadband, dial-up, and none}
+#'   \item{data_collection_period}{Period in which the data was collected}
+#'   \item{data_collection_end_date}{The date in which the data was done being collected}
+#'   \item{households}{The number of households estimated to have the specified characteristics in the record}
+#'   \item{row_id}{Unique ID associated with the record}
 #'   \item{geometry}{sf point object of geographic location}
 #' }
 #' @source \url{https://data.iowa.gov/Utilities-Telecommunications/Iowa-Households-by-Presence-of-a-Computer-and-Type/gz3j-hzab}
@@ -534,14 +523,15 @@
 #' Dataset was scraped from the ASAC website.
 #' This database contains ASAC location data for the State of Iowa
 #' \describe{
-#'   \item{Name}{Name of the facility}
-#'   \item{Address}{Street Address for the facility}
-#'   \item{City_State_Zip}{City, State, and Zip contained in one column separated by a space}
-#'   \item{City}{Name of the city where the facility is located}
-#'   \item{Zip}{5 digit Zip}
-#'   \item{State}{State Abbreviation}
+#'   \item{name}{Name of the facility}
+#'   \item{address}{Street Address for the facility}
+#'   \item{city_state_zip}{City, State, and Zip contained in one column separated by a space}
+#'   \item{city}{Name of the city where the facility is located}
+#'   \item{zip}{5 digit Zip}
+#'   \item{state}{State Abbreviation}
 #'   \item{search_address}{address used in the Google API geocoding}
 #'   \item{geometry}{sf object of geographic locations}
+#'   \item{classification}{column used for identification for filtering}
 #' }
 #' @source \url{http://www.asac.us/about/locations/}
 #' @examples
@@ -569,14 +559,15 @@
 #' This database contains Community and Family Resources location data for the State of Iowa.
 #' @format A data frame with 10 rows and 8 variables:
 #' \describe{
-#'   \item{Address}{Street address for the facility}
-#'   \item{City}{Character string containing city name}
-#'   \item{State}{State Abbreviation}
-#'   \item{Zip}{5 digit zip code}
-#'   \item{Name}{Facility Name, only 3 locations have unique names}
+#'   \item{address}{Street address for the facility}
+#'   \item{city}{Character string containing city name}
+#'   \item{state}{State Abbreviation}
+#'   \item{zip}{5 digit zip code}
+#'   \item{name}{Facility Name, only 3 locations have unique names}
 #'   \item{search_address}{address used in the Google API geocoding}
-#'   \item{lon}{geographic Longitude}
-#'   \item{lat}{geographic Latitude}
+#'   \item{longitude}{geographic Longitude}
+#'   \item{latitude}{geographic Latitude}
+#'   \item{classification}{classification column}
 #' }
 #' @source \url{http://www.cfrhelps.org/our-locations}
 #' @examples
@@ -602,19 +593,20 @@
 #' Dataset was scraped from the AA and NA websites of Iowa by Jessie Bustin.
 #' @format A data frame with 1549 rows and 13 variables:
 #' \describe{
-#'   \item{Day}{day of the week}
-#'   \item{Time}{time of the day}
-#'   \item{AmPm}{morning or afternoon}
-#'   \item{Meeting}{name of the meeting}
-#'   \item{Location}{location}
-#'   \item{Address}{address}
-#'   \item{Format}{Format of the meeting - XXX this needs some additional work}
-#'   \item{City}{city}
-#'   \item{Type}{type of meeting}
-#'   \item{State}{state}
-#'   \item{lon}{geographic Longitude}
-#'   \item{lat}{geographic Latitude}
+#'   \item{day}{day of the week}
+#'   \item{time}{time of the day}
+#'   \item{ampm}{morning or afternoon}
+#'   \item{meeting}{name of the meeting}
+#'   \item{address}{address}
+#'   \item{street}{stree name}
+#'   \item{format}{Format of the meeting - XXX this needs some additional work}
+#'   \item{city}{city}
+#'   \item{type}{type of meeting}
+#'   \item{state}{state}
+#'   \item{longitude}{geographic Longitude}
+#'   \item{latitude}{geographic Latitude}
 #'   \item{schedule}{weekly schedule of meetings, starting with Monday at midnight.}
+#'   \item{classification}{column used to classify the data set}
 #' }
 #' @source \url{https://www.aa-iowa.org/meetings/}, \url{https://www.na-iowa.org/meetings/}
 #' @examples
@@ -651,19 +643,19 @@
 #' Dataset was scraped from the MHDS website.
 #' @format A data frame with 356 rows and 13 variables:
 #' \describe{
-#'   \item{Category}{Service type provided at facility}
-#'   \item{County}{Iowa county name}
-#'   \item{Related Records}{Currently Unknown}
-#'   \item{Service Title}{Name of the facility}
-#'   \item{Address}{Column containing location information: Street, City, State, Zip}
-#'   \item{Phone}{Phone Number for the facility}
-#'   \item{Description}{A description to help the viewer navigate which facility is best for them}
-#'   \item{Website}{Facility website link}
-#'   \item{Email}{Contact Email for facility}
-#'   \item{Expiration}{Currently Unknown}
-#'   \item{Last Updated}{Date at which website information was last updated}
-#'   \item{lon}{geographic Longitude}
-#'   \item{lat}{geographic Latitude}
+#'   \item{category}{Service type provided at facility}
+#'   \item{county}{Iowa county name}
+#'   \item{related records}{Currently Unknown}
+#'   \item{service title}{Name of the facility}
+#'   \item{address}{Column containing location information: Street, City, State, Zip}
+#'   \item{phone}{Phone Number for the facility}
+#'   \item{description}{A description to help the viewer navigate which facility is best for them}
+#'   \item{website}{Facility website link}
+#'   \item{email}{Contact Email for facility}
+#'   \item{expiration}{Currently Unknown}
+#'   \item{last updated}{Date at which website information was last updated}
+#'   \item{longitude}{geographic Longitude}
+#'   \item{latitude}{geographic Latitude}
 #' }
 #' @source \url{https://www.aa-iowa.org/meetings/}
 #' @examples
@@ -694,17 +686,17 @@
 #' Iowa hospital buildings listed in the federal Geographic Names Information System.
 #' @format A data frame with 1709 rows and 11 variables:
 #' \describe{
-#'   \item{Feature.ID}{Unique identifier for each record}
-#'   \item{Feature.Name}{Name of building}
-#'   \item{Feature.Class}{Type of building. All records in this dataset will be "hospital".}
-#'   \item{Primary.State}{State of the location}
-#'   \item{Primary.County.Name}{County of the location}
-#'   \item{Elevation..Meters.}{Elevation in meters above sea level of the location}
-#'   \item{Elevation..Feet.}{Elevation in feet above sea level of the location}
-#'   \item{USGS.Map.Name}{Name of the location of the building}
-#'   \item{Date.Created}{Date that the feature was added to the database}
-#'   \item{Date.Edited}{Date at which the record was last updated}
+#'   \item{name}{Name of building}
+#'   \item{feature_class}{Type of building. All records in this dataset will be "hospital".}
+#'   \item{state}{State of the location}
+#'   \item{county}{County of the location}
+#'   \item{elevation_meters}{Elevation in meters above sea level of the location}
+#'   \item{elevation__feet}{Elevation in feet above sea level of the location}
+#'   \item{usgs_map_name}{Name of the location of the building}
+#'   \item{date_created}{Date that the feature was added to the database}
+#'   \item{date_edited}{Date at which the record was last updated}
 #'   \item{geometry}{sf point object of geographic location}
+#'   \item{classification}{column used for classifying the data set}
 #' }
 #' @source \url{https://data.iowa.gov/Physical-Geography/Iowa-Hospital-Buildings/ciqq-2z9p}
 #' @examples
@@ -727,11 +719,14 @@
 #' CROSS has designated access points for adult mental health and disability services that are listed here
 #' @format A data frame with 36 rows and 5 variables:
 #' \describe{
-#'   \item{Place}{Name of the accesss point}
-#'   \item{Address}{Address of the building}
-#'   \item{Phone}{Phone number of the building}
-#'   \item{lon}{geographic Longitude}
-#'   \item{lat}{geographic Latitude}
+#'   \item{name}{Name of the accesss point}
+#'   \item{address}{Address of the building}
+#'   \item{state}{state abbreviation}
+#'   \item{zip}{zip code}
+#'   \item{phone}{Phone number of the building}
+#'   \item{longitude}{geographic Longitude}
+#'   \item{latitude}{geographic Latitude}
+#'   \item{classification}{column used for classifying the data set}
 #' }
 #' @source \url{https://crossmentalhealth.org/wp-content/uploads/2020/03/Access-Points.pdf}
 #' @examples
@@ -758,17 +753,15 @@
 #' It encompasses various aspects of Iowa's infrastructure, including hospital buildings and parks.
 #' @format A data frame with 40,473 rows and 11 variables:
 #' \describe{
-#'   \item{Feature.ID}{Permanent, unique feature record identifier as defined in INCITS 446-2008. }
-#'   \item{Feature.Name}{Official feature name as defined in INCITS 446-2008.}
-#'   \item{Feature.Class}{Type of feature, one of Airport, Arch, Area, Bar, Bay, Beach, Bend, Bridge, Building, Canal, Cape, Cemetery, Census, Channel, Church, Civil, Cliff, Crossing, Dam, Falls, Flat, Forest, Gut, Harbor, Hospital, Island, Lake, Levee, Locale, Military, Mine, Oilfield, Park, Pillar, Plain, Populated Place, Post Office, Range, Reserve, Reservoir, Ridge, School, Spring, Stream, Summit, Swamp, Tower, Trail, Tunnel, Valley, and Woods..}
-#'   \item{Primary.County.Name}{County of the primary location of the feature.}
-#'   \item{Primary.Point..Coordinates.}{just kept for now, will be deleted XXX}
-#'   \item{Primary.State}{Two-letter state abbreviation. Constant value of `IA`.}
-#'   \item{Elevation.M}{Elevation in meters above sea level of the feature.}
-#'   \item{Elevation.Ft}{Elevation in feet above sea level of the feature.}
-#'   \item{USGS.Map.Name}{Name of the location of the building}
-#'   \item{Date.Created}{Date that the feature was added to the database}
-#'   \item{Date.Edited}{Date at which the record was last updated}
+#'   \item{name}{Official feature name as defined in INCITS 446-2008.}
+#'   \item{class}{Type of feature, one of Airport, Arch, Area, Bar, Bay, Beach, Bend, Bridge, Building, Canal, Cape, Cemetery, Census, Channel, Church, Civil, Cliff, Crossing, Dam, Falls, Flat, Forest, Gut, Harbor, Hospital, Island, Lake, Levee, Locale, Military, Mine, Oilfield, Park, Pillar, Plain, Populated Place, Post Office, Range, Reserve, Reservoir, Ridge, School, Spring, Stream, Summit, Swamp, Tower, Trail, Tunnel, Valley, and Woods..}
+#'   \item{state}{state abbreviation}
+#'   \item{county}{County of the primary location of the feature.}
+#'   \item{elevation_m}{Elevation in meters above sea level of the feature.}
+#'   \item{elevation_ft}{Elevation in feet above sea level of the feature.}
+#'   \item{usgs_map_name}{Name of the location of the building}
+#'   \item{date_created}{Date that the feature was added to the database}
+#'   \item{date_edited}{Date at which the record was last updated}
 #'   \item{geometry}{sf point object of geographic location}
 #' }
 #' @source \url{https://data.iowa.gov/Physical-Geography/Iowa-Physical-and-Cultural-Geographic-Features/uedc-2fk7}
