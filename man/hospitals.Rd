@@ -6,21 +6,20 @@
 \title{Location of hospitals in Iowa}
 \format{A data frame with 145 rows and 15 variables:
 \describe{
-   \item{ID}{identifier, not quite the row number}
-   \item{City}{name of the city}
-   \item{Hospital.N}{name of the hospital - XXX rename to NAME}
-   \item{TYPE}{type of hospital, one of 'critical access', 'general acute care', 'psychiatric', 'long term care', and 'military'}
-   \item{WEBSITE}{url if available}
-   \item{ADDRESS}{address of the health clinic}
-   \item{BEDS}{number of BEDS}
-   \item{NAICS_DESC}{North American Industry Classification System (NAICS) descriptor: 'general medical and surgical hospital' or 'specialty hospital'}
+   \item{city}{name of the city}
+   \item{name}{name of the hospital - XXX rename to NAME}
+   \item{type}{type of hospital, one of 'critical access', 'general acute care', 'psychiatric', 'long term care', and 'military'}
+   \item{website}{url if available}
+   \item{beds}{number of BEDS}
+   \item{naics_desc}{North American Industry Classification System (NAICS) descriptor: 'general medical and surgical hospital' or 'specialty hospital'}
    \item{result_num}{145 0s XXX delete column?}
    \item{status}{145 OKs XXX delete column?}
-   \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-   \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-   \item{location_t}{categorical variable with additional details on location.}
-   \item{Latitude}{geographic latitude}
-   \item{Longitude}{geographic longitude}
+   \item{address}{formatted addresses - some are duplicates - XXX look into}
+   \item{state}{state abbreviation}
+   \item{zip}{zip code}
+   \item{latitude}{geographic latitude}
+   \item{longitude}{geographic longitude}
+   \item{classification}{column used to classify the data set}
 }}
 \source{
 \url{https://www.officialusa.com/stateguides/health/hospitals/iowa.html}

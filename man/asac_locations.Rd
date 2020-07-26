@@ -4,7 +4,7 @@
 \name{asac_locations}
 \alias{asac_locations}
 \title{Location of ASAC (Area Substance Abuse Counseling) in Iowa}
-\format{An object of class \code{sf} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 15 rows and 8 columns.}
+\format{An object of class \code{data.frame} with 15 rows and 9 columns.}
 \source{
 \url{http://www.asac.us/about/locations/}
 }
@@ -15,14 +15,15 @@ asac_locations
 Dataset was scraped from the ASAC website.
 This database contains ASAC location data for the State of Iowa
 \describe{
-  \item{Name}{Name of the facility}
-  \item{Address}{Street Address for the facility}
-  \item{City_State_Zip}{City, State, and Zip contained in one column separated by a space}
-  \item{City}{Name of the city where the facility is located}
-  \item{Zip}{5 digit Zip}
-  \item{State}{State Abbreviation}
+  \item{name}{Name of the facility}
+  \item{address}{Street Address for the facility}
+  \item{city_state_zip}{City, State, and Zip contained in one column separated by a space}
+  \item{city}{Name of the city where the facility is located}
+  \item{zip}{5 digit Zip}
+  \item{state}{State Abbreviation}
   \item{search_address}{address used in the Google API geocoding}
   \item{geometry}{sf object of geographic locations}
+  \item{classification}{column used for identification for filtering}
 }
 }
 \examples{

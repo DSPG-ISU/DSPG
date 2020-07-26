@@ -6,16 +6,16 @@
 \title{Shapefiles of Iowa's counties}
 \format{A data frame with 99 rows and 9 variables:
 \describe{
-  \item{CO_NUMBER}{county number}
-  \item{CO_FIPS}{three-digit county fips code}
-  \item{ACRES_SF}{square footage in acres}
-  \item{ACRES}{county acreage, same as `ACRES_SF``}
-  \item{FIPS}{five-digit fips code}
-  \item{COUNTY}{county name (and it's `Obrien`)}
-  \item{ST}{two letter state abbreviation (`IA` all the way through)}
-  \item{ID}{identifier same as `CO_FIPS`}
-  \item{CENSUS2010POP}{US Census Bureau count of 2010 county population.}
-  \item{POPESTIMATE2019}{US Census Bureau estimate of 2019 county population.}
+  \item{co_number}{county number}
+  \item{co_fips}{three-digit county fips code}
+  \item{acres_sf}{square footage in acres}
+  \item{acres}{county acreage, same as `ACRES_SF``}
+  \item{fips}{five-digit fips code}
+  \item{county}{county name (and it's `Obrien`)}
+  \item{state}{two letter state abbreviation (`IA` all the way through)}
+  \item{id}{identifier same as `CO_FIPS`}
+  \item{census2010pop}{US Census Bureau count of 2010 county population.}
+  \item{popestimate2019}{US Census Bureau estimate of 2019 county population.}
   \item{geometry}{simple feature object of polygons}
 }}
 \source{
@@ -34,7 +34,7 @@ library(dplyr) # for the pipe
 
 ia_counties \%>\%
   ggplot() +
-  geom_sf(aes(fill = POPESTIMATE2019),
+  geom_sf(aes(fill = popestimate2019),
           colour = "grey80", size = 0.1) +
   ggthemes::theme_map() +
   theme(legend.position="right") +
@@ -46,9 +46,9 @@ library(leaflet)
 library(sf)
 
 ia_counties \%>\%
-  group_by(COUNTY) \%>\%
+  group_by(county) \%>\%
   mutate(
-    hovertext = htmltools::HTML(paste0(COUNTY, "<br>",POPESTIMATE2019))
+    hovertext = htmltools::HTML(paste0(county, "<br>",popestimate2019))
   ) \%>\%
   leaflet() \%>\%
     addTiles() \%>\%

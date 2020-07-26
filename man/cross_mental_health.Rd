@@ -6,11 +6,14 @@
 \title{Cross Mental Health Data}
 \format{A data frame with 36 rows and 5 variables:
 \describe{
-  \item{Place}{Name of the accesss point}
-  \item{Address}{Address of the building}
-  \item{Phone}{Phone number of the building}
-  \item{lon}{geographic Longitude}
-  \item{lat}{geographic Latitude}
+  \item{name}{Name of the accesss point}
+  \item{address}{Address of the building}
+  \item{state}{state abbreviation}
+  \item{zip}{zip code}
+  \item{phone}{Phone number of the building}
+  \item{longitude}{geographic Longitude}
+  \item{latitude}{geographic Latitude}
+  \item{classification}{column used for classifying the data set}
 }}
 \source{
 \url{https://crossmentalhealth.org/wp-content/uploads/2020/03/Access-Points.pdf}

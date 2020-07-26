@@ -6,21 +6,18 @@
 \title{Location of parks in Iowa}
 \format{A data frame with 1645 rows and 15 variables:
 \describe{
-   \item{ID}{identifier, not quite the row number}
-   \item{NAME}{name of the park}
-   \item{COUNTY}{name of the county}
-   \item{STREET}{street name}
-   \item{CITY}{name of the city}
-   \item{STATE}{name of the state}
-   \item{PHONE}{phone number}
-   \item{ZIP}{5-digit zip code}
+   \item{name}{name of the park}
+   \item{county}{name of the county}
+   \item{city}{name of the city}
+   \item{state}{name of the state}
+   \item{phone}{phone number}
+   \item{zip}{5-digit zip code}
    \item{result_num}{1645 0s XXX delete column?}
    \item{status}{1645 OKs XXX delete column?}
-   \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-   \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-   \item{location_t}{categorical variable with additional details on location.}
-   \item{Latitude}{geographic latitude}
-   \item{Longitude}{geographic longitude}
+   \item{address}{formatted addresses - some are duplicates - XXX look into}
+   \item{latitude}{geographic latitude}
+   \item{longitude}{geographic longitude}
+   \item{classification}{column used to classify the data set}
 }}
 \source{
 \url{https://www.mycountyparks.com/County/Default.aspx}

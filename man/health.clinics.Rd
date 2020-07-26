@@ -6,17 +6,17 @@
 \title{Location of rural health clinics in Iowa}
 \format{A data frame with 146 rows and 11 variables:
 \describe{
-   \item{ID}{identifier, not quite the row number}
-   \item{NAME}{name of the clinic}
-   \item{ADDRESS}{address of the health clinic}
-   \item{COUNTY}{name of the county}
+   \item{name}{name of the clinic}
+   \item{address}{formatted addresses - some are duplicates - XXX look into}
+   \item{state}{state abbreviation}
+   \item{county}{name of the county}
+   \item{zip}{zip code}
+   \item{country}{country where facility is located}
    \item{result_num}{146 0s XXX delete column?}
    \item{status}{146 OKs XXX delete column?}
-   \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-   \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-   \item{location_t}{categorical variable with additional details on location.}
-   \item{Latitude}{geographic latitude}
-   \item{Longitude}{geographic longitude}
+   \item{longitude}{geographic longitude}
+   \item{latitude}{geographic latitude}
+   \item{classification}{column used for classifying the data set}
 }}
 \source{
 \url{https://iarhc.org/find-a-rural-health-clinic?view=map}

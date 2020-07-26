@@ -6,14 +6,15 @@
 \title{Community and Family Resources}
 \format{A data frame with 10 rows and 8 variables:
 \describe{
-  \item{Address}{Street address for the facility}
-  \item{City}{Character string containing city name}
-  \item{State}{State Abbreviation}
-  \item{Zip}{5 digit zip code}
-  \item{Name}{Facility Name, only 3 locations have unique names}
+  \item{address}{Street address for the facility}
+  \item{city}{Character string containing city name}
+  \item{state}{State Abbreviation}
+  \item{zip}{5 digit zip code}
+  \item{name}{Facility Name, only 3 locations have unique names}
   \item{search_address}{address used in the Google API geocoding}
-  \item{lon}{geographic Longitude}
-  \item{lat}{geographic Latitude}
+  \item{longitude}{geographic Longitude}
+  \item{latitude}{geographic Latitude}
+  \item{classification}{classification column}
 }}
 \source{
 \url{http://www.cfrhelps.org/our-locations}

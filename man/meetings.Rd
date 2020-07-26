@@ -6,19 +6,20 @@
 \title{Alcoholic and Narcotics Anonymous Meetings in Iowa}
 \format{A data frame with 1549 rows and 13 variables:
 \describe{
-  \item{Day}{day of the week}
-  \item{Time}{time of the day}
-  \item{AmPm}{morning or afternoon}
-  \item{Meeting}{name of the meeting}
-  \item{Location}{location}
-  \item{Address}{address}
-  \item{Format}{Format of the meeting - XXX this needs some additional work}
-  \item{City}{city}
-  \item{Type}{type of meeting}
-  \item{State}{state}
-  \item{lon}{geographic Longitude}
-  \item{lat}{geographic Latitude}
+  \item{day}{day of the week}
+  \item{time}{time of the day}
+  \item{ampm}{morning or afternoon}
+  \item{meeting}{name of the meeting}
+  \item{address}{address}
+  \item{street}{stree name}
+  \item{format}{Format of the meeting - XXX this needs some additional work}
+  \item{city}{city}
+  \item{type}{type of meeting}
+  \item{state}{state}
+  \item{longitude}{geographic Longitude}
+  \item{latitude}{geographic Latitude}
   \item{schedule}{weekly schedule of meetings, starting with Monday at midnight.}
+  \item{classification}{column used to classify the data set}
 }}
 \source{
 \url{https://www.aa-iowa.org/meetings/}, \url{https://www.na-iowa.org/meetings/}

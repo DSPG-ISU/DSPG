@@ -6,15 +6,11 @@
 \title{Location of churches in Iowa}
 \format{A data frame with 5469 rows and 9 variables:
 \describe{
-   \item{ID}{identifier, not quite the row number XXX we should delete this column and move the GNIS_ID up.}
-   \item{NAME}{name of the church}
-   \item{CATEGORY}{value of `Iowa physical, cultural and historic features`}
-   \item{TYPE}{type of location, constant value of `Cultural`.}
-   \item{CLASS}{type of structure, constant value of `CHURCH`.}
-   \item{DESCRIPTION}{closer description of the location, if available}
-   \item{COUNTY}{name of the county}
-   \item{GNIS_ID}{USGS identifier}
-  \item{geometry}{sf point object of geographic locations of churches in Iowa.}
+   \item{name}{name of the church}
+   \item{description}{closer description of the location, if available}
+   \item{county}{name of the county}
+   \item{geometry}{sf point object of geographic locations of churches in Iowa.}
+   \item{classification}{column used for classifying the data set}
 }}
 \source{
 \url{https://iowa.hometownlocator.com/features/cultural,class,church.cfm}

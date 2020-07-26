@@ -6,21 +6,19 @@
 \title{Location of Licensed Substance Use Disorder/Problem Gambling Programs in Iowa}
 \format{A data frame with 123 rows and 15 variables:
 \describe{
-   \item{ID}{identifier, not quite the row number}
-   \item{NAME}{name of the facility}
-   \item{PHONE}{phone number}
-   \item{STREET}{street address}
-   \item{CITY}{city}
-   \item{STATE}{state}
-   \item{ZIP}{5-digit zip code}
-   \item{FACILITY}{enumeration of abbrevations}
+   \item{name}{name of the facility}
+   \item{phone}{phone number}
+   \item{street}{street address}
+   \item{city}{city}
+   \item{statename}{name of state}
+   \item{zip}{5-digit zip code}
    \item{result_num}{0s XXX delete column?}
    \item{status}{OKs XXX delete column?}
-   \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-   \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-   \item{location_t}{categorical variable with additional details on location.}
+   \item{address}{formatted addresses - some are duplicates - XXX look into}
    \item{Latitude}{geographic latitude}
    \item{Longitude}{geographic longitude}
+   \item{state}{state abbreviation}
+   \item{classification}{column used to classify the dataset}
 }}
 \source{
 \url{https://www.iowaworkforcedevelopment.gov/contact}

@@ -23,7 +23,7 @@
 #'
 #' ia_counties %>%
 #'   ggplot() +
-#'   geom_sf(aes(fill = POPESTIMATE2019),
+#'   geom_sf(aes(fill = popestimate2019),
 #'           colour = "grey80", size = 0.1) +
 #'   ggthemes::theme_map() +
 #'   theme(legend.position="right") +
@@ -35,9 +35,9 @@
 #' library(sf)
 #'
 #' ia_counties %>%
-#'   group_by(COUNTY) %>%
+#'   group_by(county) %>%
 #'   mutate(
-#'     hovertext = htmltools::HTML(paste0(COUNTY, "<br>",POPESTIMATE2019))
+#'     hovertext = htmltools::HTML(paste0(county, "<br>",popestimate2019))
 #'   ) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%

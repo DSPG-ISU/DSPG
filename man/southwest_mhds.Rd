@@ -6,19 +6,19 @@
 \title{Southwest Iowa Region Mental Health & Disability Services}
 \format{A data frame with 356 rows and 13 variables:
 \describe{
-  \item{Category}{Service type provided at facility}
-  \item{County}{Iowa county name}
-  \item{Related Records}{Currently Unknown}
-  \item{Service Title}{Name of the facility}
-  \item{Address}{Column containing location information: Street, City, State, Zip}
-  \item{Phone}{Phone Number for the facility}
-  \item{Description}{A description to help the viewer navigate which facility is best for them}
-  \item{Website}{Facility website link}
-  \item{Email}{Contact Email for facility}
-  \item{Expiration}{Currently Unknown}
-  \item{Last Updated}{Date at which website information was last updated}
-  \item{lon}{geographic Longitude}
-  \item{lat}{geographic Latitude}
+  \item{category}{Service type provided at facility}
+  \item{county}{Iowa county name}
+  \item{related records}{Currently Unknown}
+  \item{service title}{Name of the facility}
+  \item{address}{Column containing location information: Street, City, State, Zip}
+  \item{phone}{Phone Number for the facility}
+  \item{description}{A description to help the viewer navigate which facility is best for them}
+  \item{website}{Facility website link}
+  \item{email}{Contact Email for facility}
+  \item{expiration}{Currently Unknown}
+  \item{last updated}{Date at which website information was last updated}
+  \item{longitude}{geographic Longitude}
+  \item{latitude}{geographic Latitude}
 }}
 \source{
 \url{https://www.aa-iowa.org/meetings/}

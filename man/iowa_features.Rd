@@ -6,17 +6,15 @@
 \title{Physical and Cultural Geographic Features in Iowa}
 \format{A data frame with 40,473 rows and 11 variables:
 \describe{
-  \item{Feature.ID}{Permanent, unique feature record identifier as defined in INCITS 446-2008. }
-  \item{Feature.Name}{Official feature name as defined in INCITS 446-2008.}
-  \item{Feature.Class}{Type of feature, one of Airport, Arch, Area, Bar, Bay, Beach, Bend, Bridge, Building, Canal, Cape, Cemetery, Census, Channel, Church, Civil, Cliff, Crossing, Dam, Falls, Flat, Forest, Gut, Harbor, Hospital, Island, Lake, Levee, Locale, Military, Mine, Oilfield, Park, Pillar, Plain, Populated Place, Post Office, Range, Reserve, Reservoir, Ridge, School, Spring, Stream, Summit, Swamp, Tower, Trail, Tunnel, Valley, and Woods..}
-  \item{Primary.County.Name}{County of the primary location of the feature.}
-  \item{Primary.Point..Coordinates.}{just kept for now, will be deleted XXX}
-  \item{Primary.State}{Two-letter state abbreviation. Constant value of `IA`.}
-  \item{Elevation.M}{Elevation in meters above sea level of the feature.}
-  \item{Elevation.Ft}{Elevation in feet above sea level of the feature.}
-  \item{USGS.Map.Name}{Name of the location of the building}
-  \item{Date.Created}{Date that the feature was added to the database}
-  \item{Date.Edited}{Date at which the record was last updated}
+  \item{name}{Official feature name as defined in INCITS 446-2008.}
+  \item{class}{Type of feature, one of Airport, Arch, Area, Bar, Bay, Beach, Bend, Bridge, Building, Canal, Cape, Cemetery, Census, Channel, Church, Civil, Cliff, Crossing, Dam, Falls, Flat, Forest, Gut, Harbor, Hospital, Island, Lake, Levee, Locale, Military, Mine, Oilfield, Park, Pillar, Plain, Populated Place, Post Office, Range, Reserve, Reservoir, Ridge, School, Spring, Stream, Summit, Swamp, Tower, Trail, Tunnel, Valley, and Woods..}
+  \item{state}{state abbreviation}
+  \item{county}{County of the primary location of the feature.}
+  \item{elevation_m}{Elevation in meters above sea level of the feature.}
+  \item{elevation_ft}{Elevation in feet above sea level of the feature.}
+  \item{usgs_map_name}{Name of the location of the building}
+  \item{date_created}{Date that the feature was added to the database}
+  \item{date_edited}{Date at which the record was last updated}
   \item{geometry}{sf point object of geographic location}
 }}
 \source{

@@ -6,15 +6,14 @@
 \title{Location of colleges and universities in Iowa}
 \format{A data frame with 57 rows and 11 variables:
 \describe{
-   \item{SCHOOL}{name of school}
-   \item{CITY}{name of the clinic}
-   \item{CONTROL}{type of institution by funding}
-   \item{TYPE}{type of institution by degree}
-   \item{ENROLMENT}{number of students enrolled (in Spring 2012)}
-   \item{FOUNDED}{year in which the institution was founded}
+   \item{name}{name of school}
+   \item{city}{name of the clinic}
+   \item{type}{type of institution by degree}
+   \item{enrolment}{number of students enrolled (in Spring 2012)}
    \item{address}{address used in search string for Google geocoding}
-   \item{Latitude}{geographic latitude}
-   \item{Longitude}{geographic longitude}
+   \item{latitude}{geographic latitude}
+   \item{longitude}{geographic longitude}
+   \item{classification}{column used for classifying the data set}
 }}
 \source{
 \url{https://en.wikipedia.org/wiki/List_of_colleges_and_universities_in_Iowa}
