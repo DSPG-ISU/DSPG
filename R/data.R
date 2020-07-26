@@ -210,8 +210,8 @@
 #'    \item{result_num}{0s XXX delete column?}
 #'    \item{status}{OKs XXX delete column?}
 #'    \item{address}{formatted addresses - some are duplicates - XXX look into}
-#'    \item{Latitude}{geographic latitude}
-#'    \item{Longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#'    \item{longitude}{geographic longitude}
 #'    \item{state}{state abbreviation}
 #'    \item{classification}{column used to classify the dataset}
 #' }
@@ -223,22 +223,22 @@
 #'
 #' sud %>%
 #'   ggplot() +
-#'     geom_point(aes(x = Longitude, y = Latitude))
+#'     geom_point(aes(x = longitude, y = latitude))
 #'
 #' # leaflet map
 #' library(leaflet)
 #' library(sf)
 #'
 #' sud %>%
-#'   group_by(NAME,formatted_, PHONE) %>%
+#'   group_by(name,address, phone) %>%
 #'   mutate(
-#'     hovertext = htmltools::HTML(paste0(NAME, "<br>",formatted_, '<br>', PHONE))
+#'     hovertext = htmltools::HTML(paste0(name, "<br>",formatted_, '<br>', phone))
 #'   ) %>%
 #'   leaflet() %>%
 #'     addTiles() %>%
 #'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
-#'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+#'     addCircleMarkers(lng = ~longitude, lat = ~latitude,
 #'                      radius = 1, stroke = 0.1,
 #'                      label = ~hovertext)
 "sud"
