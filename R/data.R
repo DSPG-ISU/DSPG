@@ -149,7 +149,7 @@
 #'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
 #'     addCircleMarkers(radius = 1, stroke = 0.1,
-#'                      label = ~NAME, clusterOptions = markerClusterOptions())
+#'                      label = ~name, clusterOptions = markerClusterOptions())
 "churches"
 
 #' Location of parks in Iowa
@@ -549,7 +549,7 @@
 #'  addTiles() %>%
 #'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
-#'  addCircleMarkers(radius = 1, stroke = 0.1, label=~Name)
+#'  addCircleMarkers(radius = 1, stroke = 0.1, label=~name)
 "asac_locations"
 
 
@@ -575,7 +575,7 @@
 #' library(dplyr)
 #' cf_resources %>%
 #'  ggplot() +
-#'  geom_point(aes(x = lon, y = lat))
+#'  geom_point(aes(x = longitude, y = latitude))
 #'
 #' library(leaflet)
 #' library(sf)
@@ -584,7 +584,7 @@
 #'  addTiles() %>%
 #'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
-#'  addCircleMarkers(lng = ~lon, lat = ~lat,
+#'  addCircleMarkers(lng = ~longitude, lat = ~latitude,
 #'                   radius = 1, stroke = 0.1)
 "cf_resources"
 
