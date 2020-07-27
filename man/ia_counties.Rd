@@ -4,7 +4,8 @@
 \name{ia_counties}
 \alias{ia_counties}
 \title{Shapefiles of Iowa's counties}
-\format{A data frame with 99 rows and 9 variables:
+\format{
+A data frame with 99 rows and 9 variables:
 \describe{
   \item{co_number}{county number}
   \item{co_fips}{three-digit county fips code}
@@ -17,7 +18,8 @@
   \item{census2010pop}{US Census Bureau count of 2010 county population.}
   \item{popestimate2019}{US Census Bureau estimate of 2019 county population.}
   \item{geometry}{simple feature object of polygons}
-}}
+}
+}
 \source{
 \url{some url?}
 }
@@ -38,7 +40,7 @@ ia_counties \%>\%
           colour = "grey80", size = 0.1) +
   ggthemes::theme_map() +
   theme(legend.position="right") +
-  scale_fill_gradient("2019 Population\\nEstimate", trans="log",
+  scale_fill_gradient("2019 Population\nEstimate", trans="log",
     low = "grey80", high="darkred")
 
 # leaflet map

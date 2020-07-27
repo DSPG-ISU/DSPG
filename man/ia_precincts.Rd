@@ -4,7 +4,8 @@
 \name{ia_precincts}
 \alias{ia_precincts}
 \title{2016 precincts of Iowa}
-\format{A data frame with 1690 rows and 16 variables:
+\format{
+A data frame with 1690 rows and 16 variables:
 \describe{
   \item{COUNTY}{county}
   \item{DISTRICT}{DISTRICT, precinct and NAME are used as names of a precinct.}
@@ -22,7 +23,8 @@
   \item{AREA}{Area of the district.}
   \item{Shape_Leng}{Numeric value derived from polygon.}
   \item{geometry}{sfc object of polygons describing each district.}
-}}
+}
+}
 \source{
 \url{https://sos.iowa.gov/elections/maps/shapefiles.html}
 }

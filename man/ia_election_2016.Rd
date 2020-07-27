@@ -4,7 +4,8 @@
 \name{ia_election_2016}
 \alias{ia_election_2016}
 \title{US presidential election 2016 precinct level results for Iowa}
-\format{A data frame with 36,960 rows and 15 variables:
+\format{
+A data frame with 36,960 rows and 15 variables:
 \describe{
   \item{year}{Year of the election.}
   \item{state}{State of election (here, `Iowa`).}
@@ -21,7 +22,8 @@
   \item{votes}{Number of votes cast in precinct.}
   \item{candidate_fec}{Federal Election identifier of the candidate's campaign.}
   \item{candidate_fec_name}{Name associated with the campaign.}
-}}
+}
+}
 \source{
 \url{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LYWX3D}
 }

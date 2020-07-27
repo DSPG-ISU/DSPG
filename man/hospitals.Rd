@@ -4,7 +4,8 @@
 \name{hospitals}
 \alias{hospitals}
 \title{Location of hospitals in Iowa}
-\format{A data frame with 145 rows and 15 variables:
+\format{
+A data frame with 145 rows and 15 variables:
 \describe{
    \item{city}{name of the city}
    \item{name}{name of the hospital - XXX rename to NAME}
@@ -20,7 +21,8 @@
    \item{latitude}{geographic latitude}
    \item{longitude}{geographic longitude}
    \item{classification}{column used to classify the data set}
-}}
+}
+}
 \source{
 \url{https://www.officialusa.com/stateguides/health/hospitals/iowa.html}
 }
@@ -37,7 +39,7 @@ library(dplyr) # for the pipe
 
 hospitals \%>\%
   ggplot() +
-    geom_point(aes(x = Longitude, y = Latitude))
+    geom_point(aes(x = longitude, y = latitude))
 
 # leaflet map
 library(leaflet)
@@ -48,9 +50,9 @@ hospitals \%>\%
     addTiles() \%>\%
     addPolygons(data = ia_counties,
                 weight = 1, color="#333333") \%>\%
-    addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+    addCircleMarkers(lng = ~longitude, lat = ~latitude,
                      radius = 1, stroke = 0.1,
-                     label = ~Hospital.N,
+                     label = ~name,
                      clusterOptions = markerClusterOptions())
 }
 \keyword{datasets}

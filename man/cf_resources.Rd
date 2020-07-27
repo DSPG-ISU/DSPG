@@ -4,7 +4,8 @@
 \name{cf_resources}
 \alias{cf_resources}
 \title{Community and Family Resources}
-\format{A data frame with 10 rows and 8 variables:
+\format{
+A data frame with 10 rows and 8 variables:
 \describe{
   \item{address}{Street address for the facility}
   \item{city}{Character string containing city name}
@@ -15,7 +16,8 @@
   \item{longitude}{geographic Longitude}
   \item{latitude}{geographic Latitude}
   \item{classification}{classification column}
-}}
+}
+}
 \source{
 \url{http://www.cfrhelps.org/our-locations}
 }
@@ -31,7 +33,7 @@ library(ggplot2)
 library(dplyr)
 cf_resources \%>\%
  ggplot() +
- geom_point(aes(x = lon, y = lat))
+ geom_point(aes(x = longitude, y = latitude))
 
 library(leaflet)
 library(sf)
@@ -40,7 +42,7 @@ cf_resources \%>\%
  addTiles() \%>\%
  addPolygons(data = ia_counties,
              weight = 1, color="#333333") \%>\%
- addCircleMarkers(lng = ~lon, lat = ~lat,
+ addCircleMarkers(lng = ~longitude, lat = ~latitude,
                   radius = 1, stroke = 0.1)
 }
 \keyword{datasets}

@@ -485,7 +485,7 @@
 #' Summary data of Iowa American Community Survey responses by computer presence and internet subscription status. Each row represents a combination of variables and the households variable representing the number of households estimated to be associated with that variable combination.
 #' @format A data frame with 99 rows and 9 variables:
 #' \describe{
-#'   \item{geography.Id}{geographic ID used by the U.S. census for the location associated with this record}
+#'   \item{geography_id}{geographic ID used by the U.S. census for the location associated with this record}
 #'   \item{type}{The type of location associated with this record. Categories are state, county, place, and tract}
 #'   \item{name}{Name of the location}
 #'   \item{variable}{Variable ID identified by the U.S. Census Bureau}
@@ -691,12 +691,12 @@
 #'   \item{state}{State of the location}
 #'   \item{county}{County of the location}
 #'   \item{elevation_meters}{Elevation in meters above sea level of the location}
-#'   \item{elevation__feet}{Elevation in feet above sea level of the location}
+#'   \item{elevation_feet}{Elevation in feet above sea level of the location}
 #'   \item{usgs_map_name}{Name of the location of the building}
 #'   \item{date_created}{Date that the feature was added to the database}
 #'   \item{date_edited}{Date at which the record was last updated}
-#'   \item{geometry}{sf point object of geographic location}
 #'   \item{classification}{column used for classifying the data set}
+#'   \item{geometry}{sf point object of geographic location}
 #' }
 #' @source \url{https://data.iowa.gov/Physical-Geography/Iowa-Hospital-Buildings/ciqq-2z9p}
 #' @examples
@@ -711,7 +711,7 @@
 #'  addTiles() %>%
 #'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
-#'  addCircleMarkers(radius = 1, stroke = 0.1)
+#'  addCircleMarkers(radius = 1, stroke = 0.1, label=~name)
 "hospital_buildings"
 
 #' Cross Mental Health Data
@@ -768,7 +768,7 @@
 #' @examples
 #' library(dplyr)
 #' library(ggplot2)
-#' iowa_features %>%
+#' ia_features %>%
 #'   filter(class == "Park") %>%
 #'   ggplot() +
 #'   geom_sf() +
@@ -779,7 +779,7 @@
 #'   library(leaflet)
 #'   library(sf)
 #'
-#'  iowa_features %>%
+#'  ia_features %>%
 #'    filter(county == "Madison",
 #'           class == "Bridge") %>%
 #'    leaflet() %>%
@@ -790,14 +790,14 @@
 #'    addCircleMarkers(radius = 1, stroke = 0.1, label=~class)
 #'
 #' # Leaflet map of top ten feature maps in Iowa
-#'  topten <- iowa_features %>% count(class) %>%
+#'  topten <- ia_features %>% count(class) %>%
 #'              arrange(desc(n)) %>% head(10)
 #'
 #'  pal <- colorFactor(
 #'           palette=RColorBrewer::brewer.pal(n=10, name="Paired"),
 #'           domain = topten$class
 #'         )
-#'  iowa_features %>%
+#'  ia_features %>%
 #'    filter(class %in% topten$class) %>%
 #'    leaflet() %>%
 #'    addTiles() %>%
@@ -816,8 +816,8 @@
 #'           reverse=TRUE
 #'         )
 #'
-#'  iowa_features %>%
-#'    filter(class %in% topten$feature) %>%
+#'  ia_features %>%
+#'    filter(class %in% topten$class) %>%
 #'    leaflet() %>%
 #'    addTiles() %>%
 #'    setView(-94, 42, zoom = 6) %>%
@@ -825,9 +825,9 @@
 #'                weight = 1, color="#333333") %>%
 #'    addCircleMarkers(radius = .5, stroke = 0.1,
 #'                     color =~elev_pal(elevation_m),
-#'                     label=~feature) %>%
+#'                     label=~name) %>%
 #'    addLegend(pal=elev_pal, values=c(0,600))
-"iowa_features"
+"ia_features"
 
 
 #' Comprehensive Substance Abuse Prevention Grant Facilities

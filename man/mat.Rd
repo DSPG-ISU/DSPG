@@ -4,7 +4,8 @@
 \name{mat}
 \alias{mat}
 \title{Location of MAT in Iowa}
-\format{A data frame with 145 rows and 15 variables:
+\format{
+A data frame with 145 rows and 15 variables:
 \describe{
    \item{ID}{identifier, not quite the row number}
    \item{DOCTOR}{name of the medical personnel}
@@ -22,7 +23,8 @@
    \item{location_t}{categorical variable with additional details on location.}
    \item{Latitude}{geographic latitude}
    \item{Longitude}{geographic longitude}
-}}
+}
+}
 \source{
 \url{https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1}
 }

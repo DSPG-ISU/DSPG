@@ -4,7 +4,8 @@
 \name{health.clinics}
 \alias{health.clinics}
 \title{Location of rural health clinics in Iowa}
-\format{A data frame with 146 rows and 11 variables:
+\format{
+A data frame with 146 rows and 11 variables:
 \describe{
    \item{name}{name of the clinic}
    \item{address}{formatted addresses - some are duplicates - XXX look into}
@@ -17,7 +18,8 @@
    \item{longitude}{geographic longitude}
    \item{latitude}{geographic latitude}
    \item{classification}{column used for classifying the data set}
-}}
+}
+}
 \source{
 \url{https://iarhc.org/find-a-rural-health-clinic?view=map}
 }
@@ -34,7 +36,7 @@ library(dplyr) # for the pipe
 
 health.clinics \%>\%
   ggplot() +
-    geom_point(aes(x = Longitude, y = Latitude))
+    geom_point(aes(x = longitude, y = latitude))
 
 # leaflet map
 library(leaflet)
@@ -45,8 +47,8 @@ health.clinics \%>\%
     addTiles() \%>\%
     addPolygons(data = ia_counties,
                 weight = 1, color="#333333") \%>\%
-    addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+    addCircleMarkers(lng = ~longitude, lat = ~latitude,
                      radius = 1, stroke = 0.1,
-                     label = ~NAME)
+                     label = ~name)
 }
 \keyword{datasets}

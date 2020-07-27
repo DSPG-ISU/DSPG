@@ -4,20 +4,22 @@
 \name{hospital_buildings}
 \alias{hospital_buildings}
 \title{Iowa Hospital Buildings}
-\format{A data frame with 1709 rows and 11 variables:
+\format{
+A data frame with 1709 rows and 11 variables:
 \describe{
   \item{name}{Name of building}
   \item{feature_class}{Type of building. All records in this dataset will be "hospital".}
   \item{state}{State of the location}
   \item{county}{County of the location}
   \item{elevation_meters}{Elevation in meters above sea level of the location}
-  \item{elevation__feet}{Elevation in feet above sea level of the location}
+  \item{elevation_feet}{Elevation in feet above sea level of the location}
   \item{usgs_map_name}{Name of the location of the building}
   \item{date_created}{Date that the feature was added to the database}
   \item{date_edited}{Date at which the record was last updated}
-  \item{geometry}{sf point object of geographic location}
   \item{classification}{column used for classifying the data set}
-}}
+  \item{geometry}{sf point object of geographic location}
+}
+}
 \source{
 \url{https://data.iowa.gov/Physical-Geography/Iowa-Hospital-Buildings/ciqq-2z9p}
 }
@@ -39,6 +41,6 @@ hospital_buildings \%>\%
  addTiles() \%>\%
  addPolygons(data = ia_counties,
              weight = 1, color="#333333") \%>\%
- addCircleMarkers(radius = 1, stroke = 0.1)
+ addCircleMarkers(radius = 1, stroke = 0.1, label=~name)
 }
 \keyword{datasets}

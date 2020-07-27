@@ -4,9 +4,10 @@
 \name{acs}
 \alias{acs}
 \title{American Community Survey - Computer Presence}
-\format{A data frame with 99 rows and 9 variables:
+\format{
+A data frame with 99 rows and 9 variables:
 \describe{
-  \item{geography.Id}{geographic ID used by the U.S. census for the location associated with this record}
+  \item{geography_id}{geographic ID used by the U.S. census for the location associated with this record}
   \item{type}{The type of location associated with this record. Categories are state, county, place, and tract}
   \item{name}{Name of the location}
   \item{variable}{Variable ID identified by the U.S. Census Bureau}
@@ -18,7 +19,8 @@
   \item{households}{The number of households estimated to have the specified characteristics in the record}
   \item{row_id}{Unique ID associated with the record}
   \item{geometry}{sf point object of geographic location}
-}}
+}
+}
 \source{
 \url{https://data.iowa.gov/Utilities-Telecommunications/Iowa-Households-by-Presence-of-a-Computer-and-Type/gz3j-hzab}
 }
@@ -34,7 +36,7 @@ library(ggplot2)
 library(dplyr) # for the pipe
 
 ia_counties \%>\%
-  ggplot() + geom_sf(aes(fill = ACRES_SF)) +
+  ggplot() + geom_sf(aes(fill = acres_sf)) +
   ggthemes::theme_map()
 
 # leaflet map

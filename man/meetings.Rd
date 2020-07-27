@@ -4,7 +4,8 @@
 \name{meetings}
 \alias{meetings}
 \title{Alcoholic and Narcotics Anonymous Meetings in Iowa}
-\format{A data frame with 1549 rows and 13 variables:
+\format{
+A data frame with 1549 rows and 13 variables:
 \describe{
   \item{day}{day of the week}
   \item{time}{time of the day}
@@ -12,15 +13,16 @@
   \item{meeting}{name of the meeting}
   \item{address}{address}
   \item{street}{stree name}
+  \item{state}{state}
   \item{format}{Format of the meeting - XXX this needs some additional work}
   \item{city}{city}
   \item{type}{type of meeting}
-  \item{state}{state}
   \item{longitude}{geographic Longitude}
   \item{latitude}{geographic Latitude}
   \item{schedule}{weekly schedule of meetings, starting with Monday at midnight.}
   \item{classification}{column used to classify the data set}
-}}
+}
+}
 \source{
 \url{https://www.aa-iowa.org/meetings/}, \url{https://www.na-iowa.org/meetings/}
 }
@@ -35,8 +37,8 @@ Dataset was scraped from the AA and NA websites of Iowa by Jessie Bustin.
 library(ggplot2)
 library(dplyr)
 meetings \%>\%
-  ggplot(aes(x = lon, y = lat)) +
-  geom_point(aes(colour = Type))
+  ggplot(aes(x = longitude, y = latitude)) +
+  geom_point(aes(colour = type))
 
 # Leaflet map of meetings in Iowa
 library(leaflet)
@@ -47,12 +49,12 @@ meetings \%>\%
  addPolygons(data = ia_counties,
              weight = 1, color="#333333") \%>\%
  addCircleMarkers(meetings \%>\% filter(Type == "Narcotics Anonymous"),
-                  lng = ~lon, lat = ~lat,
+                  lng = ~longitude, lat = ~latitude,
                   radius = 1, stroke = 0.1,
                   color = "darkorange",
                   label = ~Meeting, group="NA") \%>\%
  addCircleMarkers(meetings \%>\% filter(Type == "Alcoholics Anonymous"),
-                  lng = ~lon, lat = ~lat,
+                  lng = ~longitude, lat = ~latitude,
                   radius = 1, stroke = 0.1,
                   color = "darkgreen",
                   label = ~Meeting, group="AA") \%>\%

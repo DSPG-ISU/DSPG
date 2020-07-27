@@ -4,7 +4,8 @@
 \name{southwest_mhds}
 \alias{southwest_mhds}
 \title{Southwest Iowa Region Mental Health & Disability Services}
-\format{A data frame with 356 rows and 13 variables:
+\format{
+A data frame with 356 rows and 13 variables:
 \describe{
   \item{category}{Service type provided at facility}
   \item{county}{Iowa county name}
@@ -19,7 +20,8 @@
   \item{last updated}{Date at which website information was last updated}
   \item{longitude}{geographic Longitude}
   \item{latitude}{geographic Latitude}
-}}
+}
+}
 \source{
 \url{https://www.aa-iowa.org/meetings/}
 }
@@ -35,7 +37,7 @@ library(ggplot2)
 library(dplyr)
 southwest_mhds \%>\%
  ggplot() +
- geom_point(aes(x = lon, y = lat))
+ geom_point(aes(x = longitude, y = latitude))
 
 # Leaflet map of meetings in Iowa
 library(leaflet)
@@ -46,7 +48,7 @@ southwest_mhds \%>\%
  addTiles() \%>\%
  addPolygons(data = ia_counties,
              weight = 1, color="#333333") \%>\%
- addCircleMarkers(lng = ~lon, lat = ~lat,
+ addCircleMarkers(lng = ~longitude, lat = ~latitude,
                   radius = 1, stroke = 0.1,
                   label = ~southwest_mhds)
 }

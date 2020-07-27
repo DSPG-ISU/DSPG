@@ -4,7 +4,8 @@
 \name{colleges}
 \alias{colleges}
 \title{Location of colleges and universities in Iowa}
-\format{A data frame with 57 rows and 11 variables:
+\format{
+A data frame with 57 rows and 11 variables:
 \describe{
    \item{name}{name of school}
    \item{city}{name of the clinic}
@@ -14,7 +15,8 @@
    \item{latitude}{geographic latitude}
    \item{longitude}{geographic longitude}
    \item{classification}{column used for classifying the data set}
-}}
+}
+}
 \source{
 \url{https://en.wikipedia.org/wiki/List_of_colleges_and_universities_in_Iowa}
 }
@@ -31,7 +33,7 @@ library(dplyr) # for the pipe
 
 colleges \%>\%
   ggplot() +
-    geom_point(aes(x = Longitude, y = Latitude))
+    geom_point(aes(x = longitude, y = latitude))
 
 # leaflet map
 library(leaflet)
@@ -42,8 +44,8 @@ colleges \%>\%
     addTiles() \%>\%
     addPolygons(data = ia_counties,
                 weight = 1, color="#333333") \%>\%
-    addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+    addCircleMarkers(lng = ~longitude, lat = ~latitude,
                      radius = 1, stroke = 0.1,
-                     label = ~SCHOOL)
+                     label = ~name)
 }
 \keyword{datasets}

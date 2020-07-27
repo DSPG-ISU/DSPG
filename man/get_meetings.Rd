@@ -4,15 +4,18 @@
 \alias{get_meetings}
 \title{Get set of meetings for a time range based on schedule}
 \usage{
-get_meetings(from = now(), to = now() + days(1),
-  type = c("Alcoholics Anonymous", "Narcotics Anonymous"))
+get_meetings(
+  from = now(),
+  to = now() + days(1),
+  type = c("Alcoholics Anonymous", "Narcotics Anonymous")
+)
 }
 \arguments{
 \item{from}{earliest date (and time, if specified)}
 
 \item{to}{latest date}
 
-\item{type}{type of meeting}
+\item{type}{type of meeting see `unique(meetings$type)`}
 }
 \value{
 data frame
@@ -31,15 +34,15 @@ lubridate::now()
 # color locations by day
 pal <- colorFactor(
          palette = RColorBrewer::brewer.pal(n=7, name="Paired"),
-         domain = levels(meetings$Day)
+         domain = levels(meetings$day)
        )
 get_meetings() \%>\%
   leaflet() \%>\%
   addTiles() \%>\%
   addPolygons(data = st_transform(ia_counties, crs='+proj=longlat +datum=WGS84'),
               weight = 1, color="#888888") \%>\%
-  addCircleMarkers(lng = ~lon, lat = ~lat, color=~pal(Day),
-                   label=~Meeting,
+  addCircleMarkers(lng = ~longitude, lat = ~latitude,
+                   color=~pal(day), label=~meeting,
                    radius = 1, stroke = 0.1) \%>\%
-  addLegend(pal = pal, values = levels(meetings$Day))
+  addLegend(pal = pal, values = levels(meetings$day))
 }

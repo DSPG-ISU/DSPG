@@ -4,7 +4,8 @@
 \name{parks}
 \alias{parks}
 \title{Location of parks in Iowa}
-\format{A data frame with 1645 rows and 15 variables:
+\format{
+A data frame with 1645 rows and 15 variables:
 \describe{
    \item{name}{name of the park}
    \item{county}{name of the county}
@@ -18,7 +19,8 @@
    \item{latitude}{geographic latitude}
    \item{longitude}{geographic longitude}
    \item{classification}{column used to classify the data set}
-}}
+}
+}
 \source{
 \url{https://www.mycountyparks.com/County/Default.aspx}
 }
@@ -34,9 +36,9 @@ library(ggplot2)
 library(dplyr) # for the pipe
 
 parks \%>\%
- # filter(COUNTY == "Story county) \%>\%
+ # filter(county == "Story county) \%>\%
   ggplot() +
-    geom_point(aes(x = Longitude, y = Latitude))
+    geom_point(aes(x = longitude, y = latitude))
 
 # leaflet map
 library(leaflet)
@@ -47,8 +49,8 @@ parks \%>\%
     addTiles() \%>\%
     addPolygons(data = ia_counties,
                 weight = 1, color="#333333") \%>\%
-    addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+    addCircleMarkers(lng = ~longitude, lat = ~latitude,
                      radius = 1, stroke = 0.1,
-                     label = ~NAME)
+                     label = ~name)
 }
 \keyword{datasets}

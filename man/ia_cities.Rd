@@ -4,7 +4,8 @@
 \name{ia_cities}
 \alias{ia_cities}
 \title{Location of Iowa's cities}
-\format{A data frame with 1069 rows and 17 variables:
+\format{
+A data frame with 1069 rows and 17 variables:
 \describe{
   \item{rid}{rid number}
   \item{city}{city name}
@@ -23,7 +24,8 @@
   \item{currentPop}{sf point object - current population (what is the basis for these numbers?) }
   \item{percentChg}{sf point object - percent change in population. }
   \item{geometry}{sf point object of IA cities' coordinates.}
-}}
+}
+}
 \source{
 \url{some url?}
 }
@@ -50,7 +52,7 @@ ia_cities \%>\%
     geom_sf(aes(size = currentPop, colour = growth),
             alpha = 0.5) +
     scale_size_binned("Population", range=c(0.5,3.5)) +
-    scale_colour_manual("Percent Change\\nin Population",
+    scale_colour_manual("Percent Change\nin Population",
               values=c("darkred", "grey30", "darkblue")) +
     ggthemes::theme_map() +
     theme(legend.position = "right")

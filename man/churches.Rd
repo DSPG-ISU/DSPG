@@ -4,14 +4,16 @@
 \name{churches}
 \alias{churches}
 \title{Location of churches in Iowa}
-\format{A data frame with 5469 rows and 9 variables:
+\format{
+A data frame with 5469 rows and 9 variables:
 \describe{
    \item{name}{name of the church}
    \item{description}{closer description of the location, if available}
    \item{county}{name of the county}
    \item{geometry}{sf point object of geographic locations of churches in Iowa.}
    \item{classification}{column used for classifying the data set}
-}}
+}
+}
 \source{
 \url{https://iowa.hometownlocator.com/features/cultural,class,church.cfm}
 }
@@ -27,7 +29,7 @@ library(ggplot2)
 library(dplyr) # for the pipe
 
 churches \%>\%
- # filter(COUNTY == "Story county) \%>\%
+ # filter(county == "Story county) \%>\%
   ggplot() +
     geom_sf(data = ia_counties) +
     geom_sf() +
@@ -44,6 +46,6 @@ churches \%>\%
     addPolygons(data = ia_counties,
                 weight = 1, color="#333333") \%>\%
     addCircleMarkers(radius = 1, stroke = 0.1,
-                     label = ~NAME, clusterOptions = markerClusterOptions())
+                     label = ~name, clusterOptions = markerClusterOptions())
 }
 \keyword{datasets}

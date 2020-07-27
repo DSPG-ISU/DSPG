@@ -4,7 +4,9 @@
 \name{asac_locations}
 \alias{asac_locations}
 \title{Location of ASAC (Area Substance Abuse Counseling) in Iowa}
-\format{An object of class \code{data.frame} with 15 rows and 9 columns.}
+\format{
+An object of class \code{sf} (inherits from \code{data.frame}) with 15 rows and 9 columns.
+}
 \source{
 \url{http://www.asac.us/about/locations/}
 }
@@ -41,6 +43,6 @@ asac_locations \%>\%
  addTiles() \%>\%
  addPolygons(data = ia_counties,
              weight = 1, color="#333333") \%>\%
- addCircleMarkers(radius = 1, stroke = 0.1, label=~Name)
+ addCircleMarkers(radius = 1, stroke = 0.1, label=~name)
 }
 \keyword{datasets}

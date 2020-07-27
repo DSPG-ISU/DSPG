@@ -4,7 +4,8 @@
 \name{iowaworks}
 \alias{iowaworks}
 \title{Location of IowaWORKS Centers in Iowa}
-\format{A data frame with 27 rows and 18 variables:
+\format{
+A data frame with 27 rows and 18 variables:
 \describe{
    \item{ID}{identifier, not quite the row number}
    \item{NAME}{enumeration of counties the center serves}
@@ -24,7 +25,8 @@
    \item{location_t}{categorical variable with additional details on location.}
    \item{Latitude}{geographic latitude}
    \item{Longitude}{geographic longitude}
-}}
+}
+}
 \source{
 \url{https://www.iowaworkforcedevelopment.gov/contact}
 }
