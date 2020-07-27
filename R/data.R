@@ -464,7 +464,7 @@
 #'
 #' colleges %>%
 #'   ggplot() +
-#'     geom_point(aes(x = Longitude, y = Latitude))
+#'     geom_point(aes(x = longitude, y = latitude))
 #'
 #' # leaflet map
 #' library(leaflet)
@@ -475,9 +475,9 @@
 #'     addTiles() %>%
 #'     addPolygons(data = ia_counties,
 #'                 weight = 1, color="#333333") %>%
-#'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
+#'     addCircleMarkers(lng = ~longitude, lat = ~latitude,
 #'                      radius = 1, stroke = 0.1,
-#'                      label = ~SCHOOL)
+#'                      label = ~name)
 "colleges"
 
 #' American Community Survey - Computer Presence
