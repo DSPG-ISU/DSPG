@@ -614,8 +614,8 @@
 #' library(ggplot2)
 #' library(dplyr)
 #' meetings %>%
-#'   ggplot(aes(x = lon, y = lat)) +
-#'   geom_point(aes(colour = Type))
+#'   ggplot(aes(x = longitude, y = latitude)) +
+#'   geom_point(aes(colour = type))
 #'
 #' # Leaflet map of meetings in Iowa
 #' library(leaflet)
@@ -626,12 +626,12 @@
 #'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
 #'  addCircleMarkers(meetings %>% filter(Type == "Narcotics Anonymous"),
-#'                   lng = ~lon, lat = ~lat,
+#'                   lng = ~longitude, lat = ~latitude,
 #'                   radius = 1, stroke = 0.1,
 #'                   color = "darkorange",
 #'                   label = ~Meeting, group="NA") %>%
 #'  addCircleMarkers(meetings %>% filter(Type == "Alcoholics Anonymous"),
-#'                   lng = ~lon, lat = ~lat,
+#'                   lng = ~longitude, lat = ~latitude,
 #'                   radius = 1, stroke = 0.1,
 #'                   color = "darkgreen",
 #'                   label = ~Meeting, group="AA") %>%
@@ -664,7 +664,7 @@
 #' library(dplyr)
 #' southwest_mhds %>%
 #'  ggplot() +
-#'  geom_point(aes(x = lon, y = lat))
+#'  geom_point(aes(x = longitude, y = latitude))
 #'
 #' # Leaflet map of meetings in Iowa
 #' library(leaflet)
@@ -675,7 +675,7 @@
 #'  addTiles() %>%
 #'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
-#'  addCircleMarkers(lng = ~lon, lat = ~lat,
+#'  addCircleMarkers(lng = ~longitude, lat = ~latitude,
 #'                   radius = 1, stroke = 0.1,
 #'                   label = ~southwest_mhds)
 "southwest_mhds"
