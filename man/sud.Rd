@@ -47,7 +47,7 @@ library(sf)
 sud \%>\%
   group_by(name,address, phone) \%>\%
   mutate(
-    hovertext = htmltools::HTML(paste0(name, "<br>",formatted_, '<br>', phone))
+    hovertext = htmltools::HTML(paste0(name, "<br>",address, '<br>', phone))
   ) \%>\%
   leaflet() \%>\%
     addTiles() \%>\%

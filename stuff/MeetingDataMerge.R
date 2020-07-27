@@ -11,7 +11,7 @@
 #  https://locator.crgroups.info/
 #  https://www.facebook.com/crushofiowa/
 #  https://refugerecovery.org/meetings?tsml-day=any&tsml-region=iowa
-#  
+#
 #
 # Authors: Jessie Bustin
 #          Dr. Heike Hoffman - Code to Create Schedule Column
@@ -33,21 +33,21 @@ smart <- read.csv("DataMerge/Recovery_Celebrate_SMART_IA_Meetings.csv")
 
 # AdultChildren Change column names and drop unneeded columns
 adultChildren <- adultChildren %>%
-  mutate(Notes = paste0(Note, "  Code: ", code, " Format: ", Types)) %>% 
+  mutate(Notes = paste0(Note, "  Code: ", code, " Format: ", Types)) %>%
   select(-c(X, time.zone, zip, code, Note, Types)) %>%
   rename(Meeting = name, Location = Address, Phone = Tel, Contact.Person = contact.person)
 
 # AdultChildren Clean City Column and Create Full Address Column
 adultChildren <- adultChildren %>%
   mutate(City = gsub("\\(.*", "", City)) %>%
-  mutate(Address = paste0(Location, ", ", City, ", ", State)) 
+  mutate(Address = paste0(Location, ", ", City, ", ", State))
 
 # Alanon Separate Time Column
-alanon <- alanon %>% 
+alanon <- alanon %>%
   separate(MEETING_TIME, c("Day", "Time", "AmPm"), sep = "\\ ") %>%
   select(-c(ID, SHOW_MEETINGS_WITH, GROUP_ID, DESCRIPTION)) %>%
   separate(ADDRESS, c("Location", "City", "State"), sep = "\\,", remove = FALSE) %>%
-  rename(Meeting = NAME, Address = ADDRESS, Notes = LOCATION_INSTRUCTION, 
+  rename(Meeting = NAME, Address = ADDRESS, Notes = LOCATION_INSTRUCTION,
          Phone = PHONE, Website = WEBSITE, Email = EMAIL) %>%
   mutate(Type = "Al-anon")
 
@@ -127,7 +127,7 @@ all_meetings <- all_meetings %>%
 # Fill in Blanks and NAs in Meeting Column
 all_meetings <- all_meetings %>%
   mutate(Meeting = case_when(Meeting == "" ~ Type, is.na(Meeting) ~ Type, TRUE ~ Meeting))
-      
+
 # Fill in blanks in the rest of the Data
 #all_meetings <- all_meetings %>%
  # replace_with_na_all(condition = ~.x == "")
@@ -135,3 +135,13 @@ all_meetings <- all_meetings %>%
 
 # Write to csv
 write.csv(all_meetings, "DataMerge/All_Meetings_Geocoded.csv")
+
+meetings <- all_meetings
+
+meetings$type <- factor(meetings$type)
+levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
+meetings$type <- as.character(meetings$type)
+use_data(meetings, overwrite = TRUE)
+
+
+

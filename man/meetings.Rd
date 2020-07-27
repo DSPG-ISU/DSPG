@@ -48,16 +48,16 @@ meetings \%>\%
  addTiles() \%>\%
  addPolygons(data = ia_counties,
              weight = 1, color="#333333") \%>\%
- addCircleMarkers(meetings \%>\% filter(Type == "Narcotics Anonymous"),
+ addCircleMarkers(meetings \%>\% filter(type == "Narcotics Anonymous"),
                   lng = ~longitude, lat = ~latitude,
                   radius = 1, stroke = 0.1,
                   color = "darkorange",
-                  label = ~Meeting, group="NA") \%>\%
- addCircleMarkers(meetings \%>\% filter(Type == "Alcoholics Anonymous"),
+                  label = ~meeting, group="NA") \%>\%
+ addCircleMarkers(meetings \%>\% filter(type == "Alcoholics Anonymous"),
                   lng = ~longitude, lat = ~latitude,
                   radius = 1, stroke = 0.1,
                   color = "darkgreen",
-                  label = ~Meeting, group="AA") \%>\%
+                  label = ~meeting, group="AA") \%>\%
  addLayersControl(overlayGroups = c("AA","NA"))
 }
 \keyword{datasets}
