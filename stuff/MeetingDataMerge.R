@@ -143,5 +143,12 @@ levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
 meetings$type <- as.character(meetings$type)
 use_data(meetings, overwrite = TRUE)
 
+idx <- which(str_detect( meetings$address, "\xa0"))
+meetings$address <- str_replace_all(meetings$address, "\xa0", "")
+use_data(meetings, overwrite = TRUE)
 
+meetings$city <- str_replace_all(meetings$city, "\xa0", "")
+use_data(meetings, overwrite = TRUE)
 
+meetings$meeting <- str_replace_all(meetings$meeting, "\xa0", " ")
+use_data(meetings, overwrite = TRUE)
