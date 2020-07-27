@@ -769,7 +769,7 @@
 #' library(dplyr)
 #' library(ggplot2)
 #' iowa_features %>%
-#'   filter(Feature.Class == "Park") %>%
+#'   filter(class == "Park") %>%
 #'   ggplot() +
 #'   geom_sf() +
 #'   xlim(c(-97,-89.75)) +
@@ -780,34 +780,34 @@
 #'   library(sf)
 #'
 #'  iowa_features %>%
-#'    filter(Primary.County.Name == "Madison",
-#'           Feature.Class == "Bridge") %>%
+#'    filter(county == "Madison",
+#'           class == "Bridge") %>%
 #'    leaflet() %>%
 #'    addTiles() %>%
 #'    setView(-94.0530854, 41.3409121, zoom = 9) %>%
-#'    addPolygons(data = ia_counties,
-#'                weight = 1, color="#333333") %>%
-#'    addCircleMarkers(radius = 1, stroke = 0.1, label=~Feature.Name)
+#'  #  addPolygons(data = ia_counties,
+#'  #              weight = 1, color="#333333") %>%
+#'    addCircleMarkers(radius = 1, stroke = 0.1, label=~class)
 #'
 #' # Leaflet map of top ten feature maps in Iowa
-#'  topten <- iowa_features %>% count(Feature.Class) %>%
+#'  topten <- iowa_features %>% count(class) %>%
 #'              arrange(desc(n)) %>% head(10)
 #'
 #'  pal <- colorFactor(
 #'           palette=RColorBrewer::brewer.pal(n=10, name="Paired"),
-#'           domain = topten$Feature.Class
+#'           domain = topten$class
 #'         )
 #'  iowa_features %>%
-#'    filter(Feature.Class %in% topten$Feature.Class) %>%
+#'    filter(class %in% topten$class) %>%
 #'    leaflet() %>%
 #'    addTiles() %>%
 #'    setView(-94, 42, zoom = 6) %>%
 #'    addPolygons(data = ia_counties,
 #'                weight = 1, color="#333333") %>%
 #'    addCircleMarkers(radius = .5, stroke = 0.1,
-#'                     color =~pal(Feature.Class),
-#'                     label=~Feature.Name) %>%
-#'    addLegend(pal = pal, values = topten$Feature.Class)
+#'                     color =~pal(class),
+#'                     label=~class) %>%
+#'    addLegend(pal = pal, values = topten$class)
 #'
 #'  # Iowa is flat. Is it? Yes, but ...
 #'  elev_pal <- colorNumeric(
@@ -817,15 +817,15 @@
 #'         )
 #'
 #'  iowa_features %>%
-#'    filter(Feature.Class %in% topten$Feature.Class) %>%
+#'    filter(class %in% topten$feature) %>%
 #'    leaflet() %>%
 #'    addTiles() %>%
 #'    setView(-94, 42, zoom = 6) %>%
 #'    addPolygons(data = ia_counties,
 #'                weight = 1, color="#333333") %>%
 #'    addCircleMarkers(radius = .5, stroke = 0.1,
-#'                     color =~elev_pal(Elevation.M),
-#'                     label=~Feature.Name) %>%
+#'                     color =~elev_pal(elevation_m),
+#'                     label=~feature) %>%
 #'    addLegend(pal=elev_pal, values=c(0,600))
 "iowa_features"
 

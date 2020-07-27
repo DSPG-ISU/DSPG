@@ -85,6 +85,9 @@ zeroes <- which(iowa_features$Longitude > -25)
 iowa_features <- iowa_features %>% sf::st_as_sf(coords = c("Longitude", "Latitude"),
                                                           crs = 4326, agr = "identity")
 
+#iowa_features <- iowa_features %>% sf::st_as_sf(coords = c("X", "Y"),
+#                                                crs = 4326, agr = "identity")
+
 iowa_features <- iowa_features %>% rename(
   Elevation.M = Elevation..Meters.,
   Elevation.Ft = Elevation..Feet.
