@@ -505,7 +505,7 @@
 #' library(dplyr) # for the pipe
 #'
 #' ia_counties %>%
-#'   ggplot() + geom_sf(aes(fill = ACRES_SF)) +
+#'   ggplot() + geom_sf(aes(fill = acres_sf)) +
 #'   ggthemes::theme_map()
 #'
 #' # leaflet map
