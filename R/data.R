@@ -794,7 +794,7 @@
 #'   \item{longitude}{geographic Latitude}
 #'   \item{latitude}{geographic Longitude}
 #' }
-#' @source \url{https://idph.iowa.gov/Portals/1/userfiles/55/FY18%20Comprehensive%20Substance%20Abuse%20Prevention%20Service%20Areas%20Map.pdf}
+#' @source \url{https://idph.iowa.gov/Portals/1/userfiles/55/FY18\%20Comprehensive\%20Substance\%20Abuse\%20Prevention\%20Service\%20Areas\%20Map.pdf}
 "regional_substance_treatment"
 
 
@@ -883,7 +883,7 @@
 #'   \item{zip}{Zip code}
 #'   \item{type}{Type of facility}
 #'   \item{phone}{Phone number of the building}
-#'   \item{objectId}{Object ID}
+#'   \item{objectid}{Object ID}
 #'   \item{x}{Utm co-ordinate}
 #'   \item{y}{Utm co-ordinate}
 #'   \item{dataset}{Dataset name}
@@ -910,7 +910,7 @@
 #'   \item{longitude}{geographic Latitude}
 #'   \item{latitude}{geographic Longitude}
 #' }
-#' @source \url{https://idph.iowa.gov/Portals/1/userfiles/166/Licensure/All%20Licensed%20Substance%20Use%20Disorder%20-%20Problem%20Gambling%20Program%27s%20List.pdf}
+#' @source \url{https://idph.iowa.gov/Portals/1/userfiles/166/Licensure/All\%20Licensed\%20Substance\%20Use\%20Disorder\%20-\%20Problem\%20Gambling\%20Program\%27s\%20List.pdf}
 "gambling"
 
 #' Location of MAT in Iowa

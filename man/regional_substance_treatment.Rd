@@ -18,10 +18,13 @@ A data frame with 129 rows and 11 variables:
   \item{state}{The state of the treatment facility}
   \item{zip}{The zip code of the treatment facility}
   \item{phone}{The phone number for the treatment facility}
+  \item{search_address}{Full address}
+  \item{longitude}{geographic Latitude}
+  \item{latitude}{geographic Longitude}
 }
 }
 \source{
-
+\url{https://idph.iowa.gov/Portals/1/userfiles/55/FY18\%20Comprehensive\%20Substance\%20Abuse\%20Prevention\%20Service\%20Areas\%20Map.pdf}
 }
 \usage{
 regional_substance_treatment
