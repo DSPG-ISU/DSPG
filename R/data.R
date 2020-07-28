@@ -297,62 +297,6 @@
 #'                      label = ~hovertext)
 "iowaworks"
 
-
-#' Location of MAT in Iowa
-#'
-#' This dataset provides doctors available in Medication Assisted Treatment (MAT) facilities in Iowa.
-#' Dataset was scraped by Masoud Nosrati from the Iowa Department of Public Health in Mar 2020, geocoding by Andrew Maloney through QGIS.
-#' @format A data frame with 145 rows and 15 variables:
-#' \describe{
-#'    \item{ID}{identifier, not quite the row number}
-#'    \item{DOCTOR}{name of the medical personnel}
-#'    \item{CENTER}{MAT center}
-#'    \item{STREET}{street address}
-#'    \item{CITY}{city}
-#'    \item{STATE}{state}
-#'    \item{ZIP}{5-digit zip code}
-#'    \item{PHONE}{phone number}
-#'    \item{TREATMENT}{treatment options: methadone and/or buprenorphine}
-#'    \item{result_num}{0s XXX delete column?}
-#'    \item{status}{OKs XXX delete column?}
-#'    \item{formatted_}{formatted addresses - some are duplicates - XXX look into}
-#'    \item{place_id}{identifier, based on address? - some are duplicates - XXX look into}
-#'    \item{location_t}{categorical variable with additional details on location.}
-#'    \item{Latitude}{geographic latitude}
-#'    \item{Longitude}{geographic longitude}
-#' }
-#' @source \url{https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1}
-#' @examples
-#' # Map of hospitals in Iowa  using ggplot2
-#' library(ggplot2)
-#' library(dplyr) # for the pipe
-#'
-#' mat %>%
-#'   ggplot() +
-#'     geom_point(aes(x = Longitude, y = Latitude))
-#'
-#' # leaflet map
-#' library(leaflet)
-#' library(sf)
-#'
-#' mat %>%
-#'   group_by(DOCTOR, CENTER) %>%
-#'   mutate(
-#'     hovertext = htmltools::HTML(paste0(DOCTOR, '<br>', CENTER, '<br>', PHONE))
-#'   ) %>%
-#'   leaflet() %>%
-#'     addTiles() %>%
-#'     addPolygons(data = ia_counties,
-#'                 weight = 1, color="#333333") %>%
-#'     addCircleMarkers(lng = ~Longitude, lat = ~Latitude,
-#'                      radius = 1, stroke = 0.1,
-#'                      label = ~hovertext,
-#'                      clusterOptions = markerClusterOptions())
-"mat"
-
-
-
-
 #' Location of hospitals in Iowa
 #'
 #' Dataset was scraped by Masoud Nosrati from Official USA in Mar 2020, geocoding by Andrew Maloney through QGIS.
@@ -846,6 +790,9 @@
 #'   \item{state}{The state of the treatment facility}
 #'   \item{zip}{The zip code of the treatment facility}
 #'   \item{phone}{The phone number for the treatment facility}
+#'   \item{search_address}{Full address}
+#'   \item{longitude}{geographic Latitude}
+#'   \item{latitude}{geographic Longitude}
 #' }
 #' @source \url{https://idph.iowa.gov/Portals/1/userfiles/55/FY18%20Comprehensive%20Substance%20Abuse%20Prevention%20Service%20Areas%20Map.pdf}
 "regional_substance_treatment"
@@ -923,3 +870,69 @@
 #'                 stroke=0, opacity = 1, label=~NAME) %>%
 #'     addLegend(pal=pal, values  = range(ia_precincts$PctRep16 - ia_precincts$PctDem16, na.rm=TRUE))
 "ia_precincts"
+
+#' Rx drop off locations
+#'
+#' Rx Drop Off Locations across the state by type and county
+#' @format A data frame with 260 rows and 12 variables:
+#' \describe{
+#'   \item{name}{Name of the accesss point}
+#'   \item{address}{Address of the building}
+#'   \item{city}{City name}
+#'   \item{state}{State name}
+#'   \item{zip}{Zip code}
+#'   \item{type}{Type of facility}
+#'   \item{phone}{Phone number of the building}
+#'   \item{objectId}{Object ID}
+#'   \item{x}{Utm co-ordinate}
+#'   \item{y}{Utm co-ordinate}
+#'   \item{dataset}{Dataset name}
+#'   \item{classification}{domain}
+#'   \item{search_address}{Full address}
+#'   \item{longitude}{geographic Latitude}
+#'   \item{latitude}{geographic Longitude}
+#' }
+#' @source \url{https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1}
+"Rx_Drop_Off_Locations"
+
+#'  Licensed Substance Use Disorder/Problem Gambling Programs
+#'
+#' List of  Licensed Substance Use Disorder/Problem Gambling Programs
+#' @format A data frame with 105 rows and 9 variables:
+#' \describe{
+#'   \item{name}{Name of the accesss point}
+#'   \item{person}{Address of the building}
+#'   \item{email}{email id}
+#'   \item{address}{Full address}
+#'   \item{phone}{Phone number}
+#'   \item{dataset}{Dataset name}
+#'   \item{classification}{domain}
+#'   \item{longitude}{geographic Latitude}
+#'   \item{latitude}{geographic Longitude}
+#' }
+#' @source \url{https://idph.iowa.gov/Portals/1/userfiles/166/Licensure/All%20Licensed%20Substance%20Use%20Disorder%20-%20Problem%20Gambling%20Program%27s%20List.pdf}
+"gambling"
+
+#' Location of MAT in Iowa
+#'
+#' This dataset provides doctors available in Medication Assisted Treatment (MAT) facilities in Iowa.
+#' Dataset was scraped by Masoud Nosrati from the Iowa Department of Public Health in Mar 2020, geocoding by Andrew Maloney through QGIS.
+#' @format A data frame with 107 rows and 14 variables:
+#' \describe{
+#'    \item{id}{identifier, not quite the row number}
+#'    \item{doctor}{name of the medical personnel}
+#'    \item{center}{MAT center}
+#'    \item{address}{street address}
+#'    \item{city}{city}
+#'    \item{state}{state}
+#'    \item{zip}{5-digit zip code}
+#'    \item{phone}{phone number}
+#'    \item{treatment}{treatment type}
+#'    \item{dataset}{dataset name}
+#'    \item{classification}{dataset domain}
+#'    \item{search_address}{Full address}
+#'    \item{longitude}{geographic Latitude}
+#'    \item{latitude}{geographic Longitude}
+#' }
+#' @source \url{https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1}
+"mat_locations"
