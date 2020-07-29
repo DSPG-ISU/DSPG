@@ -960,3 +960,23 @@
 #' }
 #' @source sources can be found in the dataset column "source"
 "regional_MHDS"
+
+#' South Central Behavioral Health Region resource directory
+#'
+#' This dataset includes all resources in the resource directory of the South Central Behavioral Health Region of the Iowa MHDS regions.
+#' The dataset was downloaded and geocoded by Matthew Voss in July 2020.
+#' @format A data frame with 170 rows and 10 variables:
+#' \describe{
+#'    \item{category}{the type of service provided}
+#'    \item{agency}{the agency which offers the resource}
+#'    \item{address}{the street address of the location}
+#'    \item{phone}{the phone number for the resource}
+#'    \item{description}{a description of the resource}
+#'    \item{website}{facility website link}
+#'    \item{email}{an email contact for the resource}
+#'    \item{last updated}{date at which the information for the facility was last updated}
+#'    \item{longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#' }
+#' @source \url{http://scbhr.org/resource-connection-2/}
+"scbhr_mhds"
