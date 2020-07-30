@@ -5,7 +5,7 @@
 \alias{regional_substance_treatment}
 \title{Comprehensive Substance Abuse Prevention Grant Facilities}
 \format{
-A data frame with 129 rows and 11 variables:
+A data frame with 130 rows and 14 variables:
 \describe{
   \item{classification}{The systems of care infrastructure category under which the facility falls; all in this dataset are considered substance use treatment}
   \item{dataset}{For possible future use, all data are in the regional_substance_treatment dataset}
