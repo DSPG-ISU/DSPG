@@ -13,7 +13,7 @@ library(leaflet)
 
 va_medical_centers <- readr::read_csv("D:/Documents/DSPG/syscare/va_medical_centers.csv")
 
-register_google(key = "AIzaSyArse9KN5w6I6XekxNOkFWgt_brvM_m-CY", write = TRUE)
+register_google(key = "your key here", write = TRUE)
 va_medical_centers <- va_medical_centers %>% mutate_geocode(address)
 
 names(va_medical_centers)[names(va_medical_centers) == "lon"] <- "longitude"
