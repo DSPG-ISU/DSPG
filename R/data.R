@@ -937,6 +937,7 @@
 #' @source \url{https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1}
 "mat_locations"
 
+<<<<<<< Updated upstream
 #' Iowa Mental Health and Disability Services
 #'
 #' This dataset includes mental health and disability service regional access points in Iowa.
@@ -1001,3 +1002,24 @@
 #' }
 #' @source \url{http://www.211iowa.org}
 "iowa_211"
+
+#' VA Medical Centers in Iowa
+#'
+#' This dataset was scraped by Masoud Nosrati in July 2020 from va.org. The data includes locations in Iowa of Veterans Affairs Medical Centers.
+#' The dataset was geocoded by Joel Von Behren in July 2020.
+#'
+#' @format A data frame with 19 rows and 10 variables:
+#' \describe{
+#'    \item{dataset}{name of the dataset}
+#'    \item{classification}{type of services offered by datset}
+#'    \item{station_id}{identification number of facility}
+#'    \item{facility}{name of the facility}
+#'    \item{address}{complete address of the facility}
+#'    \item{county}{county of the facility}
+#'    \item{state}{state of the facility}
+#'    \item{phone}{phone number of the facility}
+#'    \item{longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#' }
+#' @source \url{https://www.va.gov/directory/guide/state.asp?STATE=IA&dnum=ALL}
+"va_medical_centers"
