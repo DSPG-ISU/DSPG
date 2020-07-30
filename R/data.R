@@ -1033,10 +1033,26 @@
 #' \describe{
 #'    \item{dataset}{name of the dataset}
 #'    \item{classification}{type of services offered by datset}
-#'    \item{name}{identification number of facility}
+#'    \item{name}{name of hospital}
 #'    \item{city}{city hospital is located in}
 #'    \item{county}{county of the hospital}
 #'    \item{state}{state of the hospital}
 #' }
 #' @source \url{https://en.wikipedia.org/wiki/List_of_hospitals_in_Iowa}
 "wiki_hospitals"
+
+#' Specialty Courts in Iowa
+#'
+#' This dataset was scraped by Masoud Nosrati in July 2020 from wikipedia.
+#' The data includes hospitals in Iowa scraped from Wikipedia
+#'
+#' @format A data frame with 47 rows and 5 variables:
+#' \describe{
+#'    \item{dataset}{name of the dataset}
+#'    \item{classification}{type of services offered by datset}
+#'    \item{id}{identification number, not quite row number}
+#'    \item{court_type}{denotes what specialty court is for}
+#'    \item{county}{county of the court}
+#' }
+#' @source \url{https://www.iowacourts.gov/media/cms/Iowa_Specialty_Courts_8C3B9AF1F3CA7.pdf}
+"specialty_courts"
