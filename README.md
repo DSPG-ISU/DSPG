@@ -47,10 +47,19 @@ should help you get started.
 The datasets available
     are
 
-    #>  [1] "acs"            "asac_locations" "cf_resources"   "churches"      
-    #>  [5] "colleges"       "health.clinics" "hospitals"      "ia_cities"     
-    #>  [9] "ia_counties"    "iowaworks"      "mat"            "meetings"      
-    #> [13] "parks"          "sud"
+    #>  [1] "acs"                          "asac_locations"              
+    #>  [3] "cf_resources"                 "churches"                    
+    #>  [5] "colleges"                     "cross_mental_health"         
+    #>  [7] "gambling"                     "health.clinics"              
+    #>  [9] "hospital_buildings"           "hospitals"                   
+    #> [11] "ia_cities"                    "ia_counties"                 
+    #> [13] "ia_election_2016"             "ia_features"                 
+    #> [15] "ia_precincts"                 "iowa_211"                    
+    #> [17] "iowaworks"                    "mat_locations"               
+    #> [19] "meetings"                     "parks"                       
+    #> [21] "regional_MHDS"                "regional_substance_treatment"
+    #> [23] "Rx_Drop_Off_Locations"        "scbhr_mhds"                  
+    #> [25] "southwest_mhds"               "sud"
 
 Check each file with the R help, e.g. `?ia_cities`, for more details.
 
@@ -70,7 +79,9 @@ to include:
     assume you call that file `reading-my-file.R`.
 
 2.  Modify the file `reading-my-file.R` to read the csv file. Check that
-    the resulting object looks like you expected it to look like.
+    the resulting object looks like you expected it to look like. Make
+    sure that your data set adheres to the naming conventions listed
+    below.
 
 3.  The name of the object will be the name of the data set that will be
     included. Do not use a name of an object that is already included in
@@ -106,3 +117,14 @@ to include:
     check, an email will be sent to you with the log resulting in the
     error. Make sure to address the error and push changes to fix the
     repo again.
+
+## Naming conventions
+
+We are trying to ensure maximum consistency between data sets and use
+the following conventions:
+
+1.  *lower case* for all variable names
+2.  *name* describes the name of a facility/organization/meeting
+3.  *longitude, latitude* or *geometry* write out geographic locations
+    as longitude and latitude
+4.  use `_` to separate between multiple words in a name
