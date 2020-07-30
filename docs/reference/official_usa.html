@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hospitals in Iowa — wiki_hospitals • DSPG</title>
+<title>Hospital Statistics in Iowa — official_usa • DSPG</title>
 
 
 <!-- jquery -->
@@ -33,9 +33,9 @@
 
 
 
-<meta property="og:title" content="Hospitals in Iowa — wiki_hospitals" />
-<meta property="og:description" content="This dataset was scraped by Masoud Nosrati in July 2020 from wikipedia.
-The data includes hospitals in Iowa scraped from Wikipedia" />
+<meta property="og:title" content="Hospital Statistics in Iowa — official_usa" />
+<meta property="og:description" content="This dataset contains data on Iowa hospitals from officialusa.
+Data was scraped by Masoud Nosrati in July 2020 and geocoded by Heike Hoffman in July 2020." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -97,32 +97,40 @@ The data includes hospitals in Iowa scraped from Wikipedia" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Hospitals in Iowa</h1>
+    <h1>Hospital Statistics in Iowa</h1>
     
-    <div class="hidden name"><code>wiki_hospitals.Rd</code></div>
+    <div class="hidden name"><code>official_usa.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This dataset was scraped by Masoud Nosrati in July 2020 from wikipedia.
-The data includes hospitals in Iowa scraped from Wikipedia</p>
+    <p>This dataset contains data on Iowa hospitals from officialusa.
+Data was scraped by Masoud Nosrati in July 2020 and geocoded by Heike Hoffman in July 2020.</p>
     </div>
 
-    <pre class="usage"><span class='no'>wiki_hospitals</span></pre>
+    <pre class="usage"><span class='no'>official_usa</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 123 rows and 6 variables:</p><dl class='dl-horizontal'>
+    <p>A data frame with 145 rows and 14 variables:</p><dl class='dl-horizontal'>
    <dt>dataset</dt><dd><p>name of the dataset</p></dd>
    <dt>classification</dt><dd><p>type of services offered by datset</p></dd>
-   <dt>name</dt><dd><p>name of hospital</p></dd>
-   <dt>city</dt><dd><p>city hospital is located in</p></dd>
+   <dt>id</dt><dd><p>identification number, not quite row number</p></dd>
    <dt>county</dt><dd><p>county of the hospital</p></dd>
-   <dt>state</dt><dd><p>state of the hospital</p></dd>
+   <dt>city</dt><dd><p>City of the hospital</p></dd>
+   <dt>hospital_name</dt><dd><p>Name of the hospital</p></dd>
+   <dt>type</dt><dd><p>Type of care provided by the hospital</p></dd>
+   <dt>address</dt><dd><p>street address of the hospital</p></dd>
+   <dt>website</dt><dd><p>Link to website of the hospital</p></dd>
+   <dt>beds</dt><dd><p>number of beds at the hospital</p></dd>
+   <dt>naics_desc</dt><dd><p>North American Industry Classification System description</p></dd>
+   <dt>search_address</dt><dd><p>address used for geocoding</p></dd>
+   <dt>longitude</dt><dd><p>longitude coordinate</p></dd>
+   <dt>latitude</dt><dd><p>latitude coordinate</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='https://en.wikipedia.org/wiki/List_of_hospitals_in_Iowa'>https://en.wikipedia.org/wiki/List_of_hospitals_in_Iowa</a></p>
+    <p><a href='https://www.officialusa.com/stateguides/health/hospitals/iowa.html'>https://www.officialusa.com/stateguides/health/hospitals/iowa.html</a></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
