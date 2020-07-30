@@ -980,3 +980,24 @@
 #' }
 #' @source \url{http://scbhr.org/resource-connection-2/}
 "scbhr_mhds"
+
+#' Iowa 211 data
+#'
+#' This dataset was scraped by Masoud Nosrati in May 2020 from 211iowa.org. The data includes locations in Iowa of various systems of care infrastructure, including substance abuse treatment centers, mental health facilities, and support groups.
+#' The dataset was geocoded by Kishor Kumar Sridhar in July 2020.
+#' @format A data frame with 170 rows and 10 variables:
+#' \describe{
+#'    \item{id}{ID number for the location}
+#'    \item{name}{the agency which offers the facility}
+#'    \item{type}{type of the facility}
+#'    \item{address}{street address of the facility}
+#'    \item{city}{city of the facility}
+#'    \item{state}{state of the facility}
+#'    \item{phone}{phone number of the facility}
+#'    \item{zip}{zip code of the facility}
+#'    \item{search_address}{full address of the facility}
+#'    \item{longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#' }
+#' @source \url{http://www.211iowa.org}
+"iowa_211"
