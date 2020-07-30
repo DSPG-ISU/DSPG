@@ -1055,3 +1055,28 @@
 #' }
 #' @source \url{https://www.iowacourts.gov/media/cms/Iowa_Specialty_Courts_8C3B9AF1F3CA7.pdf}
 "specialty_courts"
+
+#' Hospital Statistics in Iowa
+#'
+#' This dataset contains data on Iowa hospitals from officialusa.
+#' Data was scraped by Masoud Nosrati in July 2020 and geocoded by Heike Hoffman in July 2020.
+#'
+#' @format A data frame with 145 rows and 14 variables:
+#' \describe{
+#'    \item{dataset}{name of the dataset}
+#'    \item{classification}{type of services offered by datset}
+#'    \item{id}{identification number, not quite row number}
+#'    \item{county}{county of the hospital}
+#'    \item{city}{City of the hospital}
+#'    \item{hospital_name}{Name of the hospital}
+#'    \item{type}{Type of care provided by the hospital}
+#'    \item{address}{street address of the hospital}
+#'    \item{website}{Link to website of the hospital}
+#'    \item{beds}{number of beds at the hospital}
+#'    \item{naics_desc}{North American Industry Classification System description}
+#'    \item{search_address}{address used for geocoding}
+#'    \item{longitude}{longitude coordinate}
+#'    \item{latitude}{latitude coordinate}
+#' }
+#' @source \url{https://www.officialusa.com/stateguides/health/hospitals/iowa.html}
+"official_usa"
