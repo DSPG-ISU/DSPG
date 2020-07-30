@@ -9,7 +9,7 @@ A data frame with 123 rows and 6 variables:
 \describe{
    \item{dataset}{name of the dataset}
    \item{classification}{type of services offered by datset}
-   \item{name}{identification number of facility}
+   \item{name}{name of hospital}
    \item{city}{city hospital is located in}
    \item{county}{county of the hospital}
    \item{state}{state of the hospital}
