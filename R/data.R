@@ -937,7 +937,6 @@
 #' @source \url{https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1}
 "mat_locations"
 
-<<<<<<< Updated upstream
 #' Iowa Mental Health and Disability Services
 #'
 #' This dataset includes mental health and disability service regional access points in Iowa.
