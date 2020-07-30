@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Iowa Hospital Buildings — hospital_buildings • DSPG</title>
+<title>Licensed Substance Use Disorder/Problem Gambling Programs — gambling • DSPG</title>
 
 
 <!-- jquery -->
@@ -33,8 +33,8 @@
 
 
 
-<meta property="og:title" content="Iowa Hospital Buildings — hospital_buildings" />
-<meta property="og:description" content="Iowa hospital buildings listed in the federal Geographic Names Information System." />
+<meta property="og:title" content="Licensed Substance Use Disorder/Problem Gambling Programs — gambling" />
+<meta property="og:description" content="List of  Licensed Substance Use Disorder/Problem Gambling Programs" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -96,57 +96,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Iowa Hospital Buildings</h1>
+    <h1>Licensed Substance Use Disorder/Problem Gambling Programs</h1>
     
-    <div class="hidden name"><code>hospital_buildings.Rd</code></div>
+    <div class="hidden name"><code>gambling.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Iowa hospital buildings listed in the federal Geographic Names Information System.</p>
+    <p>List of  Licensed Substance Use Disorder/Problem Gambling Programs</p>
     </div>
 
-    <pre class="usage"><span class='no'>hospital_buildings</span></pre>
+    <pre class="usage"><span class='no'>gambling</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 1709 rows and 11 variables:</p><dl class='dl-horizontal'>
-  <dt>name</dt><dd><p>Name of building</p></dd>
-  <dt>feature_class</dt><dd><p>Type of building. All records in this dataset will be "hospital".</p></dd>
-  <dt>state</dt><dd><p>State of the location</p></dd>
-  <dt>county</dt><dd><p>County of the location</p></dd>
-  <dt>elevation_meters</dt><dd><p>Elevation in meters above sea level of the location</p></dd>
-  <dt>elevation_feet</dt><dd><p>Elevation in feet above sea level of the location</p></dd>
-  <dt>usgs_map_name</dt><dd><p>Name of the location of the building</p></dd>
-  <dt>date_created</dt><dd><p>Date that the feature was added to the database</p></dd>
-  <dt>date_edited</dt><dd><p>Date at which the record was last updated</p></dd>
-  <dt>classification</dt><dd><p>column used for classifying the data set</p></dd>
-  <dt>geometry</dt><dd><p>sf point object of geographic location</p></dd>
+    <p>A data frame with 105 rows and 9 variables:</p><dl class='dl-horizontal'>
+  <dt>name</dt><dd><p>Name of the accesss point</p></dd>
+  <dt>person</dt><dd><p>Address of the building</p></dd>
+  <dt>email</dt><dd><p>email id</p></dd>
+  <dt>address</dt><dd><p>Full address</p></dd>
+  <dt>phone</dt><dd><p>Phone number</p></dd>
+  <dt>dataset</dt><dd><p>Dataset name</p></dd>
+  <dt>classification</dt><dd><p>domain</p></dd>
+  <dt>longitude</dt><dd><p>geographic Latitude</p></dd>
+  <dt>latitude</dt><dd><p>geographic Longitude</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='https://data.iowa.gov/Physical-Geography/Iowa-Hospital-Buildings/ciqq-2z9p'>https://data.iowa.gov/Physical-Geography/Iowa-Hospital-Buildings/ciqq-2z9p</a></p>
+    <p><a href='https://idph.iowa.gov/Portals/1/userfiles/166/Licensure/All%20Licensed%20Substance%20Use%20Disorder%20-%20Problem%20Gambling%20Program%27s%20List.pdf'>https://idph.iowa.gov/Portals/1/userfiles/166/Licensure/All%20Licensed%20Substance%20Use%20Disorder%20-%20Problem%20Gambling%20Program%27s%20List.pdf</a></p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)
-
-<span class='co'># Leaflet map of hospital buildings in Iowa</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
-
-<span class='no'>hospital_buildings</span> <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
-             <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>name</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
       <li><a href="#source">Source</a></li>
-      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

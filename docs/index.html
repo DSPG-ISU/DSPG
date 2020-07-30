@@ -89,14 +89,16 @@
 <pre><code>#&gt;  [1] "acs"                          "asac_locations"              
 #&gt;  [3] "cf_resources"                 "churches"                    
 #&gt;  [5] "colleges"                     "cross_mental_health"         
-#&gt;  [7] "health.clinics"               "hospital_buildings"          
-#&gt;  [9] "hospitals"                    "ia_cities"                   
-#&gt; [11] "ia_counties"                  "ia_election_2016"            
-#&gt; [13] "ia_precincts"                 "iowa_features"               
-#&gt; [15] "iowaworks"                    "mat"                         
-#&gt; [17] "meetings"                     "parks"                       
-#&gt; [19] "regional_substance_treatment" "southwest_mhds"              
-#&gt; [21] "sud"</code></pre>
+#&gt;  [7] "gambling"                     "health.clinics"              
+#&gt;  [9] "hospital_buildings"           "hospitals"                   
+#&gt; [11] "ia_cities"                    "ia_counties"                 
+#&gt; [13] "ia_election_2016"             "ia_features"                 
+#&gt; [15] "ia_precincts"                 "iowa_211"                    
+#&gt; [17] "iowaworks"                    "mat_locations"               
+#&gt; [19] "meetings"                     "parks"                       
+#&gt; [21] "regional_MHDS"                "regional_substance_treatment"
+#&gt; [23] "Rx_Drop_Off_Locations"        "scbhr_mhds"                  
+#&gt; [25] "southwest_mhds"               "sud"</code></pre>
 <p>Check each file with the R help, e.g. <code><a href="reference/ia_cities.html">?ia_cities</a></code>, for more details.</p>
 </div>
 <div id="how-to-contribute" class="section level2">
@@ -106,7 +108,7 @@
 <p>Assume you have some csv file (or some other data object) that you want to include:</p>
 <ol style="list-style-type: decimal">
 <li><p>Go to the folder <code>stuff</code>. Take a look at one of the .R files and copy the one that is the closest to what you would like to do. Let’s assume you call that file <code>reading-my-file.R</code>.</p></li>
-<li><p>Modify the file <code>reading-my-file.R</code> to read the csv file. Check that the resulting object looks like you expected it to look like.</p></li>
+<li><p>Modify the file <code>reading-my-file.R</code> to read the csv file. Check that the resulting object looks like you expected it to look like. Make sure that your data set adheres to the naming conventions listed below.</p></li>
 <li><p>The name of the object will be the name of the data set that will be included. Do not use a name of an object that is already included in the package. Let’s assume that you called the object <code>mydata</code>.</p></li>
 <li><p>Use the command <code><a href="https://usethis.r-lib.org/reference/use_data.html">usethis::use_data(mydata)</a></code>. This creates a file <code>mydata.rda</code> in the <code>data</code> folder of the package. Check that it is there now.</p></li>
 <li><p>Now the documentation starts: open the file <code>data.R</code> in the folder <code>R</code>. We are using <a href="https://kbroman.org/pkg_primer/pages/docs.html">Roxygen2</a> for documentation. Take a look at the structure: each dataset has a separate section. The easiest will be to copy one of these sections and adjust for your own dataset. Make sure to describe each variable in the dataset; follow along the same order as in the data set. Use <code><a href="https://www.rdocumentation.org/packages/base/topics/names">names(mydata)</a></code> to double check on the order of the variables.</p></li>
@@ -114,6 +116,20 @@
 <li><p>Check your package with the command <code><a href="https://www.rdocumentation.org/packages/devtools/topics/check">devtools::check()</a></code>. This command will run a series of tests and should result in 0 errors, 0 warnings, and 0 notes. If that is not the case, make sure to address each one of these issues.</p></li>
 <li><p>Add all newly created files to your github repo: the <code>.rda</code> file, the <code>.Rd</code> file and the <code>.R</code> file in stuff. Push to the master.</p></li>
 <li><p>The package is placed under Travis-CI, i.e. on the server side a check on the package will be run. In case of an error during this check, an email will be sent to you with the log resulting in the error. Make sure to address the error and push changes to fix the repo again.</p></li>
+</ol>
+</div>
+<div id="naming-conventions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#naming-conventions" class="anchor"></a>Naming conventions</h2>
+<p>We are trying to ensure maximum consistency between data sets and use the following conventions:</p>
+<ol style="list-style-type: decimal">
+<li>
+<em>lower case</em> for all variable names</li>
+<li>
+<em>name</em> describes the name of a facility/organization/meeting</li>
+<li>
+<em>longitude, latitude</em> or <em>geometry</em> write out geographic locations as longitude and latitude</li>
+<li>use <code>_</code> to separate between multiple words in a name</li>
 </ol>
 </div>
 </div>

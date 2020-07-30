@@ -111,21 +111,19 @@
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 123 rows and 15 variables:</p><dl class='dl-horizontal'>
-   <dt>ID</dt><dd><p>identifier, not quite the row number</p></dd>
-   <dt>NAME</dt><dd><p>name of the facility</p></dd>
-   <dt>PHONE</dt><dd><p>phone number</p></dd>
-   <dt>STREET</dt><dd><p>street address</p></dd>
-   <dt>CITY</dt><dd><p>city</p></dd>
-   <dt>STATE</dt><dd><p>state</p></dd>
-   <dt>ZIP</dt><dd><p>5-digit zip code</p></dd>
-   <dt>FACILITY</dt><dd><p>enumeration of abbrevations</p></dd>
+   <dt>name</dt><dd><p>name of the facility</p></dd>
+   <dt>phone</dt><dd><p>phone number</p></dd>
+   <dt>street</dt><dd><p>street address</p></dd>
+   <dt>city</dt><dd><p>city</p></dd>
+   <dt>statename</dt><dd><p>name of state</p></dd>
+   <dt>zip</dt><dd><p>5-digit zip code</p></dd>
    <dt>result_num</dt><dd><p>0s XXX delete column?</p></dd>
    <dt>status</dt><dd><p>OKs XXX delete column?</p></dd>
-   <dt>formatted_</dt><dd><p>formatted addresses - some are duplicates - XXX look into</p></dd>
-   <dt>place_id</dt><dd><p>identifier, based on address? - some are duplicates - XXX look into</p></dd>
-   <dt>location_t</dt><dd><p>categorical variable with additional details on location.</p></dd>
-   <dt>Latitude</dt><dd><p>geographic latitude</p></dd>
-   <dt>Longitude</dt><dd><p>geographic longitude</p></dd>
+   <dt>address</dt><dd><p>formatted addresses - some are duplicates - XXX look into</p></dd>
+   <dt>latitude</dt><dd><p>geographic latitude</p></dd>
+   <dt>longitude</dt><dd><p>geographic longitude</p></dd>
+   <dt>state</dt><dd><p>state abbreviation</p></dd>
+   <dt>classification</dt><dd><p>column used to classify the dataset</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
@@ -138,21 +136,21 @@
 
 <span class='no'>sud</span> <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>Longitude</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>Latitude</span>))</div><div class='img'><img src='sud-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>longitude</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>latitude</span>))</div><div class='img'><img src='sud-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># leaflet map</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
 
 <span class='no'>sud</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>NAME</span>,<span class='no'>formatted_</span>, <span class='no'>PHONE</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>name</span>,<span class='no'>address</span>, <span class='no'>phone</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(
-    <span class='kw'>hovertext</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/HTML'>HTML</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>NAME</span>, <span class='st'>"&lt;br&gt;"</span>,<span class='no'>formatted_</span>, <span class='st'>'&lt;br&gt;'</span>, <span class='no'>PHONE</span>))
+    <span class='kw'>hovertext</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/HTML'>HTML</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>name</span>, <span class='st'>"&lt;br&gt;"</span>,<span class='no'>address</span>, <span class='st'>'&lt;br&gt;'</span>, <span class='no'>phone</span>))
   ) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
                 <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>Longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>Latitude</span>,
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>latitude</span>,
                      <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
                      <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>hovertext</span>)</div></pre>
   </div>

@@ -111,17 +111,17 @@
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 146 rows and 11 variables:</p><dl class='dl-horizontal'>
-   <dt>ID</dt><dd><p>identifier, not quite the row number</p></dd>
-   <dt>NAME</dt><dd><p>name of the clinic</p></dd>
-   <dt>ADDRESS</dt><dd><p>address of the health clinic</p></dd>
-   <dt>COUNTY</dt><dd><p>name of the county</p></dd>
+   <dt>name</dt><dd><p>name of the clinic</p></dd>
+   <dt>address</dt><dd><p>formatted addresses - some are duplicates - XXX look into</p></dd>
+   <dt>state</dt><dd><p>state abbreviation</p></dd>
+   <dt>county</dt><dd><p>name of the county</p></dd>
+   <dt>zip</dt><dd><p>zip code</p></dd>
+   <dt>country</dt><dd><p>country where facility is located</p></dd>
    <dt>result_num</dt><dd><p>146 0s XXX delete column?</p></dd>
    <dt>status</dt><dd><p>146 OKs XXX delete column?</p></dd>
-   <dt>formatted_</dt><dd><p>formatted addresses - some are duplicates - XXX look into</p></dd>
-   <dt>place_id</dt><dd><p>identifier, based on address? - some are duplicates - XXX look into</p></dd>
-   <dt>location_t</dt><dd><p>categorical variable with additional details on location.</p></dd>
-   <dt>Latitude</dt><dd><p>geographic latitude</p></dd>
-   <dt>Longitude</dt><dd><p>geographic longitude</p></dd>
+   <dt>longitude</dt><dd><p>geographic longitude</p></dd>
+   <dt>latitude</dt><dd><p>geographic latitude</p></dd>
+   <dt>classification</dt><dd><p>column used for classifying the data set</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
@@ -134,7 +134,7 @@
 
 <span class='no'>health.clinics</span> <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
-    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>Longitude</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>Latitude</span>))</div><div class='img'><img src='health.clinics-1.png' alt='' width='700' height='433' /></div><div class='input'>
+    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>longitude</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>latitude</span>))</div><div class='img'><img src='health.clinics-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># leaflet map</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
@@ -144,9 +144,9 @@
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
                 <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>Longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>Latitude</span>,
+    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>latitude</span>,
                      <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-                     <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>NAME</span>)</div></pre>
+                     <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>name</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

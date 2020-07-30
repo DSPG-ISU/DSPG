@@ -111,17 +111,17 @@
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 99 rows and 9 variables:</p><dl class='dl-horizontal'>
-  <dt>Geography.Id</dt><dd><p>geographic ID used by the U.S. census for the location associated with this record</p></dd>
-  <dt>Type</dt><dd><p>The type of location associated with this record. Categories are state, county, place, and tract</p></dd>
-  <dt>Name</dt><dd><p>Name of the location</p></dd>
-  <dt>Variable</dt><dd><p>Variable ID identified by the U.S. Census Bureau</p></dd>
-  <dt>Variable.Description</dt><dd><p>Description of the variable</p></dd>
-  <dt>Computer.Present</dt><dd><p>Classifies if a computer is present in those households. Categories are total, yes, and no</p></dd>
-  <dt>Internet.Subscription</dt><dd><p>Classifies what kind of internet subscription is present in those households. Categories are total, total w/computer, broadband, dial-up, and none</p></dd>
-  <dt>Data.Collection.Period</dt><dd><p>Period in which the data was collected</p></dd>
-  <dt>Data.Collection.End.Date</dt><dd><p>The date in which the data was done being collected</p></dd>
-  <dt>Households</dt><dd><p>The number of households estimated to have the specified characteristics in the record</p></dd>
-  <dt>Row.ID</dt><dd><p>Unique ID associated with the record</p></dd>
+  <dt>geography_id</dt><dd><p>geographic ID used by the U.S. census for the location associated with this record</p></dd>
+  <dt>type</dt><dd><p>The type of location associated with this record. Categories are state, county, place, and tract</p></dd>
+  <dt>name</dt><dd><p>Name of the location</p></dd>
+  <dt>variable</dt><dd><p>Variable ID identified by the U.S. Census Bureau</p></dd>
+  <dt>variable_description</dt><dd><p>Description of the variable</p></dd>
+  <dt>computer_present</dt><dd><p>Classifies if a computer is present in those households. Categories are total, yes, and no</p></dd>
+  <dt>internet_subscription</dt><dd><p>Classifies what kind of internet subscription is present in those households. Categories are total, total w/computer, broadband, dial-up, and none</p></dd>
+  <dt>data_collection_period</dt><dd><p>Period in which the data was collected</p></dd>
+  <dt>data_collection_end_date</dt><dd><p>The date in which the data was done being collected</p></dd>
+  <dt>households</dt><dd><p>The number of households estimated to have the specified characteristics in the record</p></dd>
+  <dt>row_id</dt><dd><p>Unique ID associated with the record</p></dd>
   <dt>geometry</dt><dd><p>sf point object of geographic location</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -138,7 +138,7 @@
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>
 <span class='no'>ia_counties</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>ACRES_SF</span>)) +
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>acres_sf</span>)) +
   <span class='kw pkg'>ggthemes</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/ggthemes/topics/theme_map'>theme_map</a></span>()</div><div class='img'><img src='acs-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># leaflet map</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)

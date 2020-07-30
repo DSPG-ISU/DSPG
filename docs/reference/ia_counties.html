@@ -111,16 +111,16 @@
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 99 rows and 9 variables:</p><dl class='dl-horizontal'>
-  <dt>CO_NUMBER</dt><dd><p>county number</p></dd>
-  <dt>CO_FIPS</dt><dd><p>three-digit county fips code</p></dd>
-  <dt>ACRES_SF</dt><dd><p>square footage in acres</p></dd>
-  <dt>ACRES</dt><dd><p>county acreage, same as `ACRES_SF``</p></dd>
-  <dt>FIPS</dt><dd><p>five-digit fips code</p></dd>
-  <dt>COUNTY</dt><dd><p>county name (and it's `Obrien`)</p></dd>
-  <dt>ST</dt><dd><p>two letter state abbreviation (`IA` all the way through)</p></dd>
-  <dt>ID</dt><dd><p>identifier same as `CO_FIPS`</p></dd>
-  <dt>CENSUS2010POP</dt><dd><p>US Census Bureau count of 2010 county population.</p></dd>
-  <dt>POPESTIMATE2019</dt><dd><p>US Census Bureau estimate of 2019 county population.</p></dd>
+  <dt>co_number</dt><dd><p>county number</p></dd>
+  <dt>co_fips</dt><dd><p>three-digit county fips code</p></dd>
+  <dt>acres_sf</dt><dd><p>square footage in acres</p></dd>
+  <dt>acres</dt><dd><p>county acreage, same as `ACRES_SF``</p></dd>
+  <dt>fips</dt><dd><p>five-digit fips code</p></dd>
+  <dt>county</dt><dd><p>county name (and it's `Obrien`)</p></dd>
+  <dt>state</dt><dd><p>two letter state abbreviation (`IA` all the way through)</p></dd>
+  <dt>id</dt><dd><p>identifier same as `CO_FIPS`</p></dd>
+  <dt>census2010pop</dt><dd><p>US Census Bureau count of 2010 county population.</p></dd>
+  <dt>popestimate2019</dt><dd><p>US Census Bureau estimate of 2019 county population.</p></dd>
   <dt>geometry</dt><dd><p>simple feature object of polygons</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
@@ -134,7 +134,7 @@
 
 <span class='no'>ia_counties</span> <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>POPESTIMATE2019</span>),
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggsf.html'>geom_sf</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>popestimate2019</span>),
           <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.1</span>) +
   <span class='kw pkg'>ggthemes</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/ggthemes/topics/theme_map'>theme_map</a></span>() +
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span><span class='kw'>=</span><span class='st'>"right"</span>) +
@@ -145,9 +145,9 @@
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
 
 <span class='no'>ia_counties</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>COUNTY</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>county</span>) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span>(
-    <span class='kw'>hovertext</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/HTML'>HTML</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>COUNTY</span>, <span class='st'>"&lt;br&gt;"</span>,<span class='no'>POPESTIMATE2019</span>))
+    <span class='kw'>hovertext</span> <span class='kw'>=</span> <span class='kw pkg'>htmltools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/htmltools/topics/HTML'>HTML</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='no'>county</span>, <span class='st'>"&lt;br&gt;"</span>,<span class='no'>popestimate2019</span>))
   ) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
     <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>

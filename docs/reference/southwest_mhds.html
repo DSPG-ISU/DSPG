@@ -111,19 +111,19 @@
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 356 rows and 13 variables:</p><dl class='dl-horizontal'>
-  <dt>Category</dt><dd><p>Service type provided at facility</p></dd>
-  <dt>County</dt><dd><p>Iowa county name</p></dd>
-  <dt>Related Records</dt><dd><p>Currently Unknown</p></dd>
-  <dt>Service Title</dt><dd><p>Name of the facility</p></dd>
-  <dt>Address</dt><dd><p>Column containing location information: Street, City, State, Zip</p></dd>
-  <dt>Phone</dt><dd><p>Phone Number for the facility</p></dd>
-  <dt>Description</dt><dd><p>A description to help the viewer navigate which facility is best for them</p></dd>
-  <dt>Website</dt><dd><p>Facility website link</p></dd>
-  <dt>Email</dt><dd><p>Contact Email for facility</p></dd>
-  <dt>Expiration</dt><dd><p>Currently Unknown</p></dd>
-  <dt>Last Updated</dt><dd><p>Date at which website information was last updated</p></dd>
-  <dt>lon</dt><dd><p>geographic Longitude</p></dd>
-  <dt>lat</dt><dd><p>geographic Latitude</p></dd>
+  <dt>category</dt><dd><p>Service type provided at facility</p></dd>
+  <dt>county</dt><dd><p>Iowa county name</p></dd>
+  <dt>related records</dt><dd><p>Currently Unknown</p></dd>
+  <dt>service title</dt><dd><p>Name of the facility</p></dd>
+  <dt>address</dt><dd><p>Column containing location information: Street, City, State, Zip</p></dd>
+  <dt>phone</dt><dd><p>Phone Number for the facility</p></dd>
+  <dt>description</dt><dd><p>A description to help the viewer navigate which facility is best for them</p></dd>
+  <dt>website</dt><dd><p>Facility website link</p></dd>
+  <dt>email</dt><dd><p>Contact Email for facility</p></dd>
+  <dt>expiration</dt><dd><p>Currently Unknown</p></dd>
+  <dt>last updated</dt><dd><p>Date at which website information was last updated</p></dd>
+  <dt>longitude</dt><dd><p>geographic Longitude</p></dd>
+  <dt>latitude</dt><dd><p>geographic Latitude</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
@@ -135,7 +135,7 @@
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)
 <span class='no'>southwest_mhds</span> <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() +
- <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>lon</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>lat</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 15 rows containing missing values (geom_point).</span></div><div class='img'><img src='southwest_mhds-1.png' alt='' width='700' height='433' /></div><div class='input'>
+ <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>longitude</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>latitude</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 15 rows containing missing values (geom_point).</span></div><div class='img'><img src='southwest_mhds-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Leaflet map of meetings in Iowa</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
@@ -145,7 +145,7 @@
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
              <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>lon</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>lat</span>,
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>latitude</span>,
                   <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
                   <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>southwest_mhds</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Data contains 15 rows with either missing or invalid lat/lon values and will be ignored</span></div></pre>
   </div>

@@ -109,8 +109,11 @@ in Iowa. This function creates a data frame of all available meetings and locati
 for a specified time range.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_meetings</span>(<span class='kw'>from</span> <span class='kw'>=</span> <span class='fu'>now</span>(), <span class='kw'>to</span> <span class='kw'>=</span> <span class='fu'>now</span>() + <span class='fu'>days</span>(<span class='fl'>1</span>),
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Alcoholics Anonymous"</span>, <span class='st'>"Narcotics Anonymous"</span>))</pre>
+    <pre class="usage"><span class='fu'>get_meetings</span>(
+  <span class='kw'>from</span> <span class='kw'>=</span> <span class='fu'>now</span>(),
+  <span class='kw'>to</span> <span class='kw'>=</span> <span class='fu'>now</span>() + <span class='fu'>days</span>(<span class='fl'>1</span>),
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Alcoholics Anonymous"</span>, <span class='st'>"Narcotics Anonymous"</span>)
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -125,7 +128,7 @@ for a specified time range.</p>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>type of meeting</p></td>
+      <td><p>type of meeting see `unique(meetings$type)`</p></td>
     </tr>
     </table>
 
@@ -138,20 +141,20 @@ for a specified time range.</p>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
 
 <span class='co'># AA meetings in Iowa for the next 24h from</span>
-<span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span>()</div><div class='output co'>#&gt; [1] "2020-07-22 05:06:47 CDT"</div><div class='input'><span class='co'># color locations by day</span>
+<span class='kw pkg'>lubridate</span><span class='kw ns'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span>()</div><div class='output co'>#&gt; [1] "2020-07-30 12:54:19 CDT"</div><div class='input'><span class='co'># color locations by day</span>
 <span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric'>colorFactor</a></span>(
          <span class='kw'>palette</span> <span class='kw'>=</span> <span class='kw pkg'>RColorBrewer</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>brewer.pal</a></span>(<span class='kw'>n</span><span class='kw'>=</span><span class='fl'>7</span>, <span class='kw'>name</span><span class='kw'>=</span><span class='st'>"Paired"</span>),
-         <span class='kw'>domain</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/levels'>levels</a></span>(<span class='no'>meetings</span>$<span class='no'>Day</span>)
+         <span class='kw'>domain</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/levels'>levels</a></span>(<span class='no'>meetings</span>$<span class='no'>day</span>)
        )
 <span class='fu'>get_meetings</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/sf/topics/st_transform'>st_transform</a></span>(<span class='no'>ia_counties</span>, <span class='kw'>crs</span><span class='kw'>=</span><span class='st'>'+proj=longlat +datum=WGS84'</span>),
               <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#888888"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>lon</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>lat</span>, <span class='kw'>color</span><span class='kw'>=</span>~<span class='fu'>pal</span>(<span class='no'>Day</span>),
-                   <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>Meeting</span>,
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>latitude</span>,
+                   <span class='kw'>color</span><span class='kw'>=</span>~<span class='fu'>pal</span>(<span class='no'>day</span>), <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>meeting</span>,
                    <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/addLegend'>addLegend</a></span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='no'>pal</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/levels'>levels</a></span>(<span class='no'>meetings</span>$<span class='no'>Day</span>))</div></pre>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/addLegend'>addLegend</a></span>(<span class='kw'>pal</span> <span class='kw'>=</span> <span class='no'>pal</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/levels'>levels</a></span>(<span class='no'>meetings</span>$<span class='no'>day</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Data contains 44 rows with either missing or invalid lat/lon values and will be ignored</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

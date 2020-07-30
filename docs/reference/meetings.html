@@ -111,19 +111,20 @@
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 1549 rows and 13 variables:</p><dl class='dl-horizontal'>
-  <dt>Day</dt><dd><p>day of the week</p></dd>
-  <dt>Time</dt><dd><p>time of the day</p></dd>
-  <dt>AmPm</dt><dd><p>morning or afternoon</p></dd>
-  <dt>Meeting</dt><dd><p>name of the meeting</p></dd>
-  <dt>Location</dt><dd><p>location</p></dd>
-  <dt>Address</dt><dd><p>address</p></dd>
-  <dt>Format</dt><dd><p>Format of the meeting - XXX this needs some additional work</p></dd>
-  <dt>City</dt><dd><p>city</p></dd>
-  <dt>Type</dt><dd><p>type of meeting</p></dd>
-  <dt>State</dt><dd><p>state</p></dd>
-  <dt>lon</dt><dd><p>geographic Longitude</p></dd>
-  <dt>lat</dt><dd><p>geographic Latitude</p></dd>
+  <dt>day</dt><dd><p>day of the week</p></dd>
+  <dt>time</dt><dd><p>time of the day</p></dd>
+  <dt>ampm</dt><dd><p>morning or afternoon</p></dd>
+  <dt>meeting</dt><dd><p>name of the meeting</p></dd>
+  <dt>address</dt><dd><p>address</p></dd>
+  <dt>street</dt><dd><p>stree name</p></dd>
+  <dt>state</dt><dd><p>state</p></dd>
+  <dt>format</dt><dd><p>Format of the meeting - XXX this needs some additional work</p></dd>
+  <dt>city</dt><dd><p>city</p></dd>
+  <dt>type</dt><dd><p>type of meeting</p></dd>
+  <dt>longitude</dt><dd><p>geographic Longitude</p></dd>
+  <dt>latitude</dt><dd><p>geographic Latitude</p></dd>
   <dt>schedule</dt><dd><p>weekly schedule of meetings, starting with Monday at midnight.</p></dd>
+  <dt>classification</dt><dd><p>column used to classify the data set</p></dd>
 </dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
@@ -134,8 +135,8 @@
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)
 <span class='no'>meetings</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>lon</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>lat</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>Type</span>))</div><div class='img'><img src='meetings-1.png' alt='' width='700' height='433' /></div><div class='input'>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>longitude</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>latitude</span>)) +
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>type</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 234 rows containing missing values (geom_point).</span></div><div class='img'><img src='meetings-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Leaflet map of meetings in Iowa</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>sf</span>)
@@ -144,17 +145,17 @@
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
              <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='no'>meetings</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>Type</span> <span class='kw'>==</span> <span class='st'>"Narcotics Anonymous"</span>),
-                  <span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>lon</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>lat</span>,
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='no'>meetings</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>type</span> <span class='kw'>==</span> <span class='st'>"Narcotics Anonymous"</span>),
+                  <span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>latitude</span>,
                   <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
                   <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"darkorange"</span>,
-                  <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>Meeting</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"NA"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='no'>meetings</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>Type</span> <span class='kw'>==</span> <span class='st'>"Alcoholics Anonymous"</span>),
-                  <span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>lon</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>lat</span>,
+                  <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>meeting</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"NA"</span>) <span class='kw'>%&gt;%</span>
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='no'>meetings</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='no'>type</span> <span class='kw'>==</span> <span class='st'>"Alcoholics Anonymous"</span>),
+                  <span class='kw'>lng</span> <span class='kw'>=</span> ~<span class='no'>longitude</span>, <span class='kw'>lat</span> <span class='kw'>=</span> ~<span class='no'>latitude</span>,
                   <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
                   <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"darkgreen"</span>,
-                  <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>Meeting</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"AA"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/addLayersControl'>addLayersControl</a></span>(<span class='kw'>overlayGroups</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"AA"</span>,<span class='st'>"NA"</span>))</div></pre>
+                  <span class='kw'>label</span> <span class='kw'>=</span> ~<span class='no'>meeting</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"AA"</span>) <span class='kw'>%&gt;%</span>
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/addLayersControl'>addLayersControl</a></span>(<span class='kw'>overlayGroups</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"AA"</span>,<span class='st'>"NA"</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: Data contains 234 rows with either missing or invalid lat/lon values and will be ignored</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Data contains 234 rows with either missing or invalid lat/lon values and will be ignored</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

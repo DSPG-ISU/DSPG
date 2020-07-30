@@ -36,14 +36,15 @@
 <meta property="og:title" content="Location of ASAC (Area Substance Abuse Counseling) in Iowa — asac_locations" />
 <meta property="og:description" content="Dataset was scraped from the ASAC website.
 This database contains ASAC location data for the State of Iowa
-  NameName of the facility
-  AddressStreet Address for the facility
-  City_State_ZipCity, State, and Zip contained in one column separated by a space
-  CityName of the city where the facility is located
-  Zip5 digit Zip
-  StateState Abbreviation
+  nameName of the facility
+  addressStreet Address for the facility
+  city_state_zipCity, State, and Zip contained in one column separated by a space
+  cityName of the city where the facility is located
+  zip5 digit Zip
+  stateState Abbreviation
   search_addressaddress used in the Google API geocoding
   geometrysf object of geographic locations
+  classificationcolumn used for identification for filtering
 " />
 <meta name="twitter:card" content="summary" />
 
@@ -114,14 +115,15 @@ This database contains ASAC location data for the State of Iowa
     <div class="ref-description">
     <p>Dataset was scraped from the ASAC website.
 This database contains ASAC location data for the State of Iowa</p><dl class='dl-horizontal'>
-  <dt>Name</dt><dd><p>Name of the facility</p></dd>
-  <dt>Address</dt><dd><p>Street Address for the facility</p></dd>
-  <dt>City_State_Zip</dt><dd><p>City, State, and Zip contained in one column separated by a space</p></dd>
-  <dt>City</dt><dd><p>Name of the city where the facility is located</p></dd>
-  <dt>Zip</dt><dd><p>5 digit Zip</p></dd>
-  <dt>State</dt><dd><p>State Abbreviation</p></dd>
+  <dt>name</dt><dd><p>Name of the facility</p></dd>
+  <dt>address</dt><dd><p>Street Address for the facility</p></dd>
+  <dt>city_state_zip</dt><dd><p>City, State, and Zip contained in one column separated by a space</p></dd>
+  <dt>city</dt><dd><p>Name of the city where the facility is located</p></dd>
+  <dt>zip</dt><dd><p>5 digit Zip</p></dd>
+  <dt>state</dt><dd><p>State Abbreviation</p></dd>
   <dt>search_address</dt><dd><p>address used in the Google API geocoding</p></dd>
   <dt>geometry</dt><dd><p>sf object of geographic locations</p></dd>
+  <dt>classification</dt><dd><p>column used for identification for filtering</p></dd>
 </dl>
     </div>
 
@@ -130,7 +132,7 @@ This database contains ASAC location data for the State of Iowa</p><dl class='dl
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>sf</code> (inherits from <code>tbl_df</code>, <code>tbl</code>, <code>data.frame</code>) with 15 rows and 8 columns.</p>
+    <p>An object of class <code>sf</code> (inherits from <code>data.frame</code>) with 15 rows and 9 columns.</p>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p><a href='http://www.asac.us/about/locations/'>http://www.asac.us/about/locations/</a></p>
@@ -149,7 +151,7 @@ This database contains ASAC location data for the State of Iowa</p><dl class='dl
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
              <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>Name</span>)</div></pre>
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>name</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
