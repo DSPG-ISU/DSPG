@@ -655,7 +655,10 @@
 #'  addTiles() %>%
 #'  addPolygons(data = ia_counties,
 #'              weight = 1, color="#333333") %>%
-#'  addCircleMarkers(radius = 1, stroke = 0.1, label=~name)
+#'  addCircleMarkers(radius = 1, stroke = 0.1, label=~name) %>%
+#'    addEasyButton(easyButton(
+#'       icon="fa-crosshairs", title="Locate Me",
+#'       onClick=JS("function(btn, map){ map.locate({setView: true}); }")))
 "hospital_buildings"
 
 #' Cross Mental Health Data
