@@ -1176,3 +1176,27 @@
 #'   \item{lat}{numeric}
 #' }
 "recovery"
+
+#' Substance use treatment facilities
+#'
+#' This dataset was scraped by Masoud Nosrati in July 2020. The data includes locations in Iowa of substance abuse treatment facilities.
+#' The dataset was geocoded by Joel Von Behren in July 2020.
+#'
+#' @format A data frame with 123 rows and 13 variables:
+#' \describe{
+#'    \item{dataset}{name of the dataset}
+#'    \item{classification}{type of services offered by datset}
+#'    \item{id}{id number, not necessarily row number}
+#'    \item{name}{name of the facility}
+#'    \item{phone}{phone number of facility}
+#'    \item{street}{street address of the facility}
+#'    \item{city}{city in which facility is located}
+#'    \item{state}{state of the facility}
+#'    \item{zip}{zip code in which facility is located}
+#'    \item{county}{county of the facility}
+#'    \item{address}{search address used in geocoding}
+#'    \item{longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#' }
+#' @source \url{}
+"treatment_facilities"
