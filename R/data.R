@@ -1181,7 +1181,6 @@
 #'
 #' This dataset was scraped by Masoud Nosrati in July 2020. The data includes locations in Iowa of substance abuse treatment facilities.
 #' The dataset was geocoded by Joel Von Behren in July 2020.
-#'
 #' @format A data frame with 123 rows and 13 variables:
 #' \describe{
 #'    \item{dataset}{name of the dataset}
@@ -1198,5 +1197,4 @@
 #'    \item{longitude}{geographic longitude}
 #'    \item{latitude}{geographic latitude}
 #' }
-#' @source \url{}
 "treatment_facilities"
