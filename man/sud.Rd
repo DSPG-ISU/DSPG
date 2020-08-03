@@ -23,7 +23,7 @@ A data frame with 123 rows and 15 variables:
 }
 }
 \source{
-
+\url{https://idph.iowa.gov/Portals/1/userfiles/166/Licensure/All\%20Licensed\%20Substance\%20Use\%20Disorder\%20-\%20Problem\%20Gambling\%20Program\%27s\%20List.pdf}
 }
 \usage{
 sud
