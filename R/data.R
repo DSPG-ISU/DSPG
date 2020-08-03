@@ -215,7 +215,7 @@
 #'    \item{state}{state abbreviation}
 #'    \item{classification}{column used to classify the dataset}
 #' }
-#' @source \url{https://www.iowaworkforcedevelopment.gov/contact}
+#' @source \url{https://idph.iowa.gov/Portals/1/userfiles/166/Licensure/All%20Licensed%20Substance%20Use%20Disorder%20-%20Problem%20Gambling%20Program%27s%20List.pdf}
 #' @examples
 #' # Map of centers in Iowa  using ggplot2
 #' library(ggplot2)
