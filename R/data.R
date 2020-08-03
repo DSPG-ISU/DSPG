@@ -1198,3 +1198,34 @@
 #'    \item{latitude}{geographic latitude}
 #' }
 "treatment_facilities"
+
+#' Childcare Providers
+#'
+#' This dataset was scraped by Masoud Nosrati in May 2020. The data includes locations in Iowa of childcare providers
+#' The dataset was geocoded by Matthew Voss in August 2020.
+#' @format A data frame with 4335 rows and 22 variables:
+#' \describe{
+#'    \item{dataset}{name of the dataset}
+#'    \item{classification}{type of services offered by daatset}
+#'    \item{county}{name of the county}
+#'    \item{community}{name of the community}
+#'    \item{provider_type}{type of childcare provider}
+#'    \item{dhs_provider_id}{id number of the childcare provider}
+#'    \item{provider_business_name}{name of the childcare provider}
+#'    \item{provider_last_name}{last name of the business owner}
+#'    \item{provider_first_name}{first name of the business owner}
+#'    \item{is_active_ccaprovider}{is the childcare provider a cca provider}
+#'    \item{address_1}{address of the provider's location}
+#'    \item{address_2}{additional address information of the provider's location}
+#'    \item{zip}{zip code for the provider's location}
+#'    \item{phone}{phone number of the provider}
+#'    \item{lic/reg_issue_date}{the date of the provider's license issuance}
+#'    \item{lic/reg_expire_date}{the date of the provider's license expiration}
+#'    \item{capacity}{the capacity of the childcare provider}
+#'    \item{qrs_rating}{unknown}
+#'    \item{ccrr_website}{Iowa Child Care Resource and Referral}
+#'    \item{search_address}{search address used in geocoding}
+#'    \item{longitude}{geographic longitude}
+#'    \item{latitude}{geographic latitude}
+#' }
+"childcare"
