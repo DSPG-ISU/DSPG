@@ -161,30 +161,44 @@ all_meetings <- all_meetings %>%
 # use_data(meetings, overwrite = TRUE)
 
 #read in geocoded meeting data
-full_meetings <- read_csv("raw/All_Meetings_Geocoded.csv")
+full_meetings <- read.csv("raw/All_Meetings_Geocoded.csv")
 
 full_meetings <- full_meetings %>%
-  select(-X1) %>%
+  select(-c("X")) %>%
   rename(street = location, latitude = lat, longitude = lon) %>%
-  mutate(classification = "substance abuse treatment meetings")
+  mutate(classification = "substance abuse treatment meetings") %>%
+  mutate(time = substr(time, 1, 5))
+
+
+#full_meetings$time <- ymd_hm(paste0("2020/07/04", full_meetings$time, full_meetings$ampm))
+
+times <- with(full_meetings, strptime(paste0(time, ampm), format = "%I:%M%p"))
+full_meetings$schedule <- with(full_meetings, lubridate::hm(paste(hour(times), minute(times), sep=":")))
+
+full_meetings$day <- factor(full_meetings$day,
+                       levels = c("Monday", "Tuesday", "Wednesday",
+                                  "Thursday", "Friday", "Saturday",
+                                  "Sunday"))
+helper <- as.numeric(full_meetings$day) - 1
+full_meetings$schedule <- full_meetings$schedule + days(helper)
 
 meetings <- full_meetings
 
 usethis::use_data(meetings, overwrite = TRUE)
 
- meetings$type <- factor(meetings$type)
- levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
- meetings$type <- as.character(meetings$type)
- usethis::use_data(meetings, overwrite = TRUE)
+meetings$type <- factor(meetings$type)
+levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
+meetings$type <- as.character(meetings$type)
+usethis::use_data(meetings, overwrite = TRUE)
 
- idx <- which(str_detect( meetings$address, "\xa0"))
- meetings$address <- str_replace_all(meetings$address, "\xa0", "")
- usethis::use_data(meetings, overwrite = TRUE)
+idx <- which(str_detect( meetings$address, "\xa0"))
+meetings$address <- str_replace_all(meetings$address, "\xa0", "")
+usethis::use_data(meetings, overwrite = TRUE)
 
- meetings$city <- str_replace_all(meetings$city, "\xa0", "")
- usethis::use_data(meetings, overwrite = TRUE)
+meetings$city <- str_replace_all(meetings$city, "\xa0", "")
+usethis::use_data(meetings, overwrite = TRUE)
 
- meetings$meeting <- str_replace_all(meetings$meeting, "\xa0", " ")
- usethis::use_data(meetings, overwrite = TRUE)
+meetings$meeting <- str_replace_all(meetings$meeting, "\xa0", " ")
+usethis::use_data(meetings, overwrite = TRUE)
 
 

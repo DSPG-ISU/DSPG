@@ -447,10 +447,11 @@
 #' # county map of iowa in ggplot2
 #' library(ggplot2)
 #' library(dplyr) # for the pipe
+#' library(ggthemes)
 #'
 #' ia_counties %>%
 #'   ggplot() + geom_sf(aes(fill = acres_sf)) +
-#'   ggthemes::theme_map()
+#'   theme_map()
 #'
 #' # leaflet map
 #' library(leaflet)
