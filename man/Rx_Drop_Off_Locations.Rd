@@ -5,7 +5,7 @@
 \alias{Rx_Drop_Off_Locations}
 \title{Rx drop off locations}
 \format{
-A data frame with 260 rows and 12 variables:
+A data frame with 312 rows and 12 variables:
 \describe{
   \item{name}{Name of the accesss point}
   \item{address}{Address of the building}

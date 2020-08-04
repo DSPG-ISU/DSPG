@@ -4,6 +4,7 @@ library(ggplot2)
 library(dplyr)
 library(sf)
 library(leaflet)
+
 Rx_Drop_Off_Locations <- readr::read_csv("Rx_Drop_Off_Locations.csv")
 #converting column names into lower case
 colnames(Rx_Drop_Off_Locations) <- tolower(colnames(Rx_Drop_Off_Locations))

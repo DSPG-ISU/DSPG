@@ -884,7 +884,7 @@
 #' Rx drop off locations
 #'
 #' Rx Drop Off Locations across the state by type and county
-#' @format A data frame with 260 rows and 12 variables:
+#' @format A data frame with 312 rows and 12 variables:
 #' \describe{
 #'   \item{name}{Name of the accesss point}
 #'   \item{address}{Address of the building}
