@@ -168,16 +168,11 @@ idx <- which(meetings$lat <= min(meetings$lat)+eps)
 # meetings$lat[idx] <- 41.6565823
 # meetings$lon[idx] <- -95.3232809
 
-usethis::use_data(meetings, overwrite = TRUE)
 
 ###
 # remove non ASCII
 # meetings[1376,]$Location <- "120 East Bremer Avenue"
 # meetings[1376,]$Address <- "120 East Bremer Avenue, Waverly, Iowa"
 
-meetings <- meetings %>% mutate(
-  type = ifelse(type=="Nar-Anon", "Narcotics Anonymous", type),
-  type = ifelse(type=="Al-anon", "Alcoholics Anonymous", type)
-)
 
 usethis::use_data(meetings, overwrite = TRUE)
