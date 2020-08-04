@@ -165,10 +165,12 @@ full_meetings <- read_csv("raw/All_Meetings_Geocoded.csv")
 
 full_meetings <- full_meetings %>%
   select(-X1) %>%
-  rename(street = location) %>%
+  rename(street = location, latitude = lat, longitude = lon) %>%
   mutate(classification = "substance abuse treatment meetings")
 
-usethis::use_data(full_meetings, overwrite = TRUE)
+meetings <- full_meetings
+
+usethis::use_data(meetings, overwrite = TRUE)
 
  meetings$type <- factor(meetings$type)
  levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
