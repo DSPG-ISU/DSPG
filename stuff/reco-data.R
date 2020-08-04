@@ -1,10 +1,12 @@
-url <- "/Users/heike/Documents/DSPG REU program/shiny-apps/rosc/Reco_Data.csv"
-recovery <- read_csv(url)
+library(tidyverse)
+#url <- "/Users/heike/Documents/DSPG REU program/shiny-apps/rosc/Reco_Data.csv"
+recovery <- read_csv("raw/Reco_Treatment_Geocoded_Final.csv")
 
 head(recovery)
 use_data(recovery)
 
-roxify(recovery)
+recovery <- recovery %>%
+  select(-X1)
 
 roxify <- function(data) {
   items <- names(data)
@@ -16,3 +18,7 @@ roxify <- function(data) {
 #\' }
 ", nrow(data), ncol(data), itemlist))
 }
+
+roxify(recovery)
+
+usethis::use_data(recovery, overwrite = TRUE)

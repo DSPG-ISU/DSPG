@@ -1122,33 +1122,30 @@
 #' Recovery data
 #'
 #' Dataset formerly used as Reco-data.csv
-#' @format A tibble with 153 rows and 57 columns
+#' @format A tibble with 156 rows and 42 columns
 #' \describe{
-#'   \item{RCC.Candidate}{logical}
 #'   \item{IDPH_Feedback}{character}
-#'   \item{MapType}{character}
 #'   \item{Name}{character}
 #'   \item{Street}{character}
 #'   \item{City}{character}
 #'   \item{County}{character}
 #'   \item{State}{character}
-#'   \item{Zip}{numeric}
+#'   \item{Zip}{character}
 #'   \item{Phone}{character}
 #'   \item{Email}{character}
 #'   \item{URL}{character}
 #'   \item{RecoveryHousing}{character}
 #'   \item{RecoveryServices}{character}
-#'   \item{Type.of.structure}{character}
-#'   \item{ServiceType}{character}
+#'   \item{Type of structure}{character}
 #'   \item{twelve_Step}{character}
 #'   \item{Residential}{character}
 #'   \item{Groups}{character}
 #'   \item{InpatientTreatment}{character}
-#'   \item{CaseManagement}{logical}
+#'   \item{CaseManagement}{character}
 #'   \item{DBT}{character}
 #'   \item{CBT}{character}
 #'   \item{REBT}{character}
-#'   \item{Intensive.Outpatient}{character}
+#'   \item{Intensive_Outpatient}{character}
 #'   \item{OutpatientTreatment}{character}
 #'   \item{Medications}{character}
 #'   \item{Trauma_PTSD}{character}
@@ -1156,7 +1153,7 @@
 #'   \item{Veterans}{character}
 #'   \item{ReligiousBased}{character}
 #'   \item{Gender}{character}
-#'   \item{Services.offered}{character}
+#'   \item{Services offered}{character}
 #'   \item{Male}{character}
 #'   \item{Female}{character}
 #'   \item{Families}{character}
@@ -1165,19 +1162,7 @@
 #'   \item{Hours}{character}
 #'   \item{Days}{character}
 #'   \item{Fees}{character}
-#'   \item{Sources..Page.Links.}{character}
-#'   \item{Approx....of.Client}{character}
-#'   \item{Facility.Operation..Private.Local.State.Fed.}{character}
-#'   \item{Non.English.Language.Services}{character}
-#'   \item{Group.Specific.Programs..Disabilities..LGBT.etc.}{character}
-#'   \item{Licenses..Certification..Accreditation}{character}
-#'   \item{COVID.19.INFO....3.30.20...4.}{character}
-#'   \item{Type_Of_Care}{character}
-#'   \item{Service_Setting}{character}
-#'   \item{Treatment_Approaches}{character}
-#'   \item{Payment_Type}{character}
-#'   \item{Special_Program_Offered}{character}
-#'   \item{Treatment_Duration}{character}
+#'   \item{Sources (Page Links)}{character}
 #'   \item{Address}{character}
 #'   \item{lon}{numeric}
 #'   \item{lat}{numeric}
