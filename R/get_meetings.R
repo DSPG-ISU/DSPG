@@ -31,7 +31,7 @@
 #'                    color=~pal(day), label=~meeting,
 #'                    radius = 1, stroke = 0.1) %>%
 #'   addLegend(pal = pal, values = levels(meetings$day))
-get_meetings <- function(from = now(), to = now() + days(1), type = c("Alcoholics Anonymous", "Narcotics Anonymous")) {
+get_meetings <- function(from = now(), to = now() + days(1), type = c("All", "Alcoholics Anonymous", "Narcotics Anonymous")) {
   timestamp <- NULL  # just to pass R CMD CHECK
   type <- NULL
 
@@ -49,8 +49,13 @@ get_meetings <- function(from = now(), to = now() + days(1), type = c("Alcoholic
     meetings
   })
 
-  # reduce schedule to date range specified and type of meeting
-  filter(schedule, between(ymd_hms(timestamp),
-                           ymd_hms(from), ymd_hms(to)),
-         type %in% type)
+  # reduce schedule to date range specified
+  schedule <- filter(schedule, between(ymd_hms(timestamp),
+                           ymd_hms(from), ymd_hms(to)))
+
+  # filter to type of meeting
+  if (type != "All")
+    schedule <- filter(schedule, type %in% type)
+
+  schedule
 }
