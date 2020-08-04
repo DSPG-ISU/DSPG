@@ -7,7 +7,7 @@
 get_meetings(
   from = now(),
   to = now() + days(1),
-  type = c("Alcoholics Anonymous", "Narcotics Anonymous")
+  type = c("All", "Alcoholics Anonymous", "Narcotics Anonymous")
 )
 }
 \arguments{

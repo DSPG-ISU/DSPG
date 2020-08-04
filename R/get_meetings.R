@@ -33,7 +33,7 @@
 #'   addLegend(pal = pal, values = levels(meetings$day))
 get_meetings <- function(from = now(), to = now() + days(1), type = c("All", "Alcoholics Anonymous", "Narcotics Anonymous")) {
   timestamp <- NULL  # just to pass R CMD CHECK
-  type <- NULL
+#  type <- NULL
 
   # which weekday is the earliest date?
   days_since_monday <- 1 - wday(from, week_start = 1)
@@ -54,7 +54,7 @@ get_meetings <- function(from = now(), to = now() + days(1), type = c("All", "Al
                            ymd_hms(from), ymd_hms(to)))
 
   # filter to type of meeting
-  if (type != "All")
+  if (!("All" %in% type))
     schedule <- filter(schedule, type %in% type)
 
   schedule
