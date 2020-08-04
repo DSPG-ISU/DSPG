@@ -534,7 +534,8 @@
 
 #' Alcoholic and Narcotics Anonymous Meetings in Iowa
 #'
-#' Dataset was scraped from the AA and NA websites of Iowa by Jessie Bustin.
+#' Dataset was scraped from the support group websites of Iowa by
+#' Jessie Bustin, Grant Durhban, Atefeh Rajabalizadeh, and Vikram Magal.
 #' @format A data frame with 1549 rows and 13 variables:
 #' \describe{
 #'   \item{day}{day of the week}
@@ -551,8 +552,13 @@
 #'   \item{latitude}{geographic Latitude}
 #'   \item{schedule}{weekly schedule of meetings, starting with Monday at midnight.}
 #'   \item{classification}{column used to classify the data set}
+#'   \item{county}{county}
 #' }
-#' @source \url{https://www.aa-iowa.org/meetings/}, \url{https://www.na-iowa.org/meetings/}
+#' @source \url{https://www.aa-iowa.org/meetings/}, \url{https://www.na-iowa.org/meetings/},
+#' \url{https://adultchildren.org/mtsearch}, \url{https://al-anon.org/al-anon-meetings/find-an-alateen-meeting/},
+#' \url{http://draonline.qwknetllc.com/meetings_dra/usa/iowa.html}, \url{https://www.nar-anon.org},
+#' \url{https://www.smartrecoverytest.org/local/full-meeting-list-download/}, \url{https://locator.crgroups.info/},
+#' \url{https://www.facebook.com/crushofiowa/}, \url{https://refugerecovery.org/meetings?tsml-day=any&tsml-region=iowa}
 #' @examples
 #' # Location of meetings in Iowa
 #' library(ggplot2)

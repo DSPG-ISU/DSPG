@@ -25,11 +25,11 @@ library(lubridate)
 library(naniar)
 
 # Load Datasets
-adultChildren <- read.csv("DataMerge/Adult_childern_of_alcoholic.csv", stringsAsFactors = FALSE)
-alanon <- read.csv("DataMerge/al-anon.csv")
-idra <- read.csv("DataMerge/IDRA.csv")
-narAnon <- read.csv("DataMerge/Nar_Anon_Dataset.csv")
-smart <- read.csv("DataMerge/Recovery_Celebrate_SMART_IA_Meetings.csv")
+adultChildren <- read.csv("Raw/Adult_childern_of_alcoholic.csv", stringsAsFactors = FALSE)
+alanon <- read.csv("Raw/al-anon.csv")
+idra <- read.csv("Raw/IDRA.csv")
+narAnon <- read.csv("Raw/Nar_Anon_Dataset.csv")
+smart <- read.csv("Raw/Recovery_Celebrate_SMART_IA_Meetings.csv")
 
 # AdultChildren Change column names and drop unneeded columns
 adultChildren <- adultChildren %>%
@@ -117,6 +117,13 @@ non_AANA$Day <- factor(non_AANA$Day,
 helper <- as.numeric(non_AANA$Day) - 1
 non_AANA$schedule <- non_AANA$schedule + days(helper)
 
+#Rename and add columns to match new meeting data columns
+non_AANA <- non_AANA %>%
+  rename(street = Location) %>%
+  mutate(classification = "substance abuse treatment meetings") %>%
+  select(-time)
+
+#Data to
 # Merge with AA/NA Data
 all_meetings <- full_join(meetings, non_AANA)
 
@@ -134,21 +141,50 @@ all_meetings <- all_meetings %>%
 
 
 # Write to csv
-write.csv(all_meetings, "DataMerge/All_Meetings_Geocoded.csv")
+# write.csv(all_meetings, "DataMerge/All_Meetings_Geocoded.csv")
+#
+# meetings <- all_meetings
+#
+# meetings$type <- factor(meetings$type)
+# levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
+# meetings$type <- as.character(meetings$type)
+# use_data(meetings, overwrite = TRUE)
+#
+# idx <- which(str_detect( meetings$address, "\xa0"))
+# meetings$address <- str_replace_all(meetings$address, "\xa0", "")
+# use_data(meetings, overwrite = TRUE)
+#
+# meetings$city <- str_replace_all(meetings$city, "\xa0", "")
+# use_data(meetings, overwrite = TRUE)
+#
+# meetings$meeting <- str_replace_all(meetings$meeting, "\xa0", " ")
+# use_data(meetings, overwrite = TRUE)
 
-meetings <- all_meetings
+#read in geocoded meeting data
+full_meetings <- read_csv("raw/All_Meetings_Geocoded.csv")
 
-meetings$type <- factor(meetings$type)
-levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
-meetings$type <- as.character(meetings$type)
-use_data(meetings, overwrite = TRUE)
+full_meetings <- full_meetings %>%
+  select(-X1) %>%
+  rename(street = location, latitude = lat, longitude = lon) %>%
+  mutate(classification = "substance abuse treatment meetings")
 
-idx <- which(str_detect( meetings$address, "\xa0"))
-meetings$address <- str_replace_all(meetings$address, "\xa0", "")
-use_data(meetings, overwrite = TRUE)
+meetings <- full_meetings
 
-meetings$city <- str_replace_all(meetings$city, "\xa0", "")
-use_data(meetings, overwrite = TRUE)
+usethis::use_data(meetings, overwrite = TRUE)
 
-meetings$meeting <- str_replace_all(meetings$meeting, "\xa0", " ")
-use_data(meetings, overwrite = TRUE)
+ meetings$type <- factor(meetings$type)
+ levels(meetings$type)[6] <- "Iowa Dual Recovery Anonymous (IDRA)"
+ meetings$type <- as.character(meetings$type)
+ usethis::use_data(meetings, overwrite = TRUE)
+
+ idx <- which(str_detect( meetings$address, "\xa0"))
+ meetings$address <- str_replace_all(meetings$address, "\xa0", "")
+ usethis::use_data(meetings, overwrite = TRUE)
+
+ meetings$city <- str_replace_all(meetings$city, "\xa0", "")
+ usethis::use_data(meetings, overwrite = TRUE)
+
+ meetings$meeting <- str_replace_all(meetings$meeting, "\xa0", " ")
+ usethis::use_data(meetings, overwrite = TRUE)
+
+
