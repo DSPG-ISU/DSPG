@@ -17,11 +17,11 @@ A data frame with 312 rows and 12 variables:
   \item{objectid}{Object ID}
   \item{x}{Utm co-ordinate}
   \item{y}{Utm co-ordinate}
-  \item{dataset}{Dataset name}
-  \item{classification}{domain}
-  \item{search_address}{Full address}
   \item{longitude}{geographic Latitude}
   \item{latitude}{geographic Longitude}
+  \item{search_address}{Full address}
+  \item{dataset}{Dataset name}
+  \item{classification}{domain}
 }
 }
 \source{

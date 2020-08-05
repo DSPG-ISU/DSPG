@@ -896,11 +896,11 @@
 #'   \item{objectid}{Object ID}
 #'   \item{x}{Utm co-ordinate}
 #'   \item{y}{Utm co-ordinate}
-#'   \item{dataset}{Dataset name}
-#'   \item{classification}{domain}
-#'   \item{search_address}{Full address}
 #'   \item{longitude}{geographic Latitude}
 #'   \item{latitude}{geographic Longitude}
+#'   \item{search_address}{Full address}
+#'   \item{dataset}{Dataset name}
+#'   \item{classification}{domain}
 #' }
 #' @source \url{https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1}
 "Rx_Drop_Off_Locations"

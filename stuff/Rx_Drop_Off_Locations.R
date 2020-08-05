@@ -27,5 +27,11 @@ Rx_Drop_Off_Locations <- Rx_Drop_Off_Locations %>%
 names(Rx_Drop_Off_Locations)[names(Rx_Drop_Off_Locations) == "lon"] <- "longitude"
 names(Rx_Drop_Off_Locations)[names(Rx_Drop_Off_Locations) == "lat"] <- "latitude"
 
+# exclude address2 and search_address
+Rx_Drop_Off_Locations <- Rx_Drop_Off_Locations %>% select(-address2)
+Rx_Drop_Off_Locations$dataset <- "Drug Drop Off Sites"
+Rx_Drop_Off_Locations$classification <- "Drug Drop Off Sites"
+
+
 usethis::use_data(Rx_Drop_Off_Locations, overwrite = TRUE)
 
