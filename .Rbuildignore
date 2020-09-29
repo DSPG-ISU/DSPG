@@ -9,4 +9,4 @@ rawdata
 ^LICENSE\.md$
 ^\.travis\.yml$
 ^_config\.yml$
-
+^raw$

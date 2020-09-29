@@ -96,8 +96,10 @@ Authors@R:
                 family = " Zhu",
                 role = "ctb",
                 email = " xinyiz09@iastate.edu"))    
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Data package for data in and around Iowa.
+    Geographic infrastructure consists of shapefiles for counties, zipcode areas, and election precincts, etc.
+    Other geographic information contains cities and features from the United States Geological Survey (USGS).
+    Thematic data sets center on aspects of health care, linkage to care, and recovery.
 License: MIT + file LICENSE
 Depends:
   R (>= 2.10)
