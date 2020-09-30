@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rx drop off locations — Rx_Drop_Off_Locations • DSPG</title>
+<title>Childcare Providers — childcare • DSPG</title>
 
 
 <!-- jquery -->
@@ -33,8 +33,9 @@
 
 
 
-<meta property="og:title" content="Rx drop off locations — Rx_Drop_Off_Locations" />
-<meta property="og:description" content="Rx Drop Off Locations across the state by type and county" />
+<meta property="og:title" content="Childcare Providers — childcare" />
+<meta property="og:description" content="This dataset was scraped by Masoud Nosrati in May 2020. The data includes locations in Iowa of childcare providers
+The dataset was geocoded by Matthew Voss in August 2020." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -96,47 +97,51 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Rx drop off locations</h1>
+    <h1>Childcare Providers</h1>
     
-    <div class="hidden name"><code>Rx_Drop_Off_Locations.Rd</code></div>
+    <div class="hidden name"><code>childcare.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Rx Drop Off Locations across the state by type and county</p>
+    <p>This dataset was scraped by Masoud Nosrati in May 2020. The data includes locations in Iowa of childcare providers
+The dataset was geocoded by Matthew Voss in August 2020.</p>
     </div>
 
-    <pre class="usage"><span class='no'>Rx_Drop_Off_Locations</span></pre>
+    <pre class="usage"><span class='no'>childcare</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 312 rows and 12 variables:</p><dl class='dl-horizontal'>
-  <dt>name</dt><dd><p>Name of the accesss point</p></dd>
-  <dt>address</dt><dd><p>Address of the building</p></dd>
-  <dt>city</dt><dd><p>City name</p></dd>
-  <dt>state</dt><dd><p>State name</p></dd>
-  <dt>zip</dt><dd><p>Zip code</p></dd>
-  <dt>type</dt><dd><p>Type of facility</p></dd>
-  <dt>phone</dt><dd><p>Phone number of the building</p></dd>
-  <dt>objectid</dt><dd><p>Object ID</p></dd>
-  <dt>x</dt><dd><p>Utm co-ordinate</p></dd>
-  <dt>y</dt><dd><p>Utm co-ordinate</p></dd>
-  <dt>longitude</dt><dd><p>geographic Latitude</p></dd>
-  <dt>latitude</dt><dd><p>geographic Longitude</p></dd>
-  <dt>search_address</dt><dd><p>Full address</p></dd>
-  <dt>dataset</dt><dd><p>Dataset name</p></dd>
-  <dt>classification</dt><dd><p>domain</p></dd>
+    <p>A data frame with 4335 rows and 22 variables:</p><dl class='dl-horizontal'>
+   <dt>dataset</dt><dd><p>name of the dataset</p></dd>
+   <dt>classification</dt><dd><p>type of services offered by daatset</p></dd>
+   <dt>county</dt><dd><p>name of the county</p></dd>
+   <dt>community</dt><dd><p>name of the community</p></dd>
+   <dt>provider_type</dt><dd><p>type of childcare provider</p></dd>
+   <dt>dhs_provider_id</dt><dd><p>id number of the childcare provider</p></dd>
+   <dt>provider_business_name</dt><dd><p>name of the childcare provider</p></dd>
+   <dt>provider_last_name</dt><dd><p>last name of the business owner</p></dd>
+   <dt>provider_first_name</dt><dd><p>first name of the business owner</p></dd>
+   <dt>is_active_ccaprovider</dt><dd><p>is the childcare provider a cca provider</p></dd>
+   <dt>address_1</dt><dd><p>address of the provider's location</p></dd>
+   <dt>address_2</dt><dd><p>additional address information of the provider's location</p></dd>
+   <dt>zip</dt><dd><p>zip code for the provider's location</p></dd>
+   <dt>phone</dt><dd><p>phone number of the provider</p></dd>
+   <dt>lic/reg_issue_date</dt><dd><p>the date of the provider's license issuance</p></dd>
+   <dt>lic/reg_expire_date</dt><dd><p>the date of the provider's license expiration</p></dd>
+   <dt>capacity</dt><dd><p>the capacity of the childcare provider</p></dd>
+   <dt>qrs_rating</dt><dd><p>unknown</p></dd>
+   <dt>ccrr_website</dt><dd><p>Iowa Child Care Resource and Referral</p></dd>
+   <dt>search_address</dt><dd><p>search address used in geocoding</p></dd>
+   <dt>longitude</dt><dd><p>geographic longitude</p></dd>
+   <dt>latitude</dt><dd><p>geographic latitude</p></dd>
 </dl>
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p><a href='https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1'>https://iowa.maps.arcgis.com/apps/LocalPerspective/index.html?appid=924e0f99711b406dbf22a34cf46fc6e1</a></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
-      <li><a href="#source">Source</a></li>
     </ul>
 
   </div>
