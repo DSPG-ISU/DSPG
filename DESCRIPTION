@@ -107,12 +107,12 @@ Imports:
   lubridate (>= 1.7.4),
   dplyr (>= 1.0.0),
   purrr (>= 0.3.4),
-  Rdpack (>= 1.0.0)
+  Rdpack (>= 1.0.0),
+  sf (>= 0.9.3)
 Suggests:
   ggplot2 (>= 3.3.2),
   ggthemes (>= 4.2.0),
   leaflet (>= 2.0.3),
-  sf (>= 0.9.3),
   htmltools (>= 0.5.0),
   RColorBrewer (>= 1.1.2)
 Encoding: UTF-8

@@ -53,7 +53,7 @@ ia_features \%>\%
    setView(-94.0530854, 41.3409121, zoom = 9) \%>\%
  #  addPolygons(data = ia_counties,
  #              weight = 1, color="#333333") \%>\%
-   addCircleMarkers(radius = 1, stroke = 0.1, label=~class)
+   addCircleMarkers(radius = 1, stroke = 0.1, label=~name)
 
 # Leaflet map of top ten feature maps in Iowa
  topten <- ia_features \%>\% count(class) \%>\%
