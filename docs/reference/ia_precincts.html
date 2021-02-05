@@ -10,21 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -36,7 +42,6 @@
 <meta property="og:title" content="2016 precincts of Iowa — ia_precincts" />
 <meta property="og:description" content="Precinct and district shapefiles are published by the Secretary of State.
 Election results of the 2016 general election are added to each precinct." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -51,9 +56,10 @@ Election results of the 2016 general election are added to each precinct." />
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -75,7 +81,7 @@ Election results of the 2016 general election are added to each precinct." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -92,6 +98,7 @@ Election results of the 2016 general election are added to each precinct." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -107,12 +114,12 @@ Election results of the 2016 general election are added to each precinct." />
 Election results of the 2016 general election are added to each precinct.</p>
     </div>
 
-    <pre class="usage"><span class='no'>ia_precincts</span></pre>
+    <pre class="usage"><span class='va'>ia_precincts</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 1690 rows and 16 variables:</p><dl class='dl-horizontal'>
+    <p>A data frame with 1690 rows and 16 variables:</p><dl>
   <dt>COUNTY</dt><dd><p>county</p></dd>
   <dt>DISTRICT</dt><dd><p>DISTRICT, precinct and NAME are used as names of a precinct.</p></dd>
   <dt>precinct</dt><dd><p>DISTRICT, precinct and NAME are used as names of a precinct.</p></dd>
@@ -129,34 +136,34 @@ Election results of the 2016 general election are added to each precinct.</p>
   <dt>AREA</dt><dd><p>Area of the district.</p></dd>
   <dt>Shape_Leng</dt><dd><p>Numeric value derived from polygon.</p></dd>
   <dt>geometry</dt><dd><p>sfc object of polygons describing each district.</p></dd>
+
 </dl>
+
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p><a href='https://sos.iowa.gov/elections/maps/shapefiles.html'>https://sos.iowa.gov/elections/maps/shapefiles.html</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>leaflet</span>)
-<span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric'>colorNumeric</a></span>(<span class='kw'>palette</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Darkred"</span>, <span class='st'>"White"</span>, <span class='st'>"Darkblue"</span>),
-                    <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                    <span class='kw'>domain</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>ia_precincts</span>$<span class='no'>PctRep16</span> - <span class='no'>ia_precincts</span>$<span class='no'>PctDem16</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>))
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rstudio.github.io/leaflet/'>leaflet</a></span><span class='op'>)</span>
+<span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/colorNumeric.html'>colorNumeric</a></span><span class='op'>(</span>palette<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Darkred"</span>, <span class='st'>"White"</span>, <span class='st'>"Darkblue"</span><span class='op'>)</span>,
+                    reverse <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                    domain <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>ia_precincts</span><span class='op'>$</span><span class='va'>PctRep16</span> <span class='op'>-</span> <span class='va'>ia_precincts</span><span class='op'>$</span><span class='va'>PctDem16</span>, na.rm<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='no'>ia_precincts</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet'>leaflet</a></span>() <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>fillColor</span> <span class='kw'>=</span> ~<span class='fu'>pal</span>(<span class='no'>PctRep16</span>-<span class='no'>PctDem16</span>), <span class='kw'>fillOpacity</span> <span class='kw'>=</span> <span class='fl'>.75</span>,
-                <span class='kw'>stroke</span><span class='kw'>=</span><span class='fl'>0</span>, <span class='kw'>opacity</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>NAME</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/addLegend'>addLegend</a></span>(<span class='kw'>pal</span><span class='kw'>=</span><span class='no'>pal</span>, <span class='kw'>values</span>  <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>ia_precincts</span>$<span class='no'>PctRep16</span> - <span class='no'>ia_precincts</span>$<span class='no'>PctDem16</span>, <span class='kw'>na.rm</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div></pre>
+<span class='va'>ia_precincts</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/leaflet.html'>leaflet</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addTiles</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addPolygons</a></span><span class='op'>(</span>fillColor <span class='op'>=</span> <span class='op'>~</span><span class='fu'>pal</span><span class='op'>(</span><span class='va'>PctRep16</span><span class='op'>-</span><span class='va'>PctDem16</span><span class='op'>)</span>, fillOpacity <span class='op'>=</span> <span class='fl'>.75</span>,
+                stroke<span class='op'>=</span><span class='fl'>0</span>, opacity <span class='op'>=</span> <span class='fl'>1</span>, label<span class='op'>=</span><span class='op'>~</span><span class='va'>NAME</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/addLegend.html'>addLegend</a></span><span class='op'>(</span>pal<span class='op'>=</span><span class='va'>pal</span>, values  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>ia_precincts</span><span class='op'>$</span><span class='va'>PctRep16</span> <span class='op'>-</span> <span class='va'>ia_precincts</span><span class='op'>$</span><span class='va'>PctDem16</span>, na.rm<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#format">Format</a></li>
-      <li><a href="#source">Source</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -164,13 +171,16 @@ Election results of the 2016 general election are added to each precinct.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Substance use treatment facilities — treatment_facilities • DSPG</title>
+<title>US presidential election 2020 precinct level results for Iowa — ia_election_2020 • DSPG</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Substance use treatment facilities — treatment_facilities" />
-<meta property="og:description" content="This dataset was scraped by Masoud Nosrati in July 2020. The data includes locations in Iowa of substance abuse treatment facilities.
-The dataset was geocoded by Joel Von Behren in July 2020." />
+<meta property="og:title" content="US presidential election 2020 precinct level results for Iowa — ia_election_2020" />
+<meta property="og:description" content="Precinct level results from the 2020 general election for all Iowa precincts (except for Scott county).
+Precinct level election results for the US was provided under an MIT license by the NYTimes UpShot team at from https://github.com/TheUpshot/presidential-precinct-map-2020
+The data provided here only covers Iowa precincts." />
 
 
 
@@ -104,38 +105,39 @@ The dataset was geocoded by Joel Von Behren in July 2020." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Substance use treatment facilities</h1>
+    <h1>US presidential election 2020 precinct level results for Iowa</h1>
     
-    <div class="hidden name"><code>treatment_facilities.Rd</code></div>
+    <div class="hidden name"><code>ia_election_2020.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This dataset was scraped by Masoud Nosrati in July 2020. The data includes locations in Iowa of substance abuse treatment facilities.
-The dataset was geocoded by Joel Von Behren in July 2020.</p>
+    <p>Precinct level results from the 2020 general election for all Iowa precincts (except for Scott county).
+Precinct level election results for the US was provided under an MIT license by the NYTimes UpShot team at from https://github.com/TheUpshot/presidential-precinct-map-2020
+The data provided here only covers Iowa precincts.</p>
     </div>
 
-    <pre class="usage"><span class='va'>treatment_facilities</span></pre>
+    <pre class="usage"><span class='va'>ia_election_2020</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 123 rows and 13 variables:</p><dl>
-   <dt>dataset</dt><dd><p>name of the dataset</p></dd>
-   <dt>classification</dt><dd><p>type of services offered by datset</p></dd>
-   <dt>id</dt><dd><p>id number, not necessarily row number</p></dd>
-   <dt>name</dt><dd><p>name of the facility</p></dd>
-   <dt>phone</dt><dd><p>phone number of facility</p></dd>
-   <dt>street</dt><dd><p>street address of the facility</p></dd>
-   <dt>city</dt><dd><p>city in which facility is located</p></dd>
-   <dt>state</dt><dd><p>state of the facility</p></dd>
-   <dt>zip</dt><dd><p>zip code in which facility is located</p></dd>
-   <dt>county</dt><dd><p>county of the facility</p></dd>
-   <dt>address</dt><dd><p>search address used in geocoding</p></dd>
-   <dt>longitude</dt><dd><p>geographic longitude</p></dd>
-   <dt>latitude</dt><dd><p>geographic latitude</p></dd>
+    <p>A tibble with 1597 rows and 7 columns</p><dl>
+  <dt>GEOID</dt><dd><p>unique identifier for the precinct: 5-digit zipcode followed by the precinct name or ID</p></dd>
+  <dt>votes_total</dt><dd><p>numeric, number of total votes</p></dd>
+  <dt>votes_dem</dt><dd><p>numeric value, number of votes for Joseph Biden</p></dd>
+  <dt>votes_rep</dt><dd><p>numeric value, number of votes for Donald Trump</p></dd>
+  <dt>pct_dem_lead</dt><dd><p>numeric value, indicating the number of votes for Joseph Biden over Donald Trump</p></dd>
+  <dt>votes_per_sqkm</dt><dd><p>numeric value, number of votes per square kilometer</p></dd>
+  <dt>geometry</dt><dd><p>sf object of precinct level maps</p></dd>
 
 </dl>
 
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p><a href='https://github.com/TheUpshot/presidential-precinct-map-2020'>https://github.com/TheUpshot/presidential-precinct-map-2020</a></p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>NY Times Upshot</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
