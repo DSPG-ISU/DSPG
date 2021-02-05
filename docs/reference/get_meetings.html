@@ -149,7 +149,7 @@ for a specified time range.</p>
 
 <span class='co'># AA meetings in Iowa for the next 24h from</span>
 <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "2021-02-04 23:33:57 CST"</div><div class='input'><span class='co'># color locations by day</span>
+</div><div class='output co'>#&gt; [1] "2021-02-04 23:42:56 CST"</div><div class='input'><span class='co'># color locations by day</span>
 <span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/colorNumeric.html'>colorFactor</a></span><span class='op'>(</span>
          palette <span class='op'>=</span> <span class='fu'>RColorBrewer</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html'>brewer.pal</a></span><span class='op'>(</span>n<span class='op'>=</span><span class='fl'>7</span>, name<span class='op'>=</span><span class='st'>"Paired"</span><span class='op'>)</span>,
          domain <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='va'>meetings</span><span class='op'>$</span><span class='va'>day</span><span class='op'>)</span>
