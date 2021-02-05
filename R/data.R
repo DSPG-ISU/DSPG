@@ -830,12 +830,26 @@
 #'   \item{votes_total}{numeric, number of total votes}
 #'   \item{votes_dem}{numeric value, number of votes for Joseph Biden}
 #'   \item{votes_rep}{numeric value, number of votes for Donald Trump}
-#'   \item{pct_dem_lead}{numeric value, indicating the number of votes for Joseph Biden over Donald Trump}
+#'   \item{pct_dem_lead}{numeric value, indicating the percent of the democratic lead over the republican}
 #'   \item{votes_per_sqkm}{numeric value, number of votes per square kilometer}
 #'   \item{geometry}{sf object of precinct level maps}
 #' }
 #' @author NY Times Upshot
 #' @source \url{https://github.com/TheUpshot/presidential-precinct-map-2020}
+#' @examples
+#' library(sf)
+#' library(leaflet)
+#' pal <- colorNumeric(palette=c("Darkred", "White", "Darkblue"),
+#'                     reverse = FALSE,
+#'                     domain = range(ia_election_2020$pct_dem_lead, na.rm=TRUE))
+#'
+#' # Percent of Democratic lead over the Republican
+#' ia_election_2020 %>%
+#'   leaflet() %>%
+#'   addTiles() %>%
+#'   addPolygons(fillColor = ~pal(pct_dem_lead), fillOpacity = .75,
+#'               stroke=0, opacity = .7, label=~GEOID) %>%
+#'   addLegend(pal=pal, values  = range(ia_election_2020$pct_dem_lead, na.rm=TRUE))
 "ia_election_2020"
 
 #' US presidential election 2016 precinct level results for Iowa
