@@ -73,8 +73,19 @@ ia_cities \%>\%
     addTiles() \%>\%
     addPolygons(data = ia_counties,
                 weight = 1, color="#333333") \%>\%
-    addCircleMarkers(radius = 1, stroke = 0.1, color = ~pal(growth),
+    addCircleMarkers(radius = ~log(currentPop, base=2), color = ~pal(growth),
                      label = ~city) \%>\%
     addLegend(title = "\% Change in Population", colors = colors, labels = labels)
+
+ia_cities \%>\%
+  filter(!is.na(currentPop)) \%>\%
+  mutate(
+    growth = cut(percentChg,
+                 breaks = c(-Inf, -2.5, 2.5, Inf),
+                 labels = labels)) \%>\%
+  ggplot(aes(x = currentPop, y = percentChg)) +
+  geom_point(aes(color = growth)) +
+  scale_colour_manual(values = c("darkblue", "grey50", "darkred")) +
+  theme_bw()
 }
 \keyword{datasets}

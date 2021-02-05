@@ -139,7 +139,10 @@
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addTiles</a></span>() <span class='kw'>%&gt;%</span>
  <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addPolygons</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ia_counties</span>,
              <span class='kw'>weight</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>color</span><span class='kw'>=</span><span class='st'>"#333333"</span>) <span class='kw'>%&gt;%</span>
- <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>name</span>)</div></pre>
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/map-layers'>addCircleMarkers</a></span>(<span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>stroke</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>label</span><span class='kw'>=</span>~<span class='no'>name</span>) <span class='kw'>%&gt;%</span>
+   <span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/easyButton'>addEasyButton</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/easyButton'>easyButton</a></span>(
+      <span class='kw'>icon</span><span class='kw'>=</span><span class='st'>"fa-crosshairs"</span>, <span class='kw'>title</span><span class='kw'>=</span><span class='st'>"Locate Me"</span>,
+      <span class='kw'>onClick</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/leaflet/topics/leaflet-imports'>JS</a></span>(<span class='st'>"function(btn, map){ map.locate({setView: true}); }"</span>)))</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
