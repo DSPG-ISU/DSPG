@@ -808,6 +808,25 @@
 "regional_substance_treatment"
 
 
+#' US presidential election 2020 precinct level results for Iowa
+#'
+#' Precinct level results from the 2020 general election for all Iowa precincts (except for Scott county).
+#' Precinct level election results for the US was provided under an MIT license by the NYTimes UpShot team at from https://github.com/TheUpshot/presidential-precinct-map-2020
+#' The data provided here only covers Iowa precincts.
+#' @format A tibble with 1597 rows and 7 columns
+#' \describe{
+#'   \item{GEOID}{unique identifier for the precinct: 5-digit zipcode followed by the precinct name or ID}
+#'   \item{votes_total}{numeric, number of total votes}
+#'   \item{votes_dem}{numeric value, number of votes for Joseph Biden}
+#'   \item{votes_rep}{numeric value, number of votes for Donald Trump}
+#'   \item{pct_dem_lead}{numeric value, indicating the number of votes for Joseph Biden over Donald Trump}
+#'   \item{votes_per_sqkm}{numeric value, number of votes per square kilometer}
+#'   \item{geometry}{sf object of precinct level maps}
+#' }
+#' @author NY Times Upshot
+#' @source \url{https://github.com/TheUpshot/presidential-precinct-map-2020}
+"ia_election_2020"
+
 #' US presidential election 2016 precinct level results for Iowa
 #'
 #' Precinct level results from the 2016 general election for all Iowa precincts.
