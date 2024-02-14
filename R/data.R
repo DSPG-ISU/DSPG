@@ -118,7 +118,7 @@
 #'                  labels = labels)) %>%
 #'   ggplot(aes(x = currentPop, y = percentChg)) +
 #'   geom_point(aes(color = growth)) +
-#'   scale_colour_manual(values = c("darkblue", "grey50", "darkred")) +
+#'   scale_colour_manual(values = c("darkred", "grey50", "darkblue")) +
 #'   theme_bw()
 "ia_cities"
 
@@ -1289,31 +1289,3 @@
 "zip10_ia"
 
 
-#' Educational Attainment in Iowa by county
-#'
-#' Percentage of the population ages 25 years or older by highest degree attained.
-#' Data published by ISU extension, based on the 2013 American Community Survey.
-#' @format A tibble with 99 rows and 12 columns
-#' \describe{
-#'   \item{FIPS}{6-digit FIPS code}
-#'   \item{Areaname}{county name}
-#'   \item{Population 25 years and over}{population number, in integer.}
-#'   \item{Less than 9th grade %}{percent of population}
-#'   \item{9th to 12th grade, no diploma %}{percent of population}
-#'   \item{High school graduate (includes equivalency) %}{percent of population}
-#'   \item{Some college, no degree %}{percent of population}
-#'   \item{Associate's degree %}{percent of population}
-#'   \item{Bachelor's degree %}{percent of population}
-#'   \item{Graduate or professional degree %}{percent of population}
-#'   \item{Subtotal, high school graduate or higher %}{sum}
-#'   \item{Subtotal, bachelor's degree or higher %}{sum}
-#' }
-#' @source https://www.icip.iastate.edu/tables/education/attainment
-#' @examples
-#' # merge data with the county shapefiles
-#'
-#' ia_counties <- ia_counties %>% left_join(ia_education, by=c("fips"="FIPS"))
-#' ia_counties %>%
-#'   ggplot(aes(fill = `Subtotal, bachelor's degree or higher %`)) +
-#'   geom_sf()
-"ia_education"

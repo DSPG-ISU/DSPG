@@ -1,5 +1,6 @@
 path_to_box <- "~/Box/DSPG@ISU/Projects/allData/geoData/shapfiles/"
 library(sf)
+library(dplyr)
 
 ia_counties <- read_sf(file.path(path_to_box, "Counties/"))
 ia_cities <- read_sf(file.path(path_to_box, "IA_cities/"))
@@ -15,7 +16,6 @@ ia_cities <- st_transform(ia_cities, '+proj=longlat  +datum=WGS84 +units=m +ellp
 # include population estimates in county shape files
 population <- read.csv("rawdata/co-est2019-alldata.csv") # same data as from shiny app training
 
-library(dplyr)
 ia_counties <- ia_counties %>% left_join(population %>% filter(STATE==19) %>%
                        select(COUNTY, CENSUS2010POP, POPESTIMATE2019),
                      by=c("CO_FIPS"= "COUNTY"))
@@ -29,3 +29,25 @@ usethis::use_data(ia_cities, overwrite = TRUE)
 
 #spdf_lon_lat <- st_transform(ia_counties, 26915)
 #spdf_lon_lat %>% ggplot() + geom_sf()
+
+##############
+library(tidycensus)
+
+# need to have key for CENSUS_API set
+ia_places <- get_decennial(
+  geography = "place",
+  variables = c("P1_001N"),
+  state="IA",
+  year = 2020,
+  geometry =T
+)
+ia_places <- st_transform(ia_places, '+proj=longlat  +datum=WGS84 +units=m +ellps=WGS84')
+names(ia_places) <- tolower(names(ia_places))
+
+ia_places <- ia_places %>% mutate(
+  name = gsub(" city, Iowa", "", name)
+)
+
+usethis::use_data(ia_places, overwrite = TRUE)
+
+

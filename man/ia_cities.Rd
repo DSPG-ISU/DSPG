@@ -85,7 +85,7 @@ ia_cities \%>\%
                  labels = labels)) \%>\%
   ggplot(aes(x = currentPop, y = percentChg)) +
   geom_point(aes(color = growth)) +
-  scale_colour_manual(values = c("darkblue", "grey50", "darkred")) +
+  scale_colour_manual(values = c("darkred", "grey50", "darkblue")) +
   theme_bw()
 }
 \keyword{datasets}
