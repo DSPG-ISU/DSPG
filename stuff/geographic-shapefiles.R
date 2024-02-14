@@ -85,7 +85,7 @@ ia_places <- ia_places %>%
   full_join(pop00 %>% select(-name), by="geoid")
 
 
-names(ia_places)[5:7] <- c("pop2020", "pop2010", "pop2000")
+names(ia_places)[4:6] <- c("pop2020", "pop2010", "pop2000")
 
 # for which geoids do we not have names?
 ids <- ia_places %>% filter(is.na(name)) %>% as_tibble() %>% select(geoid) %>% as.vector()
